@@ -19,20 +19,66 @@ stages:
     - test
     - package
     - deploy
-    
-build:
+
+##############
+### BUILD
+
+.build:
     stage: build
-    script:
-        - mvn $MAVEN_CLI_OPTS clean compile install -f system/platform-core
-        - mvn $MAVEN_CLI_OPTS clean compile install -f system/rest-spring
-        - mvn $MAVEN_CLI_OPTS clean compile install -f connectors/hazelcast/hazelcast-connector
-        - mvn $MAVEN_CLI_OPTS clean compile install -f connectors/kafka/kafka-connector
     cache:
         key: $CI_PIPELINE_IID
         policy: push # this is the only job that needs to publish to the cache, therefore it is overriding the policy
         paths:
             - $CI_PROJECT_DIR/.m2/repository
-            
+
+platform-core-build:
+    extends: .build
+    script:
+        - mvn $MAVEN_CLI_OPTS clean compile install -f system/platform-core
+
+rest-core-build:
+    extends: .build
+    script:
+        - mvn $MAVEN_CLI_OPTS clean compile install -f system/rest-spring
+
+hazlecast-connector-build:
+    extends: .build
+    script:
+        - mvn $MAVEN_CLI_OPTS clean compile install -f connectors/hazelcast/hazelcast-connector
+
+kafka-connector-build:
+    extends: .build
+    script:
+        - mvn $MAVEN_CLI_OPTS clean compile install -f connectors/kafka/kafka-connector
+
+api-playground-build:
+    extends: .build
+    script:
+        - mvn $MAVEN_CLI_OPTS clean compile install -f connectors/extensions/api-playground
+
+distributed=tracer-build:
+    extends: .build
+    script:
+        - mvn $MAVEN_CLI_OPTS clean compile install -f connectors/extensions/distributed-tracer
+
+rest-automation-app-build:
+    extends: .build
+    script:
+        - mvn $MAVEN_CLI_OPTS clean compile install -f connectors/extensions/rest-automation-app
+
+rest-automation-lib-build:
+    extends: .build
+    script:
+        - mvn $MAVEN_CLI_OPTS clean compile install -f connectors/extensions/rest-automation-lib-build
+
+websocket-notification-build:
+    extends: .build
+    script:
+        - mvn $MAVEN_CLI_OPTS clean compile install -f connectors/extensions/websocket-notification
+
+##############
+### TEST
+
 test_and_coverage:
     stage: test
     script:
