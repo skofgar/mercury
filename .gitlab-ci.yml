@@ -34,7 +34,7 @@ stages:
 build-all-targets:
     extends: .build
     script:
-        - scripts/build.sh
+        - bash scripts/build.sh
 
 ##############
 ### TEST
