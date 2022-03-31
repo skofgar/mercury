@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How-Tos &mdash; Mercury 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Application Properties" href="app-properties.html" />
+    <link rel="prev" title="Terminology" href="terminology.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Mercury
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">Libraries and Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatability.html">Compatability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pragmatic Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#microservices-and-anonymous-function">Microservices and anonymous function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-your-first-microservices-function">Writing your first microservices function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#application-unit">Application unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#main-application">Main application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calling-a-function">Calling a function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#massive-parallel-processing">Massive parallel processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#built-in-service-mesh">Built-in service mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#built-in-pub-sub">Built-in pub/sub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#work-nicely-with-reactive-frameworks">Work nicely with reactive frameworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#write-your-own-microservices">Write your own microservices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cloud-native">Cloud Native</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dockerfile">Dockerfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vm-or-bare-metal-deployment">VM or bare metal deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#distributed-tracing">Distributed tracing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app-properties.html">Application Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="route-names.html">Reserved Route Names</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="platform-api.html">Platform API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post-office-api.html">Post Office API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest-automation.html">Rest Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jax-rs.html">JAX-RS and WebServlets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connectors.html">Cloud Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multicast.html">Multicast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additonal-features.html">Additonal Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mercury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>How-Tos</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/How-tos.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="how-tos">
+<h1>How-Tos<a class="headerlink" href="#how-tos" title="Permalink to this headline"></a></h1>
+<section id="microservices-and-anonymous-function">
+<h2>Microservices and anonymous function<a class="headerlink" href="#microservices-and-anonymous-function" title="Permalink to this headline"></a></h2>
+<p>Mercury is all about microservices that are minimalist, event-driven and context bounded.</p>
+<p>To this end, we use anonymous functions to encapsulate different domains of business logic and library dependencies.</p>
+<p>Under the Mercury framework, business logic wrapped in anonymous functions are callable using a <code class="docutils literal notranslate"><span class="pre">route</span> <span class="pre">name</span></code>. Mercury resolves routing automatically so that you do not need to care whether the calling and called functions are in the same memory space or in different application instances. Mercury will route requests using a high performance memory event bus when the calling and called functions are in the same memory space and route requests through a network event stream system when the calling and called parties reside in different containers.</p>
+</section>
+<section id="writing-your-first-microservices-function">
+<h2>Writing your first microservices function<a class="headerlink" href="#writing-your-first-microservices-function" title="Permalink to this headline"></a></h2>
+<p>Your first function may look like this using Java 1.8 anonymous function syntax:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">LambdaFunction</span> <span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">instance</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">{</span>
+    <span class="c1">// do some business logic</span>
+    <span class="k">return</span> <span class="n">something</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>The easiest way to write your first microservices module is to use either the “lambda-example” or “rest-example” as a template.</p>
+<p>Let’s try with the “rest-example”. You should update the application name in both the <code class="docutils literal notranslate"><span class="pre">application.properties</span></code> and the <code class="docutils literal notranslate"><span class="pre">pom.xml</span></code>. Then you can use your favorite IDE to import it as a “maven” project.</p>
+</section>
+<section id="application-unit">
+<h2>Application unit<a class="headerlink" href="#application-unit" title="Permalink to this headline"></a></h2>
+<p>The rest-example is a deployable application unit. Behind the curtain, the mercury framework is using Spring Boot to provide REST and websocket capabilities. For microservices modules that do not need REST endpoints, you can use the “lambda-example” as a template.</p>
+</section>
+<section id="main-application">
+<h2>Main application<a class="headerlink" href="#main-application" title="Permalink to this headline"></a></h2>
+<p>For each application unit, you will need a main application. This is the entry of your application unit.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">MainApplication</span></code> annotation indicates that this is the main method for the application unit. Main application should also implements the <code class="docutils literal notranslate"><span class="pre">EntryPoint</span></code> interface which only has the “start” method. The “args” are optional command line arguments.</p>
+<p>In the following example, when the application unit starts, it creates a microservices function and register “hello.world” as its route name. For concurrency, it also specifies 20 worker instances.</p>
+<p>Application units are horizontally scalable. Within the application unit, you may specify concurrent “workers”. This provides horizontal and verticial scalability respectively.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nd">@MainApplication</span>
+<span class="linenos"> 2</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainApp</span> <span class="kd">implements</span> <span class="n">EntryPoint</span> <span class="p">{</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>    <span class="nd">@Override</span>
+<span class="linenos"> 5</span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+<span class="linenos"> 6</span>        <span class="n">ServerPersonality</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">setType</span><span class="p">(</span><span class="n">ServerPersonality</span><span class="p">.</span><span class="na">Type</span><span class="p">.</span><span class="na">WEB</span><span class="p">);</span>
+<span class="linenos"> 7</span>        <span class="n">Platform</span> <span class="n">platform</span> <span class="o">=</span> <span class="n">Platform</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span>
+<span class="linenos"> 8</span>        <span class="n">LambdaFunction</span> <span class="n">echo</span> <span class="o">=</span> <span class="p">(</span><span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">instance</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">{</span>
+<span class="linenos"> 9</span>            <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos">10</span>            <span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;headers&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="p">);</span>
+<span class="linenos">11</span>            <span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;body&quot;</span><span class="p">,</span> <span class="n">body</span><span class="p">);</span>
+<span class="linenos">12</span>            <span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;instance&quot;</span><span class="p">,</span> <span class="n">instance</span><span class="p">);</span>
+<span class="linenos">13</span>            <span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;origin&quot;</span><span class="p">,</span> <span class="n">platform</span><span class="p">.</span><span class="na">getOrigin</span><span class="p">());</span>
+<span class="linenos">14</span>            <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="linenos">15</span>        <span class="p">};</span>
+<span class="linenos">16</span>        <span class="n">platform</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="s">&quot;hello.world&quot;</span><span class="p">,</span> <span class="n">echo</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="linenos">17</span>    <span class="p">}</span>
+<span class="linenos">18</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Alternatively, for typed body and response without casting you can use TypedLambdaFunction&lt;I, O&gt; where I and O stand for input and output class respectively.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">TypedLambdaFunction</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">lambda</span> <span class="o">=</span> <span class="p">(</span><span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">instance</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">{</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;body&quot;</span><span class="p">,</span> <span class="n">body</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</section>
+<section id="calling-a-function">
+<h2>Calling a function<a class="headerlink" href="#calling-a-function" title="Permalink to this headline"></a></h2>
+<p>Unlike traditional programming, you call a function by sending an event instead of calling its method. Mercury resolves routing automatically so events are delivered correctly no matter where the target function is, in the same memory space or another computer elsewhere in the network.</p>
+<p>To make a service call to a function, you may do the following:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PostOffice</span> <span class="n">po</span> <span class="o">=</span> <span class="n">PostOffice</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span>
+<span class="n">EventEnvelope</span> <span class="n">response</span> <span class="o">=</span> <span class="n">po</span><span class="p">.</span><span class="na">request</span><span class="p">(</span><span class="s">&quot;hello.world&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s">&quot;a test message&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;I got response here...&quot;</span><span class="o">+</span><span class="n">response</span><span class="p">.</span><span class="na">getBody</span><span class="p">());</span>
+
+<span class="c1">// the above is an RPC call. For async call, it would be something like this:</span>
+<span class="n">po</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="s">&quot;hello.world&quot;</span><span class="p">,</span> <span class="s">&quot;another message&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can call the function from another function or a REST endpoint. The latter connects REST API with a microservices function.</p>
+<p>The following example forwards a request from the REST endpoint <code class="docutils literal notranslate"><span class="pre">(GET</span> <span class="pre">/api/hello/world)</span></code> to the “hello.world” service. Note that there are basic performance metrics from the response object.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/hello&quot;</span><span class="p">)</span>
+<span class="linenos"> 2</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyRestEndpoint</span> <span class="p">{</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>    <span class="kd">private</span> <span class="kd">static</span> <span class="n">AtomicInteger</span> <span class="n">seq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span>    <span class="nd">@GET</span>
+<span class="linenos"> 7</span>    <span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/world&quot;</span><span class="p">)</span>
+<span class="linenos"> 8</span>    <span class="nd">@Produces</span><span class="p">({</span><span class="n">MediaType</span><span class="p">.</span><span class="na">TEXT_PLAIN</span><span class="p">,</span> <span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">,</span> <span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_XML</span><span class="p">,</span> <span class="n">MediaType</span><span class="p">.</span><span class="na">TEXT_HTML</span><span class="p">})</span>
+<span class="linenos"> 9</span>    <span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="nf">hello</span><span class="p">(</span><span class="nd">@Context</span> <span class="n">HttpServletRequest</span> <span class="n">request</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="p">,</span> <span class="n">TimeoutException</span><span class="p">,</span> <span class="n">AppException</span> <span class="p">{</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>        <span class="n">PostOffice</span> <span class="n">po</span> <span class="o">=</span> <span class="n">PostOffice</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">forward</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos">14</span>        <span class="n">forward</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;time&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">Date</span><span class="p">());</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>        <span class="n">Enumeration</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="na">getHeaderNames</span><span class="p">();</span>
+<span class="linenos">17</span>        <span class="k">while</span> <span class="p">(</span><span class="n">headers</span><span class="p">.</span><span class="na">hasMoreElements</span><span class="p">())</span> <span class="p">{</span>
+<span class="linenos">18</span>            <span class="n">String</span> <span class="n">key</span> <span class="o">=</span> <span class="n">headers</span><span class="p">.</span><span class="na">nextElement</span><span class="p">();</span>
+<span class="linenos">19</span>            <span class="n">forward</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">request</span><span class="p">.</span><span class="na">getHeader</span><span class="p">(</span><span class="n">key</span><span class="p">));</span>
+<span class="linenos">20</span>        <span class="p">}</span>
+<span class="linenos">21</span>        <span class="c1">// As a demo, just put the incoming HTTP headers as a payload and a parameter showing the sequence counter.</span>
+<span class="linenos">22</span>        <span class="c1">// The eco service will return both.</span>
+<span class="linenos">23</span>        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">seq</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span>
+<span class="linenos">24</span>        <span class="n">EventEnvelope</span> <span class="n">response</span> <span class="o">=</span> <span class="n">po</span><span class="p">.</span><span class="na">request</span><span class="p">(</span><span class="s">&quot;hello.world&quot;</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="n">forward</span><span class="p">,</span> <span class="k">new</span> <span class="n">Kv</span><span class="p">(</span><span class="s">&quot;seq&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">));</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span>        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="linenos">27</span>        <span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;status&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">.</span><span class="na">getStatus</span><span class="p">());</span>
+<span class="linenos">28</span>        <span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;headers&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">.</span><span class="na">getHeaders</span><span class="p">());</span>
+<span class="linenos">29</span>        <span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;body&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">.</span><span class="na">getBody</span><span class="p">());</span>
+<span class="linenos">30</span>        <span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;execution_time&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">.</span><span class="na">getExecutionTime</span><span class="p">());</span>
+<span class="linenos">31</span>        <span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;round_trip&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">.</span><span class="na">getRoundTrip</span><span class="p">());</span>
+<span class="linenos">32</span>        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="linenos">33</span>    <span class="p">}</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="massive-parallel-processing">
+<h2>Massive parallel processing<a class="headerlink" href="#massive-parallel-processing" title="Permalink to this headline"></a></h2>
+<p>A function is invoked when an event happens. Before the event arrives, the function is just an entry in a routing table, and it does not consume any additional resources like threads.</p>
+<p>All functions are running in parallel without special coding. Behind the curtain, the system uses Java futures and asynchronous event loops for very efficient function execution.</p>
+</section>
+<section id="built-in-service-mesh">
+<h2>Built-in service mesh<a class="headerlink" href="#built-in-service-mesh" title="Permalink to this headline"></a></h2>
+<p>The above demonstrates distributed applications using Kafka as a service mesh.</p>
+</section>
+<section id="built-in-pub-sub">
+<h2>Built-in pub/sub<a class="headerlink" href="#built-in-pub-sub" title="Permalink to this headline"></a></h2>
+<p>You can also use Mercury with other service mesh of your choice. In this case, you can use the built-in pub/sub APIs of Mercury for your app to communicate with Kafka and other event stream systems.</p>
+<p>To enable Kafka pub/sub without using it as a service mesh, use these parameters in application.properties</p>
+<p>cloud.connector=none
+cloud.services=kafka.pubsub
+This means the system encapsulates the original pub/sub feature of the underlying event stream system. The built-in publishers and listeners will do the heavy lifting for you in a consistent manner. Note that Kafka supports rewinding read “offset” so that your application can read older messages. In Hazelcast, the older events are dropped after delivery.</p>
+<p>Example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// setup your subscriber function</span>
+<span class="n">LambdaFunction</span> <span class="n">myFunction</span> <span class="o">=</span> <span class="p">(</span><span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">instance</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">{</span>
+<span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Got ---&gt; {}&quot;</span><span class="p">,</span> <span class="n">body</span><span class="p">);</span>
+<span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PubSub</span> <span class="n">ps</span> <span class="o">=</span> <span class="n">PubSub</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span>
+<span class="cm">/*</span>
+<span class="cm">* Pub/sub service starts asynchronously.</span>
+<span class="cm">* If your runs pub/sub code before the container is completely initialized,</span>
+<span class="cm">* you may want to &quot;waitForProvider&quot; for a few seconds.</span>
+<span class="cm">*/</span>
+<span class="n">ps</span><span class="p">.</span><span class="na">waitForProvider</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="c1">// this creates a topic with one partition</span>
+<span class="n">ps</span><span class="p">.</span><span class="na">createTopic</span><span class="p">(</span><span class="s">&quot;some.kafka.topic&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="c1">// this subscribe the topic with your function</span>
+<span class="n">ps</span><span class="p">.</span><span class="na">subscribe</span><span class="p">(</span><span class="s">&quot;some.kafka.topic&quot;</span><span class="p">,</span> <span class="n">myFunction</span><span class="p">,</span> <span class="s">&quot;client-101&quot;</span><span class="p">,</span> <span class="s">&quot;group-101&quot;</span><span class="p">);</span>
+<span class="c1">// this publishes an event to the topic</span>
+<span class="n">ps</span><span class="p">.</span><span class="na">publish</span><span class="p">(</span><span class="s">&quot;some.kafka.topic&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="s">&quot;my test message&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you run this application for the first time and you do not see the test message, the kafka topic has just been created when your application starts. Due to racing condition, Kafka would skip the offset and you cannot see the first message. Just restart the application and you will see your test message.</p>
+<p>However, if you create the topic administratively before running this test app, your app will always show the first test message. This is a normal Kafka behavior.</p>
+<p>You may also notice that the Kafka client sets the read offset to the latest pointer. To read from the beginning, you may reset the read offset by adding a parameter “0” after the clientId and groupId in the subscribe statement above.</p>
+</section>
+<section id="work-nicely-with-reactive-frameworks">
+<h2>Work nicely with reactive frameworks<a class="headerlink" href="#work-nicely-with-reactive-frameworks" title="Permalink to this headline"></a></h2>
+<p>Mercury provides a stream abstraction that can be used with reactive frameworks.</p>
+<p>For example, developers using Spring reactor with Mercury may setup a stream between two app modules within the same container or in different containers like this:</p>
+</section>
+<section id="write-your-own-microservices">
+<h2>Write your own microservices<a class="headerlink" href="#write-your-own-microservices" title="Permalink to this headline"></a></h2>
+<p>You may use the lambda-example and rest-example as templates to write your own applications.</p>
+<p>Please update pom.xml and application.properties for application name accordingly.</p>
+</section>
+<section id="cloud-native">
+<h2>Cloud Native<a class="headerlink" href="#cloud-native" title="Permalink to this headline"></a></h2>
+<p>The Mercury framework is Cloud Native. While it uses the local file system for buffering, it expects local storage to be transient.</p>
+<p>If your application needs to use the local file system, please consider it to be transient too, i.e., you cannot rely on it to persist when your application restarts.</p>
+<p>If there is a need for data persistence, use external databases or cloud storage.</p>
+</section>
+<section id="dockerfile">
+<h2>Dockerfile<a class="headerlink" href="#dockerfile" title="Permalink to this headline"></a></h2>
+<p>Creating a docker image from the executable is easy. First you need to build your application as an executable with the command mvn clean package. The executable JAR is then available in the target directory.</p>
+<p>The Dockerfile may look like this:</p>
+<div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span> <span class="s">adoptopenjdk/openjdk11:jre-11.0.11_9-alpine</span>
+<span class="k">EXPOSE</span><span class="s"> 8083</span>
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+<span class="k">COPY</span> target/your-app-name.jar .
+<span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&quot;java&quot;</span><span class="p">,</span><span class="s2">&quot;-jar&quot;</span><span class="p">,</span><span class="s2">&quot;your-app-name.jar&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>To build a new docker image locally:</p>
+<div class="highlight-docker notranslate"><div class="highlight"><pre><span></span>docker build -t your-app-name:latest .
+</pre></div>
+</div>
+<p>To run the newly built docker image, try this:</p>
+<div class="highlight-docker notranslate"><div class="highlight"><pre><span></span>docker run -p <span class="m">8083</span>:8083 -i -t your-app-name:latest
+</pre></div>
+</div>
+<p>Change the exposed port numnber and application name accordingly. Then build the docker image and publish it to a docker registry so you can deploy from there using Kubernetes or alike.</p>
+<p>For security reason, you may want to customize the docker file to use non-priliveged Unix user account. Please consult your company’s enterprise architecture team for container management policy.</p>
+</section>
+<section id="vm-or-bare-metal-deployment">
+<h2>VM or bare metal deployment<a class="headerlink" href="#vm-or-bare-metal-deployment" title="Permalink to this headline"></a></h2>
+<p>If you are deploying the application executables in a VM or bare metal, we recommend using a cross-platform process manager. The system has been tested with “pm2” (<a class="reference external" href="https://www.npmjs.com/package/pm2">https://www.npmjs.com/package/pm2</a>).</p>
+<p>A sample process.json file is shown below. Please edit the file accordingly. You may add “-D” or “-X” parameters before the “-jar” parameter. To start the application executable, please do pm2 start my-app.json.</p>
+<p>You may create individual process.json for each executable and start them one-by-one. You can then monitor the processes with pm2 list or pm2 monit.</p>
+<p>To deploy using pm2, please browse the pm2-example folder as a starting point.</p>
+</section>
+<section id="distributed-tracing">
+<h2>Distributed tracing<a class="headerlink" href="#distributed-tracing" title="Permalink to this headline"></a></h2>
+<p>Microservices are likely to be deployed in a multi-tier environment. As a result, a single transaction may pass through multiple services.</p>
+<p>Distributed tracing allows us to visualize the complete service path for each transaction. This enables easy trouble shooting for large scale applications.</p>
+<p>With the Mercury framework, distributed tracing does not require code at application level. To enable this feature, you can simply set “tracing=true” in the rest.yaml configuration of the rest-automation application.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="terminology.html" class="btn btn-neutral float-left" title="Terminology" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="app-properties.html" class="btn btn-neutral float-right" title="Application Properties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
