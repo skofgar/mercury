@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rest Automation &mdash; Mercury 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="JAX-RS and WebServlets" href="jax-rs.html" />
+    <link rel="prev" title="Post Office API" href="post-office-api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Mercury
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">Libraries and Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatability.html">Compatability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="How-tos.html">Pragmatic Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app-properties.html">Application Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="route-names.html">Reserved Route Names</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="platform-api.html">Platform API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post-office-api.html">Post Office API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Rest Automation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#library-and-application">Library and Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest-endpoint-creation">REST endpoint creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest-endpoint-routing">REST endpoint routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#yaml-syntax">YAML syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#url-matching">URL matching</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#wildcard">wildcard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#path-parameters">path parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#http-request-dataset">HTTP request dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#http-response-body">Http response body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#http-status-code">HTTP status code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-cookies">Setting cookies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exception-handling">Exception handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-stream">Input stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output-stream">Output stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-rest-automation-helper-application">Running the REST automation helper application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#websocket-automation">WebSocket automation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#websocket-server-service">Websocket server service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#websocket-open-event">Websocket open event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ui-keep-alive">UI keep-alive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#websocket-message-event">Websocket message event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#websocket-close-event">Websocket close event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-websocket-for-simple-notification-to-the-browser">Using websocket for simple notification to the browser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subscribe-to-a-notification-topic">Subscribe to a notification topic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unsubscribe-from-a-notification-topic">Unsubscribe from a notification topic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notification-topic-vs-service-route-name">Notification topic vs service route name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#publish-from-a-browser">Publish from a browser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#publish-from-a-backend-service">Publish from a backend service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-browser-application-for-connecting-to-a-notification-channel">Sample browser application for connecting to a notification channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-html-error-page">Custom HTML error page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#static-html-folder">Static HTML folder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#api-definition-file-rest-yaml">API definition file (rest.yaml)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jax-rs.html">JAX-RS and WebServlets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connectors.html">Cloud Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multicast.html">Multicast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additonal-features.html">Additonal Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mercury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Rest Automation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/rest-automation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rest-automation">
+<h1>Rest Automation<a class="headerlink" href="#rest-automation" title="Permalink to this headline"></a></h1>
+<p>REST automation turns HTTP requests and responses into events for truly non-blocking operation.</p>
+<section id="library-and-application">
+<h2>Library and Application<a class="headerlink" href="#library-and-application" title="Permalink to this headline"></a></h2>
+<p>The REST automation system consists of a library and an application. This sub-project is the library.</p>
+</section>
+<section id="rest-endpoint-creation">
+<h2>REST endpoint creation<a class="headerlink" href="#rest-endpoint-creation" title="Permalink to this headline"></a></h2>
+<p>It allows us to create REST and websocket endpoints by configuration instead of code.</p>
+<p>Let us examine the idea with a sample configuration.</p>
+</section>
+<section id="rest-endpoint-routing">
+<h2>REST endpoint routing<a class="headerlink" href="#rest-endpoint-routing" title="Permalink to this headline"></a></h2>
+<p>A routing entry is a simple mapping of URL to a microservice.</p>
+</section>
+<section id="yaml-syntax">
+<h2>YAML syntax<a class="headerlink" href="#yaml-syntax" title="Permalink to this headline"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">rest</span><span class="p">:</span>
+<span class="c1"># service should be a target service name or a list of service names</span>
+<span class="c1"># If more than one service name is provided, the first one is the primary target</span>
+<span class="c1"># and the rest are secondary target(s). The system will copy the HTTP request event to the secondary targets.</span>
+<span class="c1">#</span>
+<span class="c1"># This feature is used for seamless legacy system migration where we can send</span>
+<span class="c1"># the same request to the old and the new services at the same time for A/B comparison.</span>
+<span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;hello.world&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;hello.world.2&quot;</span><span class="p p-Indicator">]</span>
+    <span class="nt">methods</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;GET&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;PUT&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;POST&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;HEAD&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;PATCH&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;DELETE&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;/api/hello/world&quot;</span>
+    <span class="nt">timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10s</span>
+    <span class="c1"># Optional authentication service which should return a true or false result</span>
+    <span class="c1"># The authentication service can also add session info in headers using EventEnvelope as a response</span>
+    <span class="c1"># and annotate trace with key-values that you want to persist into distributed trace logging.</span>
+    <span class="c1">#</span>
+    <span class="c1"># You can also route the authentication request to different functions based on HTTP request header</span>
+    <span class="c1"># i.e. you can provide a single authentication function or a list of functions selected by header routing.</span>
+    <span class="c1">#</span>
+    <span class="c1"># If you want to route based on header/value, use the &quot;key: value : service&quot; format.</span>
+    <span class="c1"># For routing using header only, use &quot;key: service&quot; format</span>
+    <span class="c1"># For default authentication service, use &quot;default: service&quot; format</span>
+    <span class="c1">#</span>
+    <span class="c1">#    authentication: &quot;v1.api.auth&quot;</span>
+    <span class="nt">authentication</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;x-app-name:</span><span class="nv"> </span><span class="s">demo</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">v1.demo.auth&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;authorization:</span><span class="nv"> </span><span class="s">v1.basic.auth&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;default:</span><span class="nv"> </span><span class="s">v1.api.auth&quot;</span>
+    <span class="nt">cors</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cors_1</span>
+    <span class="nt">headers</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">header_1</span>
+    <span class="c1"># for HTTP request body that is not JSON/XML, it will be turned into a stream if it is undefined</span>
+    <span class="c1"># or larger than threshold. Otherwise, it will be delivered as a byte array in the message body.</span>
+    <span class="c1"># Default is 50000 bytes, min is 5000, max is 500000</span>
+    <span class="nt">threshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30000</span>
+    <span class="c1"># optionally, you can turn on Distributed Tracing</span>
+    <span class="nt">tracing</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="s">&quot;hello.world&quot;</span>
+    <span class="nt">methods</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;GET&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;PUT&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;POST&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;/api/test/ok*&quot;</span>
+    <span class="c1"># optional &quot;upload&quot; key if it is a multi-part file upload</span>
+    <span class="nt">upload</span><span class="p">:</span> <span class="s">&quot;file&quot;</span>
+    <span class="nt">timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">15s</span>
+    <span class="nt">headers</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">header_1</span>
+    <span class="nt">cors</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cors_1</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="s">&quot;hello.world&quot;</span>
+    <span class="nt">methods</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;GET&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;PUT&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;POST&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;/api/nice/{task}/*&quot;</span>
+    <span class="nt">timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12</span>
+    <span class="nt">headers</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">header_1</span>
+    <span class="nt">cors</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cors_1</span>
+
+<span class="c1">#</span>
+<span class="c1"># When service is a URL, it will relay HTTP or HTTPS requests.</span>
+<span class="c1"># &quot;trust_all_cert&quot; and &quot;url_rewrite&quot; are optional.</span>
+<span class="c1">#</span>
+<span class="c1"># For target host with self-signed certificate, you may set &quot;trust_all_cert&quot; to true.</span>
+<span class="c1"># trust_all_cert: true</span>
+<span class="c1">#</span>
+<span class="c1"># &quot;url_rewrite&quot;, when present as a list of 2 strings, is used to rewrite the url.</span>
+<span class="c1"># e.g. url_rewrite: [&#39;/api/v1&#39;, &#39;/v1/api&#39;]</span>
+<span class="c1"># In this example, &quot;/api/v1&quot; will be replaced with &quot;/v1/api&quot;</span>
+<span class="c1">#</span>
+<span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="s">&quot;http://127.0.0.1:8100&quot;</span>
+    <span class="nt">trust_all_cert</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">methods</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;GET&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;PUT&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;POST&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;/api/v1/*&quot;</span>
+    <span class="nt">url_rewrite</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;/api/v1&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;/api&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
+    <span class="nt">cors</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cors_1</span>
+    <span class="nt">headers</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">header_1</span>
+    <span class="nt">tracing</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="c1">#</span>
+<span class="c1"># CORS HEADERS for pre-flight (HTTP OPTIONS) and normal cases</span>
+<span class="c1">#</span>
+<span class="nt">cors</span><span class="p">:</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cors_1</span>
+    <span class="l l-Scalar l-Scalar-Plain">options</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;Access-Control-Allow-Origin:</span><span class="nv"> </span><span class="s">*&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;Access-Control-Allow-Methods:</span><span class="nv"> </span><span class="s">GET,</span><span class="nv"> </span><span class="s">DELETE,</span><span class="nv"> </span><span class="s">PUT,</span><span class="nv"> </span><span class="s">POST,</span><span class="nv"> </span><span class="s">OPTIONS&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;Access-Control-Allow-Headers:</span><span class="nv"> </span><span class="s">Origin,</span><span class="nv"> </span><span class="s">Authorization,</span><span class="nv"> </span><span class="s">X-Session-Id,</span><span class="nv"> </span><span class="s">Accept,</span><span class="nv"> </span><span class="s">Content-Type,</span><span class="nv"> </span><span class="s">X-Requested-With&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;Access-Control-Max-Age:</span><span class="nv"> </span><span class="s">86400&quot;</span>
+    <span class="nt">headers</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;Access-Control-Allow-Origin:</span><span class="nv"> </span><span class="s">*&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;Access-Control-Allow-Methods:</span><span class="nv"> </span><span class="s">GET,</span><span class="nv"> </span><span class="s">DELETE,</span><span class="nv"> </span><span class="s">PUT,</span><span class="nv"> </span><span class="s">POST,</span><span class="nv"> </span><span class="s">OPTIONS&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;Access-Control-Allow-Headers:</span><span class="nv"> </span><span class="s">Origin,</span><span class="nv"> </span><span class="s">Authorization,</span><span class="nv"> </span><span class="s">X-Session-Id,</span><span class="nv"> </span><span class="s">Accept,</span><span class="nv"> </span><span class="s">Content-Type,</span><span class="nv"> </span><span class="s">X-Requested-With&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">&quot;Access-Control-Allow-Credentials:</span><span class="nv"> </span><span class="s">true&quot;</span>
+
+<span class="c1">#</span>
+<span class="c1"># add/drop/keep header parameters</span>
+<span class="c1">#</span>
+<span class="nt">headers</span><span class="p">:</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">header_1</span>
+    <span class="l l-Scalar l-Scalar-Plain"># headers to be inserted</span>
+    <span class="l l-Scalar l-Scalar-Plain">add</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;hello-world:</span><span class="nv"> </span><span class="s">nice&quot;</span><span class="p p-Indicator">]</span>
+<span class="c1">#    keep: [&#39;x-session-id&#39;, &#39;user-agent&#39;]</span>
+    <span class="nt">drop</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;Upgrade-Insecure-Requests&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;cache-control&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;accept-encoding&#39;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">service</span></code> must be a service that is registered as public function.</p>
+<p>The system will find the service at run-time. If the service is not available, the user will see HTTP-503 “Service not reachable”.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">keep</span></code> and <code class="docutils literal notranslate"><span class="pre">drop</span></code> entries are mutually exclusive where keep has precedent over drop. When <code class="docutils literal notranslate"><span class="pre">keep</span></code> is empty and <code class="docutils literal notranslate"><span class="pre">drop</span></code> is not, it will drop only the headers in the drop list. The <code class="docutils literal notranslate"><span class="pre">add</span></code> entry allows the developer to insert additional header key-values before it reaches the target service that serves the REST endpoint.</p>
+<p>For content types of XML and JSON, the system will try to convert the input stream into a map.</p>
+<p>For binary content type, the system will check if the input stream is larger than a threshold. <code class="docutils literal notranslate"><span class="pre">threshold</span></code> - the default threshold buffer is 50,000 bytes, min is 5,000 and max is 500,000</p>
+<p>If the input stream is small, it will convert the input stream into a byte array and store it in the “body” parameter.</p>
+<p>if the input stream is large, it will return a stream ID so that your service can read the data as a stream.</p>
+<p>Cors header processing is optional. If present, it will return the configured key-values for pre-flight and regular responses.</p>
+</section>
+<section id="url-matching">
+<h2>URL matching<a class="headerlink" href="#url-matching" title="Permalink to this headline"></a></h2>
+<p>For performance and readability reason, the system is not using regular expression for URL matching. Instead it is using wildcard and path parameters.</p>
+<section id="wildcard">
+<h3>wildcard<a class="headerlink" href="#wildcard" title="Permalink to this headline"></a></h3>
+<p>The wildcard * character may be used as a URL path segment or as a suffix in a segment. Characters after the wildcard character in a segment will be ignored.</p>
+<p>e.g. the following are valid wildcard URLs</p>
+<p><code class="docutils literal notranslate"><span class="pre">/api/hello/world/*</span></code>
+<code class="docutils literal notranslate"><span class="pre">/api/hello*/world*/*</span></code></p>
+</section>
+<section id="path-parameters">
+<h3>path parameters<a class="headerlink" href="#path-parameters" title="Permalink to this headline"></a></h3>
+<p>The {} bracket can be used to indicate a path parameter. The value inside the bracket is the path parameter ID.</p>
+<p>For example, the following URL will set path parameter “first_name” and “last_name”.</p>
+<p><code class="docutils literal notranslate"><span class="pre">/api/hello/{first_name}/{last_name}</span></code></p>
+</section>
+</section>
+<section id="http-request-dataset">
+<h2>HTTP request dataset<a class="headerlink" href="#http-request-dataset" title="Permalink to this headline"></a></h2>
+<p>The HTTP request (headers, query, body) will be encoded as a Map and the target service will receive it as the message body.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>headers: key-values of HTTP headers
+cookies: optional key-values
+method: HTTP request method
+ip: caller&#39;s remote IP address
+parameters:
+path: optional path parameters
+query: optional query or URL encoded request body parameters
+url: URL of the incoming request
+timeout: timeout value (in seconds) of the REST endpoint
+
+# optional (body or stream)
+body: byte array of input data if it is smaller than a given threshold
+stream: stream-ID of incoming data stream (e.g. file)
+filename: filename if it is a file upload
+content-length: number of bytes of the incoming stream
+</pre></div>
+</div>
+<p>For Java, you can use AsyncHttpRequest as a convenient wrapper to read this dataset.</p>
+<p><code class="docutils literal notranslate"><span class="pre">AsyncHttpRequest</span> <span class="pre">request</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">AsyncHttpRequest(body);</span></code></p>
+<section id="http-response-body">
+<h3>Http response body<a class="headerlink" href="#http-response-body" title="Permalink to this headline"></a></h3>
+<p>For simple use case, you can just send text, bytes or Map as the return value in your service.</p>
+<p>For advanced use cases, you can send status code, set HTTP headers if your service returns an EventEnvelope object.</p>
+</section>
+<section id="http-status-code">
+<h3>HTTP status code<a class="headerlink" href="#http-status-code" title="Permalink to this headline"></a></h3>
+<p>If your service set status code directly, you should use the standard 3-digit HTTP status code because it will be sent to the browser directly. i.e. 200 means OK and 404 is NOT_FOUND, etc.</p>
+</section>
+<section id="setting-cookies">
+<h3>Setting cookies<a class="headerlink" href="#setting-cookies" title="Permalink to this headline"></a></h3>
+<p>You can ask a browser to set a cookie by setting the “Set-Cookie” key-value in an EventEnvelope’s header which will be converted to a HTTP response header. For details, please see <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie</a></p>
+<p>There is a convenient “getHtmlDate()” method in the Utility class if you want to set the “Expires” directive in a cookie.</p>
+</section>
+<section id="exception-handling">
+<h3>Exception handling<a class="headerlink" href="#exception-handling" title="Permalink to this headline"></a></h3>
+<p>If your service throws exception, it will automatically translate into a regular HTTP exception with status code and message.</p>
+<p>To control the HTTP error code, your service should use the AppException class. It allows you to set HTTP status code and error message directly.</p>
+</section>
+<section id="input-stream">
+<h3>Input stream<a class="headerlink" href="#input-stream" title="Permalink to this headline"></a></h3>
+<p>If you want to support file upload, you can specify the upload parameter in the rest.yaml configuration file. The default value is “file”. If your user uses different tag, you must change the upload parameter to match the upload tag.</p>
+<p>If incoming request is a file, your service will see the “stream”, “filename” and “content-length” parameters. If incoming request is a byte stream, your service will find the “stream” and “content-length” parameters.</p>
+</section>
+<section id="output-stream">
+<h3>Output stream<a class="headerlink" href="#output-stream" title="Permalink to this headline"></a></h3>
+<p>If your service wants to send the output to the browser as a stream of text or bytes, you can create an ObjectStreamIO with a timeout value. You can then set the streamId in the HTTP header “stream”. You should also set the HTTP header “timeout” to tell the REST endpoint to use it as IO stream read timeout value. The “stream” and “timeout” headers are used by the REST automation framework. They will not be set as HTTP response headers.</p>
+<p>You timeout value should be short and yet good enough for your service to send one block of data. The timer will be reset when there is I/O activity. One use case of output stream is file download.</p>
+<p>Location of the YAML configuration file
+By default, the system will search for <code class="docutils literal notranslate"><span class="pre">file:/tmp/config/rest.yaml</span></code> and then <code class="docutils literal notranslate"><span class="pre">classpath:/rest.yaml</span></code>.</p>
+<p>If needed, you can change this in the <code class="docutils literal notranslate"><span class="pre">rest.automation.yaml</span></code> property in the application.properties file.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">/tmp/config/rest.yaml</span></code> allows you to externalize the REST automation configuration without rebuilding the REST automation helper application.</p>
+</section>
+<section id="running-the-rest-automation-helper-application">
+<h3>Running the REST automation helper application<a class="headerlink" href="#running-the-rest-automation-helper-application" title="Permalink to this headline"></a></h3>
+<p>Before you build this application, you should follow the README in the top level project to build the Mercury libraries (platform-core, rest-core, rest-spring, kafka-connector, hazelcast-connector).</p>
+<p>Then you can build this helper app and run with:</p>
+<p><code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-Dcloud.connector=event.node</span> <span class="pre">target/rest-automation...jar</span></code></p>
+<p>If you plan to use Hazelcast or Kafka as the network event stream system, you should also build the corresponding presence monitor (hazelcast-presence and kafka-presence).</p>
+<p>Once the Mercury libraries and the presence monitors are built. You can start either Hazelcast or Kafka and build this helper app.</p>
+<p>You can run the app with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java -Dcloud.connector<span class="o">=</span>event.node target/rest-automation...jar
+or
+java -Dcloud.connector<span class="o">=</span>hazelcast -Dcloud.services<span class="o">=</span>hazelcast.reporter target/rest-automation...jar
+or
+java -Dcloud.connector<span class="o">=</span>kafka -Dcloud.services<span class="o">=</span>kafka.reporter target/rest-automation...jar
+</pre></div>
+</div>
+</section>
+</section>
+<section id="websocket-automation">
+<h2>WebSocket automation<a class="headerlink" href="#websocket-automation" title="Permalink to this headline"></a></h2>
+<p>You can define a websocket endpoint for 2 purposes:</p>
+<ul class="simple">
+<li><p>a websocket server service that you write</p></li>
+<li><p>a websocket notification service for UI applications</p></li>
+</ul>
+<section id="websocket-server-service">
+<h3>Websocket server service<a class="headerlink" href="#websocket-server-service" title="Permalink to this headline"></a></h3>
+<p>To deploy a websocket endpoint for your own application, add this “websocket” section to the rest.yaml config file. You also need to update the “rest” section to expose a websocket access token issurance endpoint. You should implement your websocket authentication API. In this example, it is “v1.ws.api.auth”. For testing, you can comment out the authentication portion.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">websocket</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">application</span><span class="p">:</span> <span class="s">&quot;notification&quot;</span>
+    <span class="nt">recipient</span><span class="p">:</span> <span class="s">&quot;my.ws.handler&quot;</span>
+
+<span class="nt">rest</span><span class="p">:</span>
+<span class="c1"># The REST automation system includes a built-in websocket notification system.</span>
+<span class="c1"># If you want to enable this feature, you must add the ws.token.issuer service as</span>
+<span class="c1"># shown in this example. For added security, please enable authentication and point</span>
+<span class="c1"># it to a user defined authentication service that may authenticate the user credentials</span>
+<span class="c1"># and validate that the user is allowed to use a specific websocket application.</span>
+<span class="c1">#</span>
+<span class="c1"># the &quot;ws.token.issuer&quot; and &quot;ws.notification&quot; are reserved by the system for</span>
+<span class="c1"># websocket connection token issuance and notification topic query services</span>
+<span class="c1">#</span>
+<span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="s">&quot;ws.token.issuer&quot;</span>
+    <span class="nt">methods</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;GET&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;/api/ws/token/{application}&quot;</span>
+    <span class="c1">#    authentication: &quot;v1.ws.api.auth&quot;</span>
+    <span class="nt">tracing</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<p>This asks the REST automation to route incoming websocket connection, message and close events to your function. In the above example, it is “my.ws.handler” that points to your custom function.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">LambdaFunction</span> <span class="n">myWsHandler</span> <span class="o">=</span> <span class="p">(</span><span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">instance</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">{</span>
+<span class="c1">// your custom websocket server logic here to handle open, close and message events</span>
+<span class="c1">//</span>
+<span class="c1">// nothing to return because this is asynchronous</span>
+<span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="n">platform</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="s">&quot;my.ws.handler&quot;</span><span class="p">,</span> <span class="n">myWsHander</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="websocket-open-event">
+<h3>Websocket open event<a class="headerlink" href="#websocket-open-event" title="Permalink to this headline"></a></h3>
+<p>An open event contains a header of “type” = “open”. The event body contains the following:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{
+&quot;query&quot;: {&quot;key&quot;: &quot;value&quot;},
+&quot;application&quot;: &quot;notification&quot;,
+&quot;ip&quot;: &quot;192.168.1.100&quot;,
+&quot;origin&quot;: &quot;ddd3bca7e7744a67a1b938dc67a76cd7&quot;,
+&quot;tx_path&quot;: &quot;ws.12345@ddd3bca7e7744a67a1b938dc67a76cd7&quot;
+}
+</pre></div>
+</div>
+<p>To connect to your websocket server function, the UI may issue a websocket connection request to the following URL:</p>
+<p>wss://hostname/ws/api/notification:{access_token}?optional_query_string
+The application name “notification” is an example only. You can define any application name in the rest.yaml config file.</p>
+<p>Note that your websocket server handler function will receive all websocket connection to the specific websocket application. Please implement logic to handle individual user which is identified by the “tx_path”.</p>
+</section>
+<section id="ui-keep-alive">
+<h3>UI keep-alive<a class="headerlink" href="#ui-keep-alive" title="Permalink to this headline"></a></h3>
+<p>Websocket connection is persistent. To release unused resources, REST automation will disconnect any idle websocket connection in 60 seconds. Please implement keep-alive by sending a “hello” message from the UI like this:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{
+&quot;type&quot;: &quot;hello&quot;,
+&quot;message&quot;: &quot;keep-alive&quot;,
+&quot;time&quot;: &quot;ISO-8601 time-stamp&quot;
+}
+</pre></div>
+</div>
+<p>The REST automation will echo this “hello” message to the UI where it can be ignored.</p>
+</section>
+<section id="websocket-message-event">
+<h3>Websocket message event<a class="headerlink" href="#websocket-message-event" title="Permalink to this headline"></a></h3>
+<p>For simplicity, the REST automation system supports TEXT message only.</p>
+<p>The event’s body contains the incoming text message and the headers contains the following:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{
+&quot;type&quot;: &quot;message&quot;,
+&quot;application&quot;: &quot;notification&quot;,
+&quot;origin&quot;: &quot;ddd3bca7e7744a67a1b938dc67a76cd7&quot;,
+&quot;tx_path&quot;: &quot;ws.12345@ddd3bca7e7744a67a1b938dc67a76cd7&quot;
+}
+</pre></div>
+</div>
+<p>The “tx_path” is the outgoing route name for your application to send text messages. e.g.</p>
+<p>Payload can be Map or String where Map payload will be converted to a JSON string for delivery</p>
+<p><code class="docutils literal notranslate"><span class="pre">po.send(&quot;ws.12345&#64;ddd3bca7e7744a67a1b938dc67a76cd7&quot;,</span> <span class="pre">payload);</span></code></p>
+</section>
+<section id="websocket-close-event">
+<h3>Websocket close event<a class="headerlink" href="#websocket-close-event" title="Permalink to this headline"></a></h3>
+<p>A close event contains a header of “type” = “close”. The event body contains the following:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{
+&quot;application&quot;: &quot;notification&quot;,
+&quot;origin&quot;: &quot;ddd3bca7e7744a67a1b938dc67a76cd7&quot;,
+&quot;tx_path&quot;: &quot;ws.12345@ddd3bca7e7744a67a1b938dc67a76cd7&quot;
+}
+</pre></div>
+</div>
+<p>If your websocket server function creates temporary resource, you may release the resource using the “tx_path” as a reference.</p>
+<p>WebSocket is usually employed as a notification channel to the browser so that your service can detect “presence” of the user and asynchronously send notification events to the browser.</p>
+<p>The REST automation helper application supports this websocket notification use case. The sample rest.yaml configuration file contains a websocket routing entry to the sample.ws.auth and ws.notification services.</p>
+</section>
+<section id="using-websocket-for-simple-notification-to-the-browser">
+<h3>Using websocket for simple notification to the browser<a class="headerlink" href="#using-websocket-for-simple-notification-to-the-browser" title="Permalink to this headline"></a></h3>
+<p>You can remove the “recipient” and add the publish/subscibe features in the rest.yaml config file like this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">websocket</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">application</span><span class="p">:</span> <span class="s">&quot;notification&quot;</span>
+    <span class="nt">publish</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">subscribe</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="nt">rest</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="s">&quot;ws.token.issuer&quot;</span>
+    <span class="nt">methods</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;GET&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;/api/ws/token/{application}&quot;</span>
+    <span class="c1">#    authentication: &quot;v1.ws.api.auth&quot;</span>
+    <span class="nt">tracing</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="s">&quot;ws.notification&quot;</span>
+    <span class="nt">methods</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;GET&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;/api/notification&quot;</span>
+    <span class="c1">#    authentication: &quot;v1.api.auth&quot;</span>
+    <span class="nt">tracing</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="s">&quot;ws.notification&quot;</span>
+    <span class="nt">methods</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;GET&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">url</span><span class="p">:</span> <span class="s">&quot;/api/notification/{topic}&quot;</span>
+    <span class="c1">#    authentication: &quot;v1.api.auth&quot;</span>
+    <span class="nt">tracing</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<p>The “subscribe” feature must be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> for the browser to subscribe to one or more notification topics. The “publish” feature, if turn on, allows peer-to-peer messaging. For security, we recommend to set it to false. You can expose a REST endpoint for a user to send events through a backend service.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">/api/notification</span></code> endpoints are for admin purpose if you want to expose them to DevOps. The two admin endpoints show a list of all topics or a list of websocket connections under a specific topic respectively.</p>
+</section>
+<section id="subscribe-to-a-notification-topic">
+<h3>Subscribe to a notification topic<a class="headerlink" href="#subscribe-to-a-notification-topic" title="Permalink to this headline"></a></h3>
+<p>The browser can send a subscription request like this:</p>
+</section>
+<section id="unsubscribe-from-a-notification-topic">
+<h3>Unsubscribe from a notification topic<a class="headerlink" href="#unsubscribe-from-a-notification-topic" title="Permalink to this headline"></a></h3>
+<p>The browser can unsubscribe from a topic like this:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{
+&quot;type&quot;: &quot;unsubscribe&quot;,
+&quot;topic&quot;: &quot;my.simple.topic&quot;
+}
+</pre></div>
+</div>
+<p>A browser will also automatically unsubscribe from all subscribed topics when the browser closes. When the connected websocket backend service application instance fails, the websocket connection to the browser will be closed and current subscriptions will be dropped. The browser application should acquire a websocket access token and reconnect to an available backend service instance. Then subscribe to the topic(s) again.</p>
+<p>Note that a browser can subscribe to more than one notification topics. e.g. system.alerts, user.120, workflow.100, etc.</p>
+</section>
+<section id="notification-topic-vs-service-route-name">
+<h3>Notification topic vs service route name<a class="headerlink" href="#notification-topic-vs-service-route-name" title="Permalink to this headline"></a></h3>
+<p>While both notification topics and service route names use the same convention of lower case and “dots”, they are maintained in different registries and thus there is no conflict between the two types of names.</p>
+</section>
+<section id="publish-from-a-browser">
+<h3>Publish from a browser<a class="headerlink" href="#publish-from-a-browser" title="Permalink to this headline"></a></h3>
+<p>If “publish” feature is turned on, the browser can send text events to a topic like this:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{
+&quot;type&quot;: &quot;publish&quot;,
+&quot;topic&quot;: &quot;my.simple.topic&quot;,
+&quot;message&quot;: &quot;text message here&quot;
+}
+</pre></div>
+</div>
+</section>
+<section id="publish-from-a-backend-service">
+<h3>Publish from a backend service<a class="headerlink" href="#publish-from-a-backend-service" title="Permalink to this headline"></a></h3>
+<p>For security, we recommend disabling the publish feature in rest.yaml and perform publishing from a backend service.</p>
+<p>There is a convenient class “UserNotification” in the platform core library that provides the following APIs:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">publish</span><span class="p">(</span><span class="n">String</span> <span class="n">topic</span><span class="p">,</span> <span class="n">String</span> <span class="n">message</span><span class="p">);</span>
+<span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">listTopics</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">TimeoutException</span><span class="p">,</span> <span class="n">AppException</span><span class="p">,</span> <span class="n">IOException</span><span class="p">;</span>
+<span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="nf">getTopic</span><span class="p">(</span><span class="n">String</span> <span class="n">topic</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">TimeoutException</span><span class="p">,</span> <span class="n">AppException</span><span class="p">,</span> <span class="n">IOException</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="sample-browser-application-for-connecting-to-a-notification-channel">
+<h3>Sample browser application for connecting to a notification channel<a class="headerlink" href="#sample-browser-application-for-connecting-to-a-notification-channel" title="Permalink to this headline"></a></h3>
+<p>The ws.html sample app is available under the resources folder and the browser app can be tested by visiting <a class="reference external" href="http://127.0.0.1:8100/ws.html">http://127.0.0.1:8100/ws.html</a></p>
+</section>
+<section id="custom-html-error-page">
+<h3>Custom HTML error page<a class="headerlink" href="#custom-html-error-page" title="Permalink to this headline"></a></h3>
+<p>You may customize the standardized errorPage.html in the resources folder for your organization.</p>
+</section>
+<section id="static-html-folder">
+<h3>Static HTML folder<a class="headerlink" href="#static-html-folder" title="Permalink to this headline"></a></h3>
+<p>You can tell the rest-automation application to use a static HTML folder in the local file system with one of these methods:</p>
+<p>application.properties</p>
+<p><code class="docutils literal notranslate"><span class="pre">spring.resources.static-locations=file:/tmp/html</span></code></p>
+<p>or startup parameters</p>
+<p><code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">rest-automation.jar</span> <span class="pre">-html</span> <span class="pre">file:/tmp/html</span></code></p>
+</section>
+</section>
+<section id="api-definition-file-rest-yaml">
+<h2>API definition file (rest.yaml)<a class="headerlink" href="#api-definition-file-rest-yaml" title="Permalink to this headline"></a></h2>
+<p>Please design and deploy your own rest.yaml file in /tmp/config/rest.yaml</p>
+<p>The rest.yaml in “/tmp/config” will override the sample rest.yaml in the resources folder.</p>
+<p>If your application does not support websocket notification channel, you can remove the websocket section in rest.yaml</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="post-office-api.html" class="btn btn-neutral float-left" title="Post Office API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jax-rs.html" class="btn btn-neutral float-right" title="JAX-RS and WebServlets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

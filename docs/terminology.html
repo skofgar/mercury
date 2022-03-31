@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terminology &mdash; Mercury 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How-Tos" href="How-tos.html" />
+    <link rel="prev" title="Compatability" href="compatability.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Mercury
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">Libraries and Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatability.html">Compatability</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Terminology</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="How-tos.html">Pragmatic Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app-properties.html">Application Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="route-names.html">Reserved Route Names</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="platform-api.html">Platform API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post-office-api.html">Post Office API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest-automation.html">Rest Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jax-rs.html">JAX-RS and WebServlets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connectors.html">Cloud Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multicast.html">Multicast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additonal-features.html">Additonal Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mercury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Terminology</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/terminology.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="terminology">
+<h1>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline"></a></h1>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Microservices</span></code> - Generally, we use this term to refer to an architectural pattern where business logic is encapsulated in a bounded context, the unit of service is minimalist and services are consumed in an event driven manner.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Microservices</span> <span class="pre">function</span></code> or simply <code class="docutils literal notranslate"><span class="pre">function</span></code> - This refers to the smallest unit that encapsulates business logic or 3rd party library. As a best practice, we advocate clear separation of business logic from proprietary libraries. By wrapping 3rd party libaries as functions, we can keep the event API intact when switching to an alternative library.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Microservices</span> <span class="pre">module</span></code> or <code class="docutils literal notranslate"><span class="pre">microservice</span></code> - This refers to a single unit of deployment that contains at least one public function and optionally some private functions. All functions communicate with each others through a memory based event stream system within the module. Each microservices module can be independently deployed and scaled.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Microservices</span> <span class="pre">application</span></code> - It is a collection of microservices modules running together as a single application.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">facing</span> <span class="pre">endpoints</span></code> - This refers to public API for REST, websocket or other communication protocols.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Event</span> <span class="pre">API</span></code> - Microservices functions expose event APIs internally for inter-service communications. For example, a user facing endpoint may use REST protocol. The HTTP request is then converted to an event to a microservice.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Real-time</span> <span class="pre">events</span></code> - Messages that are time sensitive. e.g. RPC requests and responses.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Store-n-forward</span> <span class="pre">events</span></code> - Events that are not time sensitive. First, a calling function can send an event without waiting for a response. Second, the called function may not even available when the event is delivered. e.g. data pipeline applications.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Streaming</span> <span class="pre">events</span></code> - This refers to continuous flow of events from one function to another. Note that streaming can be either real-time or store-n-forward.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">function</span></code> - This means the function is visible to all application containers and instances in the system.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">function</span></code> - This means the function is visible only to functions in the same memory space inside an application instance.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">route</span> <span class="pre">name</span></code> - Each service can be uniquely identified with a name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">closed</span> <span class="pre">user</span> <span class="pre">groups</span></code> - Conceptually, we treat the underlying event stream system as a conduit where one group of application instances can be logically separated from another group.</p></li>
+</ol>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="compatability.html" class="btn btn-neutral float-left" title="Compatability" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="How-tos.html" class="btn btn-neutral float-right" title="How-Tos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

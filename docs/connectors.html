@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Connectors &mdash; Mercury 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Multicast" href="multicast.html" />
+    <link rel="prev" title="JAX-RS and WebServlets" href="jax-rs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Mercury
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">Libraries and Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatability.html">Compatability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="How-tos.html">Pragmatic Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app-properties.html">Application Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="route-names.html">Reserved Route Names</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="platform-api.html">Platform API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post-office-api.html">Post Office API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest-automation.html">Rest Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jax-rs.html">JAX-RS and WebServlets</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cloud Connectors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#reusable-topics">Reusable topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#topic-substitution">Topic Substitution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#supported-cloud-connectors">Supported cloud connectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#activemq-and-tibco">ActiveMQ and Tibco</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kafka">Kafka</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multicast.html">Multicast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additonal-features.html">Additonal Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mercury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Cloud Connectors</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/connectors.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cloud-connectors">
+<h1>Cloud Connectors<a class="headerlink" href="#cloud-connectors" title="Permalink to this headline"></a></h1>
+<p>Mercury has been integrated and tested with both event stream systems and enterprise service bus messaging systems.</p>
+<ol class="arabic simple">
+<li><p>Event stream system - Apache Kafka</p></li>
+<li><p>Messaging system - Hazelcast</p></li>
+<li><p>Enterprise Service Bus - ActiveMQ artemis and Tibco EMS</p></li>
+</ol>
+<section id="reusable-topics">
+<h2>Reusable topics<a class="headerlink" href="#reusable-topics" title="Permalink to this headline"></a></h2>
+<p>The default topics include the following:</p>
+<ol class="arabic simple">
+<li><p>service.monitor.n</p></li>
+<li><p>multiplex.x.y</p></li>
+</ol>
+<p>where <code class="docutils literal notranslate"><span class="pre">service.monitor.0</span></code> is used by the presence monitor to communicate with its peers for fault tolerant operation. service.monitor.1 and higher topics are used for closed user groups. i.e. service.monitor.1 for closed user group 1 and service.monitor.2 for closed user group 2, etc.</p>
+<p>Usually all user application instances should use the same closed user group unless you want to logically segregate different application domains into their own closed user groups. Application modules in one group are invisible to another group.</p>
+<p>multiplex.x.y topics are used by user application instances. The presence monitor will assign one topic to one application instance dynamically and release the topic when the application instance leaves the system. This allows topics to be reused automatically.</p>
+<p>There is a RSVP reservation protocol that the presence monitors will coordinate with each other to assign a unique topic to each application instance.</p>
+<p>The value <code class="docutils literal notranslate"><span class="pre">x</span></code> must be a 4-digit number starting from 0001 and <code class="docutils literal notranslate"><span class="pre">y</span></code> is the partition number for the topic. If the underlying messaging system supports pub/sub, the partition number maps to the physical partition of a topic. For enterprise service bus, the partition number is a logical identifier that corresponds to a physical topic.</p>
+</section>
+<section id="topic-substitution">
+<h2>Topic Substitution<a class="headerlink" href="#topic-substitution" title="Permalink to this headline"></a></h2>
+<p>Some enterprises do not allow automatic creation of messaging topics by user applications.</p>
+<p>In this case, you can turn on topic substitution with the following parameters in application.properties</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">application.feature.topic.substitution=true</span>
+<span class="l l-Scalar l-Scalar-Plain">topic.substitution.file=file:/tmp/config/topic-substitution.yaml,classpath:/topic-substitution.yaml</span>
+</pre></div>
+</div>
+<p>You can point the <code class="docutils literal notranslate"><span class="pre">topic.substitution.file</span></code> to a file.</p>
+<section id="supported-cloud-connectors">
+<h3>Supported cloud connectors<a class="headerlink" href="#supported-cloud-connectors" title="Permalink to this headline"></a></h3>
+<p>Kafka, ActiveMQ and Tibco support mapping of system topics to pre-allocated topics. Hazelcast topics are generated dynamically and thus topic pre-allocation is not required.</p>
+<p>Let’s examine the configuration concept with two sample topic substitution files.</p>
+</section>
+<section id="activemq-and-tibco">
+<h3>ActiveMQ and Tibco<a class="headerlink" href="#activemq-and-tibco" title="Permalink to this headline"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># topic substitution example</span>
+<span class="c1">#</span>
+<span class="c1"># The default service monitor and multiplex topics are prefixed as service.monitor and multiplex.n</span>
+<span class="c1"># where n starts from 0001</span>
+<span class="c1">#</span>
+<span class="n">service</span><span class="p">:</span>
+<span class="n">monitor</span><span class="p">:</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="n">some</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">one</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="n">some</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">two</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="n">some</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">three</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="n">some</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">four</span>
+
+<span class="c1">#</span>
+<span class="c1"># the 4-digit segment ID must be quoted to preserve the number of digits when the system parses this config file</span>
+<span class="c1">#</span>
+<span class="n">multiplex</span><span class="p">:</span>
+<span class="s2">&quot;0001&quot;</span><span class="p">:</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">one</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">two</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">three</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">four</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">five</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">topic</span><span class="o">.</span><span class="n">six</span>
+</pre></div>
+</div>
+</section>
+<section id="kafka">
+<h3>Kafka<a class="headerlink" href="#kafka" title="Permalink to this headline"></a></h3>
+<p>Since Kafka is a pub/sub event streaming system with partitioning support, you can use the “#n” suffix to specify the partition number for each replacement topic to map to the system topics (service.monitor.n and multiple.x.y). (Note that the “#n” syntax is not applicable to ActiveMQ and Tibco connectors above)</p>
+<p>If you do not provide the partition number, it is assumed to be the first partition. i.e. partition-0.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># topic substitution example</span>
+<span class="c1">#</span>
+<span class="c1"># The default service monitor and multiplex topics are prefixed as service.monitor and multiplex.n</span>
+<span class="c1"># where n starts from 0001</span>
+<span class="c1">#</span>
+<span class="c1"># PARTITION DEFINITION</span>
+<span class="c1"># --------------------</span>
+<span class="c1"># For the replacement topic, an optional partition number can be defined using the &quot;#n&quot; suffix.</span>
+<span class="c1"># Partition number must be a positive number from 0 to the max partition of the specific topic.</span>
+<span class="c1">#</span>
+<span class="c1"># If partition number if not given, the entire topic will be used to send/receive events.</span>
+<span class="c1"># e.g.</span>
+<span class="c1"># SERVICE.APP.ONE is a topic of at least one partition</span>
+<span class="c1"># user.app#0 is the topic &quot;user.app&quot; and partition &quot;0&quot;</span>
+<span class="c1">#</span>
+<span class="n">service</span><span class="p">:</span>
+<span class="n">monitor</span><span class="p">:</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="n">SERVICE</span><span class="o">.</span><span class="n">APP</span><span class="o">.</span><span class="n">ONE</span><span class="c1">#0</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="n">SERVICE</span><span class="o">.</span><span class="n">APP</span><span class="o">.</span><span class="n">TWO</span><span class="c1">#0</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="n">SERVICE</span><span class="o">.</span><span class="n">APP</span><span class="o">.</span><span class="n">THREE</span><span class="c1">#0</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="n">SERVICE</span><span class="o">.</span><span class="n">APP</span><span class="o">.</span><span class="n">FOUR</span><span class="c1">#0</span>
+
+<span class="c1">#</span>
+<span class="c1"># the 4-digit segment ID must be quoted to preserve the number of digits when the system parses this config file</span>
+<span class="c1">#</span>
+<span class="n">multiplex</span><span class="p">:</span>
+<span class="s2">&quot;0001&quot;</span><span class="p">:</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">app</span><span class="c1">#0</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">app</span><span class="c1">#1</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">app</span><span class="c1">#2</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">app</span><span class="c1">#3</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">app</span><span class="c1">#4</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">app</span><span class="c1">#5</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="jax-rs.html" class="btn btn-neutral float-left" title="JAX-RS and WebServlets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="multicast.html" class="btn btn-neutral float-right" title="Multicast" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

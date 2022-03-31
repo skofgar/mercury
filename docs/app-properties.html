@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Application Properties &mdash; Mercury 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Reserved Route Names" href="route-names.html" />
+    <link rel="prev" title="How-Tos" href="How-tos.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Mercury
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">Libraries and Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatability.html">Compatability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="How-tos.html">Pragmatic Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Application Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#transient-data-store">transient data store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#safe-data-models">safe.data.models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trace-http-header">trace.http.header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trace-log-header">trace.log.header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kafka-specific-configuration">Kafka specific configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#presence-monitor">presence monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#distributed-trace-logging-aggregation-and-transaction-journaling">distributed trace logging, aggregation and transaction journaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#spring-boot">Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="route-names.html">Reserved Route Names</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="platform-api.html">Platform API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post-office-api.html">Post Office API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest-automation.html">Rest Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jax-rs.html">JAX-RS and WebServlets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connectors.html">Cloud Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multicast.html">Multicast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additonal-features.html">Additonal Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mercury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Application Properties</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/app-properties.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="application-properties">
+<h1>Application Properties<a class="headerlink" href="#application-properties" title="Permalink to this headline"></a></h1>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">application.properties</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Value (example)</p></th>
+<th class="head"><p>Required</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>application.name or spring.application.name</p></td>
+<td><p>Application name</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>info.app.version</p></td>
+<td><p>major.minor.build (e.g. 1.0.0)</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>info.app.description</p></td>
+<td><p>Something about application</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>web.component.scan</p></td>
+<td><p>Your own package path or parent path</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>server.port</p></td>
+<td><p>e.g. 8083</p></td>
+<td><p>Yes*</p></td>
+</tr>
+<tr class="row-odd"><td><p>rest.server.port</p></td>
+<td><p>e.g. 8083</p></td>
+<td><p>Required*2</p></td>
+</tr>
+<tr class="row-even"><td><p>spring.mvc.static-path-pattern</p></td>
+<td><p>/**</p></td>
+<td><p>Yes*</p></td>
+</tr>
+<tr class="row-odd"><td><p>spring.resources.static-locations</p></td>
+<td><p>classpath:/public/</p></td>
+<td><p>Yes*</p></td>
+</tr>
+<tr class="row-even"><td><p>jax.rs.application.path</p></td>
+<td><p>/api</p></td>
+<td><p>Optional*1</p></td>
+</tr>
+<tr class="row-odd"><td><p>show.env.variables</p></td>
+<td><p>comma separated list of variable names</p></td>
+<td><p>Optional*1</p></td>
+</tr>
+<tr class="row-even"><td><p>show.application.properties</p></td>
+<td><p>comma separated list of property names</p></td>
+<td><p>Optional*1</p></td>
+</tr>
+<tr class="row-odd"><td><p>cloud.connector</p></td>
+<td><p>kafka, hazelcast, none, etc.</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-even"><td><p>cloud.services</p></td>
+<td><p>e.g. some.interesting.service</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-odd"><td><p>snake.case.serialization</p></td>
+<td><p>true (recommended)</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-even"><td><p>env.variables</p></td>
+<td><p>e.g. MY_ENV:my.env</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-odd"><td><p>safe.data.models</p></td>
+<td><p>packages pointing to your PoJo classes</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-even"><td><p>protect.info.endpoints</p></td>
+<td><p>true or false (default is false)</p></td>
+<td><p>Optional*1</p></td>
+</tr>
+<tr class="row-odd"><td><p>trace.http.header</p></td>
+<td><p>comma separated list traceId labels</p></td>
+<td><p>*2</p></td>
+</tr>
+<tr class="row-even"><td><p>trace.log.header</p></td>
+<td><p>default value is X-Trace-Id</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-odd"><td><p>index.redirection</p></td>
+<td><p>comma separated list of URI paths</p></td>
+<td><p>Optional*1</p></td>
+</tr>
+<tr class="row-even"><td><p>index.page</p></td>
+<td><p>default value is index.html</p></td>
+<td><p>Optional*1</p></td>
+</tr>
+<tr class="row-odd"><td><p>application.feature.route.substitution</p></td>
+<td><p>default value is false</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-even"><td><p>route.substitution.file</p></td>
+<td><p>comma separated file(s) or classpath(s)</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-odd"><td><p>application.feature.topic.substitution</p></td>
+<td><p>default value is false</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-even"><td><p>topic.substitution.file</p></td>
+<td><p>comma separated file(s) or classpath(s)</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-odd"><td><p>cloud.client.properties</p></td>
+<td><p>e.g. classpath:/kafka.properties</p></td>
+<td><p>connectors</p></td>
+</tr>
+<tr class="row-even"><td><p>kafka.replication.factor</p></td>
+<td><p>3</p></td>
+<td><p>Kafka</p></td>
+</tr>
+<tr class="row-odd"><td><p>default.app.group.id</p></td>
+<td><p>kafka groupId for the app instance</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-even"><td><p>default.monitor.group.id</p></td>
+<td><p>kafka groupId for the presence-monitor</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-odd"><td><p>monitor.topic</p></td>
+<td><p>kafka topic for the presence-monitor</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-even"><td><p>app.topic.prefix</p></td>
+<td><p>multiplex (default value, DO NOT change)</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-odd"><td><p>app.partitions.per.topic</p></td>
+<td><p>Max Kafka partitions per topic</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-even"><td><p>max.virtual.topics</p></td>
+<td><p>Max virtual topics = partitions * topics</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-odd"><td><p>max.closed.user.groups</p></td>
+<td><p>Number of closed user groups</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-even"><td><p>closed.user.group</p></td>
+<td><p>Closed user group (default 1)</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-odd"><td><p>transient.data.store</p></td>
+<td><p>Default value: /tmp/reactive</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-even"><td><p>running.in.cloud</p></td>
+<td><p>Default value: false</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-odd"><td><p>multicast.yaml</p></td>
+<td><p>This is used to define config file path</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-even"><td><p>journal.yaml</p></td>
+<td><p>This is used to define config file path</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-odd"><td><p>distributed.trace.aggregation</p></td>
+<td><p>Default value: true</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-even"><td><p>deferred.commit.log</p></td>
+<td><p>Default value: false</p></td>
+<td><p>Optional*3</p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">*1</span></code> - when using the “rest-spring” library <code class="docutils literal notranslate"><span class="pre">*2</span></code> - applies to the REST automation application only <code class="docutils literal notranslate"><span class="pre">*3</span></code> - optional for unit test purpose only. DO NOT set this parameter in “main” branch for production code.</p>
+<section id="transient-data-store">
+<h2>transient data store<a class="headerlink" href="#transient-data-store" title="Permalink to this headline"></a></h2>
+<p>The system handles back-pressure automatically by overflowing memory to a transcient data store. As a cloud native best practice, the folder must be under “/tmp”. The default is “/tmp/reactive”. The “running.in.cloud” must be set to false when your apps are running in IDE or in your laptop. When running in kubernetes, it can be set to true.</p>
+</section>
+<section id="safe-data-models">
+<h2>safe.data.models<a class="headerlink" href="#safe-data-models" title="Permalink to this headline"></a></h2>
+<p>PoJo may execute Java code. As a result, it is possible to inject malicious code that does harm when deserializing a PoJo. This security risk applies to any JSON serialization engine.</p>
+<p>For added security and peace of mind, you may want to white list your PoJo package paths. When the “safe.data.models” property is configured, the underlying serializers for JAX-RS, Spring RestController, Servlets will respect this setting and enforce PoJo white listing.</p>
+<p>Usually you do not need to use the serializer in your code because it is much better to deal with PoJo in your IDE. However, if there is a genuine need to do low level coding, you may use the pre-configured serializer so that the serialization behavior is consistent.</p>
+<p>You can get an instance of the serializer with <code class="docutils literal notranslate"><span class="pre">SimpleMapper.getInstance().getWhiteListMapper()</span></code>.</p>
+</section>
+<section id="trace-http-header">
+<h2>trace.http.header<a class="headerlink" href="#trace-http-header" title="Permalink to this headline"></a></h2>
+<p>Identify the HTTP header for traceId. When configured with more than one label, the system will retrieve traceID from the corresponding HTTP header and propagate it through the transaction that may be served by multiple services.</p>
+<p>If traceId is presented in a HTTP request, the system will use the same label to set HTTP response traceId header.</p>
+<p>e.g. X-Trace-Id: a9a4e1ec-1663-4c52-b4c3-7b34b3e33697 or X-Correlation-Id: a9a4e1ec-1663-4c52-b4c3-7b34b3e33697</p>
+</section>
+<section id="trace-log-header">
+<h2>trace.log.header<a class="headerlink" href="#trace-log-header" title="Permalink to this headline"></a></h2>
+<p>If tracing is enabled for a transaction, this will insert the trace-ID into the logger’s ThreadContext using the trace.log.header.</p>
+<p>Note that trace.log.header is case sensitive and you must put the corresponding value in log4j2.xml. The default value is “X-Trace-Id” if this parameter is not provided in application.properties. e.g.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;PatternLayout</span> <span class="pre">pattern=&quot;%d{yyyy-MM-dd</span> <span class="pre">HH:mm:ss.SSS}</span> <span class="pre">%-5level</span> <span class="pre">%logger:%line</span> <span class="pre">[%X{X-Trace-Id}]</span> <span class="pre">-</span> <span class="pre">%msg%n&quot;</span> <span class="pre">/&gt;</span></code></p>
+</section>
+<section id="kafka-specific-configuration">
+<h2>Kafka specific configuration<a class="headerlink" href="#kafka-specific-configuration" title="Permalink to this headline"></a></h2>
+<p>If you use the kafka-connector (cloud connector) and kafka-presence (presence monitor), you may want to externalize kafka.properties. It is recommended to set <code class="docutils literal notranslate"><span class="pre">kafka.client.properties=file:/tmp/config/kafka.properties</span></code></p>
+<p>Note that “classpath” refers to embedded config file in the “resources” folder in your source code and “file” refers to an external config file.</p>
+<p>You want also use the embedded config file as a backup like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> this is the configuration used by the kafka.presence monitor
+<span class="go">kafka.client.properties=file:/tmp/config/kafka.properties,classpath:/kafka.properties</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">kafka.replication.factor</span></code> is usually determined by DevOps. Contact your administrator for the correct value. If the available number of kafka brokers are more than the replication factor, it will use the given replication factor. Otherwise, the system will fall back to a smaller value and this optimization may not work in production. Therefore, please discuss with your DevOps administrator for the optimal replication factor value.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Number</span> <span class="pre">of</span> <span class="pre">replicated</span> <span class="pre">copies</span> <span class="pre">=</span> <span class="pre">replication</span> <span class="pre">factor</span> <span class="pre">-</span> <span class="pre">1</span></code></p>
+</section>
+<section id="presence-monitor">
+<h2>presence monitor<a class="headerlink" href="#presence-monitor" title="Permalink to this headline"></a></h2>
+<p>You will deploy a “presence monitor” to assign topics to any connected user application instances.</p>
+<p>Your user application instances will connect to the presence monitor using websocket. When an application instance fails, the presence monitor can detect it immediately so that its peer application instances can update the routing table.</p>
+</section>
+<section id="distributed-trace-logging-aggregation-and-transaction-journaling">
+<h2>distributed trace logging, aggregation and transaction journaling<a class="headerlink" href="#distributed-trace-logging-aggregation-and-transaction-journaling" title="Permalink to this headline"></a></h2>
+<p>To enable distributed trace logging, please set this in log4j2.xml. For cloud native apps, you should redirect logging from standard out to a centralized logging system such as Elastic Search or Splunk.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;logger</span> <span class="pre">name=&quot;org.platformlambda.core.services.DistributedTrace&quot;</span> <span class="pre">level=&quot;INFO&quot;</span> <span class="pre">/&gt;</span></code></p>
+<p>Distributed trace aggregation will be available when you deploy your custom aggregation service with the route name <code class="docutils literal notranslate"><span class="pre">distributed.trace.processor</span></code>.</p>
+<p>If you want to disable aggregation for an application, set “distributed.trace.aggregation” to false in application.properties.</p>
+<p>Journaling service will be available with you deploy your custom aggregation service with the route name <code class="docutils literal notranslate"><span class="pre">distributed.trace.processor</span></code> and configure the “journal.yaml” parameter in application.properties pointing to a YAML file containing the following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">journal:</span>
+<span class="go">- &quot;my.service.1&quot;</span>
+<span class="go">- ...</span>
+<span class="gp">#</span> my.service.1 is an example. You should enter the correct route names <span class="k">for</span> your services to be journaled.
+</pre></div>
+</div>
+<p>The system will send transaction input/output payloads to the journaling service when trace is turned on and journal.yaml contains the service route name.</p>
+<p>For security and privacy, transaction journal should be saved to a database with access control because the transaction payload may contain sensitive information.</p>
+</section>
+<section id="spring-boot">
+<h2>Spring Boot<a class="headerlink" href="#spring-boot" title="Permalink to this headline"></a></h2>
+<p>The foundation code uses Spring Boot in the “rest-spring” library. For loose coupling, we use the <code class="docutils literal notranslate"><span class="pre">&#64;MainApplication</span></code> as a replacement for the <code class="docutils literal notranslate"><span class="pre">SpringApplication</span></code>. Please refer to the MainApp class in the “rest-example” project. This allows us to use any REST application server when technology evolves.</p>
+<p>If your code uses Spring Boot or Spring Framework directly, you can set the corresponding key-values in the application.properties file in the resources folder. e.g. changing the “auto-configuration” parameters.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="How-tos.html" class="btn btn-neutral float-left" title="How-Tos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="route-names.html" class="btn btn-neutral float-right" title="Reserved Route Names" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
