@@ -6,7 +6,7 @@
     <groupId>io.github.accenture</groupId>
     <artifactId>platform-core</artifactId>
     <packaging>jar</packaging>
-    <version>2.3.2</version>
+    <version>2.3.3</version>
     <name>Mercury core library</name>
     <description>This is the core engine library for Accenture Mercury</description>
     <url>https://github.com/Accenture/mercury/tree/master/system/platform-core</url>
