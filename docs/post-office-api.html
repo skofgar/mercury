@@ -67,7 +67,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#pipeline">Pipeline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#streaming">Streaming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#broadcast">Broadcast</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#join-n-fork">Join-n-fork</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fork-n-join">Fork-n-Join</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#inspecting-event-s-metadata">Inspecting event’s metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#default-pojo-mapping">Default PoJo mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#retrieve-raw-data-as-a-map">Retrieve raw data as a Map</a></li>
@@ -291,8 +291,8 @@
 </pre></div>
 </div>
 </section>
-<section id="join-n-fork">
-<h2>Join-n-fork<a class="headerlink" href="#join-n-fork" title="Permalink to this headline"></a></h2>
+<section id="fork-n-join">
+<h2>Fork-n-Join<a class="headerlink" href="#fork-n-join" title="Permalink to this headline"></a></h2>
 <p>You can perform join-n-fork RPC calls using a parallel version of the <code class="docutils literal notranslate"><span class="pre">request</span></code> method.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">EventEnvelope</span><span class="o">&gt;</span> <span class="nf">request</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">EventEnvelope</span><span class="o">&gt;</span> <span class="n">events</span><span class="p">,</span> <span class="kt">long</span> <span class="n">timeout</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="p">;</span>
 
