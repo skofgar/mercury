@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architecture &mdash; Mercury 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Libraries and Components" href="library.html" />
+    <link rel="prev" title="Getting Started" href="start.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Mercury
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#rationale">Rationale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-friendly-reactive-programming">User friendly reactive programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture-principles">Architecture principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#platform-abstraction">Platform abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simple-input-process-output-function">Simple Input-Process-Output function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">Libraries and Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatability.html">Compatability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="How-tos.html">Pragmatic Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app-properties.html">Application Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="route-names.html">Reserved Route Names</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="platform-api.html">Platform API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post-office-api.html">Post Office API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest-automation.html">Rest Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jax-rs.html">JAX-RS and WebServlets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connectors.html">Cloud Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multicast.html">Multicast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additonal-features.html">Additonal Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mercury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Architecture</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/architecture.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="architecture">
+<h1>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline"></a></h1>
+<section id="rationale">
+<h2>Rationale<a class="headerlink" href="#rationale" title="Permalink to this headline"></a></h2>
+<p>The microservices movement is gaining a lot of momentum in recent years. Very much inspired with the need t o modernize service-oriented architecture and to transform monolithic applications as manageable and reusable pieces, it was first mentioned in 2011 for an architectural style that defines an application as a set of loosely coupled single purpose services.</p>
+<p>Classical model of microservices architecture often focuses in the use of REST as interface and the self-containment of data and process. Oftentimes, there is a need for inter-service communication because one service may consume another service. Usually this is done with a service broker. This is an elegant architectural concept. However, many production systems face operational challenges. In reality, it is quite difficult to decompose a solution down to functional level. This applies to both green field development or application modernization. As a result, many microservices modules are indeed smaller subsystems. Within a traditional microservice, business logic is tightly coupled with 3rd party and open sources libraries including cloud platform client components and drivers. This is suboptimal.</p>
+</section>
+<section id="user-friendly-reactive-programming">
+<h2>User friendly reactive programming<a class="headerlink" href="#user-friendly-reactive-programming" title="Permalink to this headline"></a></h2>
+<p>Summary</p>
+<p>Completely and natively event driven
+Fully open source - Apache-2.0 license
+Simple configuration and simple API hides all the scaffolding code
+Code naturally, without worrying about asynchrony
+Naturally code in functional style, which makes code very portable
+Mix and match languages - currently Java and Python are supported, Node.js and dotnet are WIP
+Built-in distributed tracing
+Avoid going to the network when running in the same process, a huge performance boost for latency critical applications
+Doesn’t require all services to adopt, will provide the same benefits to those that do adopt it
+Learn and start coding in less than one hour</p>
+<p>Benefits</p>
+<p>Developer productivity - both authoring and maintenance
+Improves latency of calls within the same process
+Enables fully reactive implementations
+Scalability
+Portability of code between containers and clouds
+Observability - know who is calling who and when, know where you are in workflows
+Improves future-proofing - as better eventing libraries/frameworks/platforms become available, they can be brought in without changing a line of code
+Features</p>
+<p>Multiple languages supported - currently Java and Python are supported, Node.js and dotnet are WIP
+Plug in your favorite event stream. Popular ones are already supported.
+Multiple eventing patterns supported - pub/sub, broadcast, command, etc.
+REST automation for event-based services
+Built in distributed tracing</p>
+<p>Gnarly Use Cases solved with Mercury</p>
+<p>Workflows with event-based architecture, utilizing Saga pattern
+Support of “closed user groups” for added security</p>
+</section>
+<section id="architecture-principles">
+<h2>Architecture principles<a class="headerlink" href="#architecture-principles" title="Permalink to this headline"></a></h2>
+<p>For simplicity, we advocate 3 architecture principles to write microservices</p>
+<p>minimalist
+event driven
+context bound
+Minimalist means we want user software to be as small as possible. The Mercury framework allows you to write business logic down to functional level using simple input-process-output pattern.</p>
+<p>Event driven promotes loose coupling. All functions should run concurrently and independently of each other.</p>
+<p>Lastly, context bound means high level of encapsulation so that a function only expose API contract and nothing else.</p>
+</section>
+<section id="platform-abstraction">
+<h2>Platform abstraction<a class="headerlink" href="#platform-abstraction" title="Permalink to this headline"></a></h2>
+<p>Mercury offers the highest level of decoupling where each piece of business logic can be expressed as an anonymous function. A microservices module is a collection of one or more functions. These functions connect to each other using events.</p>
+<p>The framework hides the complexity of event-driven programming and cloud platform integration. For the latter, the service mesh interface is fully encapsulated so that user functions do not need to be aware of network connectivity and details of the cloud platform.</p>
+</section>
+<section id="simple-input-process-output-function">
+<h2>Simple Input-Process-Output function<a class="headerlink" href="#simple-input-process-output-function" title="Permalink to this headline"></a></h2>
+<p>This is a best practice in software development. Input is fed into an anonymous function. It will process the input according to some API contract and produce some output.</p>
+<p>This simplifies software development and unit tests.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="start.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="library.html" class="btn btn-neutral float-right" title="Libraries and Components" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Additonal Features &mdash; Mercury 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Version Control" href="version-control.html" />
+    <link rel="prev" title="Multicast" href="multicast.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Mercury
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">Libraries and Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatability.html">Compatability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="How-tos.html">Pragmatic Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app-properties.html">Application Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="route-names.html">Reserved Route Names</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="platform-api.html">Platform API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post-office-api.html">Post Office API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest-automation.html">Rest Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jax-rs.html">JAX-RS and WebServlets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connectors.html">Cloud Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multicast.html">Multicast</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Additonal Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#admin-endpoints-to-stop-suspend-or-resume">Admin endpoints to stop, suspend or resume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#actuator-endpoints">Actuator endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-health-services">Custom health services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#application-instance-life-cycle-events">Application instance life-cycle events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#httpclient-as-a-service">HttpClient as a service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sending-http-request-body-for-http-put-post-and-patch-methods">Sending HTTP request body for HTTP PUT, POST and PATCH methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sending-http-request-body-as-a-stream">Sending HTTP request body as a stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#handle-http-response-body-stream">Handle HTTP response body stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#content-length-for-http-request">Content length for HTTP request</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mercury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Additonal Features</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/additonal-features.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="additonal-features">
+<h1>Additonal Features<a class="headerlink" href="#additonal-features" title="Permalink to this headline"></a></h1>
+<section id="admin-endpoints-to-stop-suspend-or-resume">
+<h2>Admin endpoints to stop, suspend or resume<a class="headerlink" href="#admin-endpoints-to-stop-suspend-or-resume" title="Permalink to this headline"></a></h2>
+<p>You can stop, suspend or resume an application instance from a <code class="docutils literal notranslate"><span class="pre">presence</span> <span class="pre">monitor</span></code>.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Shutdown</span></code> - stop an application so that the container management system will restart it</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Suspend</span></code> - tell the application instance not to accept incoming requests</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Resume</span></code> - tell the application instance to accept incoming requests</p></li>
+</ol>
+<p>Suspend and resume commands are usually used to simulate error cases for development and regression test purposes.</p>
+<p>For example, to simulate a stalled application instance, you can use the “POST /suspend/later” command.</p>
+<p>If you do not want your application instance to receive any service request, you can isolate it with the “POST /suspend/now” command.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>POST /shutdown
+POST /suspend/{now | later}
+POST /resume/{now | later}
+
+HTTP request header
+X-App-Instance=origin_id_here
+</pre></div>
+</div>
+</section>
+<section id="actuator-endpoints">
+<h2>Actuator endpoints<a class="headerlink" href="#actuator-endpoints" title="Permalink to this headline"></a></h2>
+<p>The following admin endpoints are available.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">GET /info</span>
+<span class="l l-Scalar l-Scalar-Plain">GET /info/routes</span>
+<span class="l l-Scalar l-Scalar-Plain">GET /info/lib</span>
+<span class="l l-Scalar l-Scalar-Plain">GET /env</span>
+<span class="l l-Scalar l-Scalar-Plain">GET /health</span>
+<span class="l l-Scalar l-Scalar-Plain">GET /livenessprobe</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Optional HTTP request header</span>
+<span class="l l-Scalar l-Scalar-Plain">X-App-Instance=origin_id_here</span>
+</pre></div>
+</div>
+<p>If you provide the optional X-App-Instance HTTP header, you can execute the admin endpoint from <code class="docutils literal notranslate"><span class="pre">any</span> <span class="pre">application</span> <span class="pre">instance</span></code> using the event stream system.</p>
+</section>
+<section id="custom-health-services">
+<h2>Custom health services<a class="headerlink" href="#custom-health-services" title="Permalink to this headline"></a></h2>
+<p>You can extend the “/health” endpoint by implementing and registering lambda functions to be added to the health.dependencies.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mandatory</span><span class="o">.</span><span class="n">health</span><span class="o">.</span><span class="n">dependencies</span><span class="o">=</span><span class="n">cloud</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">health</span><span class="p">,</span><span class="n">cloud</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">health</span>
+<span class="c1">#optional.health.dependencies=other.service.health</span>
+</pre></div>
+</div>
+<p>Your custom health service must respond to the following requests:</p>
+<ol class="arabic simple">
+<li><p>Info request (type=info) - it should return a map that includes service name and href (protocol, hostname and port)</p></li>
+<li><p>Health check (type=health) - it should return a text string of the health check. e.g. read/write test result. It can throw AppException with status code and error message if health check fails.</p></li>
+</ol>
+<p>The health service can retrieve the “type” of the request from the “headers”.</p>
+</section>
+<section id="application-instance-life-cycle-events">
+<h2>Application instance life-cycle events<a class="headerlink" href="#application-instance-life-cycle-events" title="Permalink to this headline"></a></h2>
+<p>Any application can subscribe to life-cycle events of other application instances. Sample code is available in extensions/rest-automation-lib/src/main/java/org/platformlambda/automation/services/NotificationManager.java</p>
+<p>To listen to life cycle events, you can do something like this:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">AUTOMATION_NOTIFICATION</span> <span class="o">=</span> <span class="s">&quot;member.life.cycle.listener&quot;</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">appName</span> <span class="o">=</span> <span class="n">platform</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span>
+<span class="n">LambdaFunction</span> <span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">instance</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">CONNECTED</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">type</span><span class="p">))</span> <span class="p">{</span>
+        <span class="c1">// handle connection event - this event is fired when your app is connected to the event stream system</span>
+        <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;connected&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">DISCONNECTED</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">type</span><span class="p">))</span> <span class="p">{</span>
+        <span class="c1">// handle disconnection event - this event is fired when your app is disconnected from the event stream system</span>
+        <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;disconnected&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">JOIN</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">type</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">headers</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">ORIGIN</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">appName</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">headers</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">NAME</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="c1">// handle member join event</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">LEAVE</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">type</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">headers</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">ORIGIN</span><span class="p">))</span> <span class="p">{</span>
+        <span class="c1">// handle member leave event</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">platform</span><span class="p">.</span><span class="na">registerPrivate</span><span class="p">(</span><span class="n">AUTOMATION_NOTIFICATION</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="p">...</span>
+<span class="n">EventEnvelope</span> <span class="n">event</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EventEnvelope</span><span class="p">()</span>
+                        <span class="p">.</span><span class="na">setTo</span><span class="p">(</span><span class="n">AUTOMATION_NOTIFICATION</span><span class="p">).</span><span class="na">setHeader</span><span class="p">(</span><span class="n">TYPE</span><span class="p">,</span> <span class="n">SUBSCRIBE_LIFE_CYCLE</span><span class="p">);</span>
+<span class="n">po</span><span class="p">.</span><span class="na">sendLater</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="k">new</span> <span class="n">Date</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">()</span> <span class="o">+</span> <span class="mi">2000</span><span class="p">));</span>
+</pre></div>
+</div>
+</section>
+<section id="httpclient-as-a-service">
+<h2>HttpClient as a service<a class="headerlink" href="#httpclient-as-a-service" title="Permalink to this headline"></a></h2>
+<p>Starting from version 1.12.30, the rest-automation system, when deployed, will provide the “async.http.request” service.</p>
+<p>This means you can make a HTTP request without using a HttpClient.</p>
+<p>For example, a simple HTTP GET request may look like this:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// the target URL is constructed from the relay</span>
+<span class="n">PostOffice</span> <span class="n">po</span> <span class="o">=</span> <span class="n">PostOffice</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span>
+<span class="n">AsyncHttpRequest</span> <span class="n">req</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AsyncHttpRequest</span><span class="p">();</span>
+<span class="n">req</span><span class="p">.</span><span class="na">setMethod</span><span class="p">(</span><span class="s">&quot;GET&quot;</span><span class="p">);</span>
+<span class="n">req</span><span class="p">.</span><span class="na">setHeader</span><span class="p">(</span><span class="s">&quot;accept&quot;</span><span class="p">,</span> <span class="s">&quot;application/json&quot;</span><span class="p">);</span>
+<span class="n">req</span><span class="p">.</span><span class="na">setUrl</span><span class="p">(</span><span class="s">&quot;/api/search?keywords=&quot;</span><span class="o">+</span><span class="n">body</span><span class="p">);</span>
+<span class="n">req</span><span class="p">.</span><span class="na">setTargetHost</span><span class="p">(</span><span class="s">&quot;https://service_provider_host&quot;</span><span class="p">);</span>
+<span class="k">try</span> <span class="p">{</span>
+    <span class="n">EventEnvelope</span> <span class="n">res</span> <span class="o">=</span> <span class="n">po</span><span class="p">.</span><span class="na">request</span><span class="p">(</span><span class="s">&quot;async.http.request&quot;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="n">req</span><span class="p">.</span><span class="na">toMap</span><span class="p">());</span>
+    <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;GOT {} {}&quot;</span><span class="p">,</span> <span class="n">res</span><span class="p">.</span><span class="na">getHeaders</span><span class="p">(),</span> <span class="n">res</span><span class="p">.</span><span class="na">getBody</span><span class="p">());</span>
+    <span class="cm">/*</span>
+<span class="cm">    * res.getHeaders() contains HTTP response headers</span>
+<span class="cm">    * res.getBody() is the HTTP response body</span>
+<span class="cm">    *</span>
+<span class="cm">    * Note that the HTTP body will be provided as be set a HashMap</span>
+<span class="cm">    * if the input content-type is application/json or application/xml.</span>
+<span class="cm">    */</span>
+    <span class="c1">// process HTTP response here (HTTP-200)</span>
+
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">AppException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;Rejected by service provider HTTP-{} {}&quot;</span><span class="p">,</span>
+            <span class="n">e</span><span class="p">.</span><span class="na">getStatus</span><span class="p">(),</span> <span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">().</span><span class="na">replace</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">));</span>
+    <span class="c1">// handle exception here</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the above example, we are using RPC method. You may also use callback method for handling the HTTP response.</p>
+</section>
+<section id="sending-http-request-body-for-http-put-post-and-patch-methods">
+<h2>Sending HTTP request body for HTTP PUT, POST and PATCH methods<a class="headerlink" href="#sending-http-request-body-for-http-put-post-and-patch-methods" title="Permalink to this headline"></a></h2>
+<p>For most cases, you can just set a HashMap into the request body and specify content-type as JSON or XML. The system will perform serialization properly.</p>
+<p>Example code may look like this:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">AsyncHttpRequest</span> <span class="n">req</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AsyncHttpRequest</span><span class="p">();</span>
+<span class="n">req</span><span class="p">.</span><span class="na">setMethod</span><span class="p">(</span><span class="s">&quot;POST&quot;</span><span class="p">);</span>
+<span class="n">req</span><span class="p">.</span><span class="na">setHeader</span><span class="p">(</span><span class="s">&quot;accept&quot;</span><span class="p">,</span> <span class="s">&quot;application/json&quot;</span><span class="p">);</span>
+<span class="n">req</span><span class="p">.</span><span class="na">setHeader</span><span class="p">(</span><span class="s">&quot;content-type&quot;</span><span class="p">,</span> <span class="s">&quot;application/json&quot;</span><span class="p">);</span>
+<span class="n">req</span><span class="p">.</span><span class="na">setUrl</span><span class="p">(</span><span class="s">&quot;/api/book/new_book/12345&quot;</span><span class="p">);</span>
+<span class="n">req</span><span class="p">.</span><span class="na">setTargetHost</span><span class="p">(</span><span class="s">&quot;https://service_provider_host&quot;</span><span class="p">);</span>
+<span class="n">req</span><span class="p">.</span><span class="na">setBody</span><span class="p">(</span><span class="n">keyValues</span><span class="p">);</span>
+<span class="c1">// where keyValues is a HashMap</span>
+</pre></div>
+</div>
+</section>
+<section id="sending-http-request-body-as-a-stream">
+<h2>Sending HTTP request body as a stream<a class="headerlink" href="#sending-http-request-body-as-a-stream" title="Permalink to this headline"></a></h2>
+<p>For larger payload, you may use streaming method. See sample code below:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">len</span><span class="p">;</span>
+<span class="kt">byte</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="n">BUFFER_SIZE</span><span class="o">]</span><span class="p">;</span>
+<span class="n">BufferedInputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedInputStream</span><span class="p">(</span><span class="n">someFileInputStream</span><span class="p">);</span>
+<span class="n">ObjectStreamIO</span> <span class="n">stream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectStreamIO</span><span class="p">(</span><span class="n">timeoutInSeconds</span><span class="p">);</span>
+<span class="n">ObjectStreamWriter</span> <span class="n">out</span> <span class="o">=</span> <span class="n">stream</span><span class="p">.</span><span class="na">getOutputStream</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">((</span><span class="n">len</span> <span class="o">=</span> <span class="n">in</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">buffer</span><span class="p">.</span><span class="na">length</span><span class="p">))</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">out</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// closing the output stream would save an EOF mark in the stream</span>
+<span class="n">out</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="c1">// update the AsyncHttpRequest object</span>
+<span class="n">req</span><span class="p">.</span><span class="na">setStreamRoute</span><span class="p">(</span><span class="n">stream</span><span class="p">.</span><span class="na">getRoute</span><span class="p">());</span>
+</pre></div>
+</div>
+</section>
+<section id="handle-http-response-body-stream">
+<h2>Handle HTTP response body stream<a class="headerlink" href="#handle-http-response-body-stream" title="Permalink to this headline"></a></h2>
+<p>If content length is not given, the response body will be received as a stream.</p>
+<p>Your application should check if the HTTP response headers contains a “stream” header. Sample code to read the stream may look like this:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PostOffice</span> <span class="n">po</span> <span class="o">=</span> <span class="n">PostOffice</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span>
+<span class="n">AsyncHttpRequest</span> <span class="n">req</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AsyncHttpRequest</span><span class="p">();</span>
+<span class="n">req</span><span class="p">.</span><span class="na">setMethod</span><span class="p">(</span><span class="s">&quot;GET&quot;</span><span class="p">);</span>
+<span class="n">req</span><span class="p">.</span><span class="na">setHeader</span><span class="p">(</span><span class="s">&quot;accept&quot;</span><span class="p">,</span> <span class="s">&quot;application/json&quot;</span><span class="p">);</span>
+<span class="n">req</span><span class="p">.</span><span class="na">setUrl</span><span class="p">(</span><span class="s">&quot;/api/search?keywords=&quot;</span><span class="o">+</span><span class="n">body</span><span class="p">);</span>
+<span class="n">req</span><span class="p">.</span><span class="na">setTargetHost</span><span class="p">(</span><span class="s">&quot;https://service_provider_host&quot;</span><span class="p">);</span>
+<span class="n">EventEnvelope</span> <span class="n">res</span> <span class="o">=</span> <span class="n">po</span><span class="p">.</span><span class="na">request</span><span class="p">(</span><span class="s">&quot;async.http.request&quot;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="n">req</span><span class="p">.</span><span class="na">toMap</span><span class="p">());</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">resHeaders</span> <span class="o">=</span> <span class="n">res</span><span class="p">.</span><span class="na">getHeaders</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">resHeaders</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="s">&quot;stream&quot;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">ObjectStreamIO</span> <span class="n">consumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectStreamIO</span><span class="p">(</span><span class="n">resHeaders</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;stream&quot;</span><span class="p">));</span>
+    <span class="cm">/*</span>
+<span class="cm">    * For demonstration, we are using ByteArrayOutputStream.</span>
+<span class="cm">    * For production code, you should stream the input to persistent storage</span>
+<span class="cm">    * or handle the input stream directly.</span>
+<span class="cm">    */</span>
+    <span class="n">ByteArrayOutputStream</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="p">();</span>
+    <span class="n">ObjectStreamReader</span> <span class="n">in</span> <span class="o">=</span> <span class="n">consumer</span><span class="p">.</span><span class="na">getInputStream</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">Object</span> <span class="n">d</span><span class="p">:</span> <span class="n">in</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="k">instanceof</span> <span class="kt">byte</span><span class="o">[]</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">out</span><span class="p">.</span><span class="na">write</span><span class="p">((</span><span class="kt">byte</span><span class="o">[]</span><span class="p">)</span> <span class="n">d</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">// remember to close the input stream</span>
+    <span class="n">in</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+    <span class="c1">// handle the result</span>
+    <span class="kt">byte</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="n">out</span><span class="p">.</span><span class="na">toByteArray</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="content-length-for-http-request">
+<h2>Content length for HTTP request<a class="headerlink" href="#content-length-for-http-request" title="Permalink to this headline"></a></h2>
+<p>Important - Do not set the “content-length” HTTP header because the system will automatically compute the correct content-length for small payload. For large payload, it will use the chunking method.</p>
+<p>The system may use data compression. Manually setting content length for HTTP request body would result in unintended side effects.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="multicast.html" class="btn btn-neutral float-left" title="Multicast" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="version-control.html" class="btn btn-neutral float-right" title="Version Control" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reserved Route Names &mdash; Mercury 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Platform API" href="platform-api.html" />
+    <link rel="prev" title="Application Properties" href="app-properties.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Mercury
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">Libraries and Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatability.html">Compatability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="How-tos.html">Pragmatic Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app-properties.html">Application Properties</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reserved Route Names</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#distributed-trace-processor">Distributed trace processor</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="platform-api.html">Platform API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post-office-api.html">Post Office API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest-automation.html">Rest Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jax-rs.html">JAX-RS and WebServlets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connectors.html">Cloud Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multicast.html">Multicast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additonal-features.html">Additonal Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mercury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Reserved Route Names</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/route-names.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="reserved-route-names">
+<h1>Reserved Route Names<a class="headerlink" href="#reserved-route-names" title="Permalink to this headline"></a></h1>
+<p>The Mercury foundation functions are also written using the same event-driven platform-core. The following route names are reserved for the Mercury system functions.</p>
+<p>Please do not use them in your application functions as it would disrupt the normal operation of the event-driven system and your application may not work as expected.</p>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">Reserved Route Names</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Route Name</p></th>
+<th class="head"><p>Purpose</p></th>
+<th class="head"><p>Modules</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>actuator.services</p></td>
+<td><p>Reserved for actuator admin endpoint</p></td>
+<td><p>platform-core</p></td>
+</tr>
+<tr class="row-odd"><td><p>elastic.queue.cleanup</p></td>
+<td><p>Elastic queue clean up task</p></td>
+<td><p>platform-core</p></td>
+</tr>
+<tr class="row-even"><td><p>distributed.tracing</p></td>
+<td><p>Distributed trace logger</p></td>
+<td><p>platform-core</p></td>
+</tr>
+<tr class="row-odd"><td><p>distributed.trace.processor</p></td>
+<td><p>Distributed trace aggregator</p></td>
+<td><p>User defined trace handler</p></td>
+</tr>
+<tr class="row-even"><td><p>system.service.registry</p></td>
+<td><p>Distributed routing registry</p></td>
+<td><p>cloud connectors</p></td>
+</tr>
+<tr class="row-odd"><td><p>system.service.query</p></td>
+<td><p>Distributed routing query</p></td>
+<td><p>cloud connectors</p></td>
+</tr>
+<tr class="row-even"><td><p>cloud.connector.health</p></td>
+<td><p>Cloud connector health service</p></td>
+<td><p>cloud connectors</p></td>
+</tr>
+<tr class="row-odd"><td><p>additional.info</p></td>
+<td><p>Additional info service</p></td>
+<td><p>cloud connectors</p></td>
+</tr>
+<tr class="row-even"><td><p>cloud.manager</p></td>
+<td><p>Cloud manager service</p></td>
+<td><p>Cloud connectors</p></td>
+</tr>
+<tr class="row-odd"><td><p>presence.service</p></td>
+<td><p>Presence reporter service</p></td>
+<td><p>cloud connectors</p></td>
+</tr>
+<tr class="row-even"><td><p>presence.housekeeper</p></td>
+<td><p>Presence housekeeper service</p></td>
+<td><p>cloud connectors</p></td>
+</tr>
+<tr class="row-odd"><td><p>cloud.connector</p></td>
+<td><p>Cloud event emitter</p></td>
+<td><p>Cloud connectors</p></td>
+</tr>
+<tr class="row-even"><td><p>async.http.request</p></td>
+<td><p>HTTP request event handler</p></td>
+<td><p>REST automation system</p></td>
+</tr>
+<tr class="row-odd"><td><p>async.http.response</p></td>
+<td><p>HTTP response event handler</p></td>
+<td><p>REST automation system</p></td>
+</tr>
+<tr class="row-even"><td><p>notification.manager</p></td>
+<td><p>Simple notification service</p></td>
+<td><p>REST automation system</p></td>
+</tr>
+<tr class="row-odd"><td><p>ws.token.issuer</p></td>
+<td><p>Websocket access token issuer</p></td>
+<td><p>REST automation system</p></td>
+</tr>
+<tr class="row-even"><td><p>ws.notification</p></td>
+<td><p>Websocket notification handler</p></td>
+<td><p>REST automation system</p></td>
+</tr>
+<tr class="row-odd"><td><p>language.pack.inbox</p></td>
+<td><p>RPC inbox handler</p></td>
+<td><p>Language Connector</p></td>
+</tr>
+<tr class="row-even"><td><p>language.pack.registry</p></td>
+<td><p>Routing registry</p></td>
+<td><p>Language Connector</p></td>
+</tr>
+<tr class="row-odd"><td><p>pub.sub.controller</p></td>
+<td><p>Pub/sub handler</p></td>
+<td><p>Language Connector</p></td>
+</tr>
+<tr class="row-even"><td><p>system.deferred.delivery</p></td>
+<td><p>Deferred delivery handler</p></td>
+<td><p>Language Connector</p></td>
+</tr>
+<tr class="row-odd"><td><p>object.streams.io</p></td>
+<td><p>Object stream manager</p></td>
+<td><p>Language Connector</p></td>
+</tr>
+<tr class="row-even"><td><p>cron.scheduler</p></td>
+<td><p>Cron job scheduler</p></td>
+<td><p>Scheduler helper application</p></td>
+</tr>
+<tr class="row-odd"><td><p>init.service.monitor.*</p></td>
+<td><p>reserved for event stream startup</p></td>
+<td><p>service monitor core</p></td>
+</tr>
+<tr class="row-even"><td><p>completion.service.monitor.*</p></td>
+<td><p>reserved for event stream clean up</p></td>
+<td><p>service monitor core</p></td>
+</tr>
+<tr class="row-odd"><td><p>init.multiplex.*</p></td>
+<td><p>reserved for event stream startup</p></td>
+<td><p>cloud connector core</p></td>
+</tr>
+<tr class="row-even"><td><p>completion.multiplex.*</p></td>
+<td><p>reserved for event stream clean up</p></td>
+<td><p>cloud connector core</p></td>
+</tr>
+</tbody>
+</table>
+<section id="distributed-trace-processor">
+<h2>Distributed trace processor<a class="headerlink" href="#distributed-trace-processor" title="Permalink to this headline"></a></h2>
+<p>The route name “distributed.trace.processor” is reserved for user defined trace handler. If you implement a function with this route name, it will receive trace metrics in a real-time basis. Your custom application can then decide how to persist the metrics. e.g. Elastic Search or a database.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="app-properties.html" class="btn btn-neutral float-left" title="Application Properties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="platform-api.html" class="btn btn-neutral float-right" title="Platform API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

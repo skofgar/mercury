@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JAX-RS and WebServlets &mdash; Mercury 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Cloud Connectors" href="connectors.html" />
+    <link rel="prev" title="Rest Automation" href="rest-automation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Mercury
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">Libraries and Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatability.html">Compatability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="How-tos.html">Pragmatic Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app-properties.html">Application Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="route-names.html">Reserved Route Names</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="platform-api.html">Platform API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post-office-api.html">Post Office API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest-automation.html">Rest Automation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">JAX-RS and WebServlets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#jax-rs-annotated-endpoints">JAX-RS annotated endpoints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#java-servlet">Java Servlet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spring-rest-controller">Spring REST controller</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#websocket-service">Websocket service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calling-other-microservices-functions">Calling other microservices functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#static-contents-for-html-css-and-javascript">Static contents for HTML, CSS and Javascript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loose-coupling-with-spring-boot">Loose coupling with Spring Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#application-properties">application.properties</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="connectors.html">Cloud Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multicast.html">Multicast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additonal-features.html">Additonal Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mercury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>JAX-RS and WebServlets</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/jax-rs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="jax-rs-and-webservlets">
+<h1>JAX-RS and WebServlets<a class="headerlink" href="#jax-rs-and-webservlets" title="Permalink to this headline"></a></h1>
+<p>The recommended way to create REST endpoints is the REST automation system described in chapter 4.</p>
+<p>However, if you want to write REST and websocket endpoints in traditional ways, Mercury supports the following for backward compatibility.</p>
+<ol class="arabic simple">
+<li><p>JAX-RS annotation</p></li>
+<li><p>Spring REST controller</p></li>
+<li><p>Java Servlet</p></li>
+</ol>
+<section id="jax-rs-annotated-endpoints">
+<h2>JAX-RS annotated endpoints<a class="headerlink" href="#jax-rs-annotated-endpoints" title="Permalink to this headline"></a></h2>
+<p>You class should include the <code class="docutils literal notranslate"><span class="pre">&#64;Path(String</span> <span class="pre">pathPrefix)</span></code> annotation. Set pathPrefix accordingly.</p>
+<p>All JAX-RS REST endpoints are prefixed with “/api”. If your pathPrefix is “/hello”. The path is “/api/hello”.</p>
+<p>In your REST endpoint method, you should use another <code class="docutils literal notranslate"><span class="pre">&#64;Path</span></code> to indicate any additional path information. Note that you can use <code class="docutils literal notranslate"><span class="pre">{pathParam}</span></code> in the URL path. If you have pathParam, please add <code class="docutils literal notranslate"><span class="pre">&#64;PathParam</span></code> parameter annotation to the argument in your method.</p>
+<p>You can set the HTTP method in the method with <code class="docutils literal notranslate"><span class="pre">&#64;GET</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;POST</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;PUT</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;DELETE</span></code>, etc. and specify content types in &#64;Consumes and &#64;Produces method annotation.</p>
+<p>If you want your REST endpoint to be optional when a property in the application.properties exists, annotate your class with OptionalService.</p>
+<p>Please refer to example code in <code class="docutils literal notranslate"><span class="pre">rest-example</span></code> and the JAX-RS reference site for details.</p>
+<section id="java-servlet">
+<h3>Java Servlet<a class="headerlink" href="#java-servlet" title="Permalink to this headline"></a></h3>
+<p>For low level control, you can use the <code class="docutils literal notranslate"><span class="pre">&#64;WebServlet(String</span> <span class="pre">urlPath)</span></code> to annotate your Servlet class that must extend the <code class="docutils literal notranslate"><span class="pre">HttpServlet</span></code> class.</p>
+<p>If you want your Java Servlet to be optional when a property in the application.properties exists, annotate your class with <code class="docutils literal notranslate"><span class="pre">OptionalService</span></code>.</p>
+</section>
+<section id="spring-rest-controller">
+<h3>Spring REST controller<a class="headerlink" href="#spring-rest-controller" title="Permalink to this headline"></a></h3>
+<p>If you are more familar with the Spring framework, you may use Spring REST controller. Note that this will create tight coupling and make your code less portable.</p>
+<p>Please refer to Spring documentation for details. Note that Spring REST controllers are installed in the URL root path.</p>
+</section>
+</section>
+<section id="websocket-service">
+<h2>Websocket service<a class="headerlink" href="#websocket-service" title="Permalink to this headline"></a></h2>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">&#64;WebSocketService(handlerName)</span></code> to annotate a websocket service that implements the LambdaFunction interface. Your websocket service function becomes the incoming event handler for websocket. The system will automatically create an outgoing message handler that works with your websocket service.</p>
+<p>Please refer to the sample code <code class="docutils literal notranslate"><span class="pre">WsEchoDemo</span></code> in the <code class="docutils literal notranslate"><span class="pre">rest-example</span></code>.</p>
+<p>Mercury is 100% event-driven. This includes websocket service. The sample code includes example for OPEN, CLOSE, BYTES and TEXT events. In the OPEN event, you can detect the query parameter and token.</p>
+<p>For standardization, websocket service uses a URL path as follows:</p>
+<p><code class="docutils literal notranslate"><span class="pre">ws://host:port/ws/{handlerName}/{token}</span></code></p>
+<p>The websocket client application or browser that connects to the websocket service must provide the “token” which is usually used for authentication.</p>
+<p>IMPORTANT: websocket does not support custom HTTP headers for authentication. As a result, we usually use an authentication token in the URL or query parameter. For the Mercury framework, we recommend the use of a token as a URL suffix. Typically, a user logs on to your application with a REST endpoint like “/login” and then a session cookie is created. The browser may then use the sessionId as a token in the websocket connection.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Websocket</span> <span class="pre">idle</span> <span class="pre">timeout</span></code> - there is a one-minute idle timeout for all websocket connection. To keep the websocket connection alive, you may send a message to the websocket service. For example, sending a BYTES or TEXT message to the service with some agreed protocol.</p>
+<p>To disconnect a websocket connection, you may use the Utility class as follows:</p>
+<p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">closeConnection(String</span> <span class="pre">txPath,</span> <span class="pre">CloseReason.CloseCodes</span> <span class="pre">status,</span> <span class="pre">String</span> <span class="pre">message)</span> <span class="pre">throws</span> <span class="pre">IOException;</span></code></p>
+<p>The txPath is available to the websocket service mentioned earlier.</p>
+</section>
+<section id="calling-other-microservices-functions">
+<h2>Calling other microservices functions<a class="headerlink" href="#calling-other-microservices-functions" title="Permalink to this headline"></a></h2>
+<p>You may call other microservices functions from your REST and websocket endpoints using the send or request methods of the Post Office.</p>
+</section>
+<section id="static-contents-for-html-css-and-javascript">
+<h2>Static contents for HTML, CSS and Javascript<a class="headerlink" href="#static-contents-for-html-css-and-javascript" title="Permalink to this headline"></a></h2>
+<p>Under the hood, we are using Spring Boot. Therefore you may put static contents under the “/public” folder in the project’s “resources”. The static contents will be bundled with your executable application JAR when you do mvn clean package.</p>
+</section>
+<section id="loose-coupling-with-spring-boot">
+<h2>Loose coupling with Spring Boot<a class="headerlink" href="#loose-coupling-with-spring-boot" title="Permalink to this headline"></a></h2>
+<p>The Mercury framework is loosely coupled with Spring Boot to support REST and websocket endpoints. The light-weight application server for Spring Boot can be Tomcat, Jetty or Undertow.</p>
+<p>For consistency, we have optimized Spring Boot with custom serializers and exception handlers in the <code class="docutils literal notranslate"><span class="pre">rest-spring</span></code> module.</p>
+<p>If you know what you are doing, you can use Spring Boot feature directly with the exception of the <code class="docutils literal notranslate"><span class="pre">&#64;SpringApplication</span></code> annotation because we use the <code class="docutils literal notranslate"><span class="pre">&#64;MainApplication</span></code> to enable additional automation. You can change the behavior of Spring Boot including auto-config classes using the <code class="docutils literal notranslate"><span class="pre">application.properties</span></code> file in the resources folder in the maven project.</p>
+<p>We are currently using Tomcat. If your organization prefers Jetty or Undertow, you may adjust the pom.xml file in the <code class="docutils literal notranslate"><span class="pre">rest-spring</span></code> and <code class="docutils literal notranslate"><span class="pre">platform-core</span></code> projects.</p>
+</section>
+<section id="application-properties">
+<h2>application.properties<a class="headerlink" href="#application-properties" title="Permalink to this headline"></a></h2>
+<p>In additon to the parameters defined by Spring Boot, the Mercury framework uses the following parameters.</p>
+<ol class="arabic simple">
+<li><p>web.component.scan - you should add your organizaton packages as a comma separated list to tell Mercury to scan for your packages.</p></li>
+<li><p>snake.case.serialization - we recommend the use of snake case for modern API</p></li>
+<li><p>safe.data.models - Optional. For higher security, you may specify a list of safe data models to be accepted by the serialization engine. This is to protect against hidden “evil” Java classes in certain open sources that you have not vetted directly.</p></li>
+<li><p>protected.info.endpoints - Optional. You may protect certain “known” REST endpoints such as “/info” or “/env” from unauthorized access. It uses a simple API key set in the environment.</p></li>
+<li><p>env.variables - parameters in the application.properties are automatically overriden by Java properties. To allow some environment variables to override your run-time parameters, you may define them in this parameter.</p></li>
+<li><p>spring.application.name/application.name, info.app.version and info.app.description - please update application name and information before you start your project. spring.application.name and application.name can be used interchangeably.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rest-automation.html" class="btn btn-neutral float-left" title="Rest Automation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="connectors.html" class="btn btn-neutral float-right" title="Cloud Connectors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

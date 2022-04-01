@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started &mdash; Mercury 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Architecture" href="architecture.html" />
+    <link rel="prev" title="Welcome to the Mercury project!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Mercury
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#before-you-start">Before You Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scalable-application-using-kafka">Scalable application using Kafka</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">Libraries and Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatability.html">Compatability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="How-tos.html">Pragmatic Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app-properties.html">Application Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="route-names.html">Reserved Route Names</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="platform-api.html">Platform API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post-office-api.html">Post Office API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest-automation.html">Rest Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jax-rs.html">JAX-RS and WebServlets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connectors.html">Cloud Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multicast.html">Multicast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additonal-features.html">Additonal Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version-control.html">Version Control</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mercury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/start.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h1>
+<section id="before-you-start">
+<h2>Before You Start<a class="headerlink" href="#before-you-start" title="Permalink to this headline"></a></h2>
+<p>If you haven’t already, please start a terminal and clone the repository:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/Accenture/mercury.git</span>
+<span class="go">cd mercury</span>
+</pre></div>
+</div>
+<p>To get the system up and running, you should compile and build the foundation libraries from sources. This will install the libraries into your “.m2/repository/org/platformlambda” folder.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Important</span></code> - please close all Java applications and web servers in your PC if any. The build process will invoke unit tests that simulate HTTP and websocket servers.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> start a terminal and go to the mercury sandbox folder
+<span class="go">mvn clean install</span>
+</pre></div>
+</div>
+<p>The platform-core, rest-spring, hazelcast-connector and kafka-connector are libraries and you can rebuild each one individually using <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">install</span></code></p>
+<p>The rest of the subprojects are executables that you can rebuild each one with <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">package</span></code>.</p>
+</section>
+<section id="id1">
+<h2>Getting Started<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h2>
+<p>You can compile the rest-example as a microservices executable like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd mercury/examples</span>
+<span class="go">cd rest-example</span>
+<span class="go">mvn clean package</span>
+<span class="go">java -jar target/rest-example-2.3.2.jar</span>
+<span class="gp">#</span> this will run the rest-example without a cloud connector
+</pre></div>
+</div>
+<p>Try <a class="reference external" href="http://127.0.0.1:8083/api/hello/world">http://127.0.0.1:8083/api/hello/world</a> with a browser.</p>
+<p>It will respond with some sample output like this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>{
+&quot;body&quot; : {
+    &quot;body&quot; : {
+    &quot;accept&quot; : &quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&quot;,
+    &quot;accept-encoding&quot; : &quot;gzip, deflate, br&quot;,
+    &quot;accept-language&quot; : &quot;en-US,en;q=0.9&quot;,
+    &quot;cache-control&quot; : &quot;max-age=0&quot;,
+    &quot;connection&quot; : &quot;keep-alive&quot;,
+    &quot;host&quot; : &quot;127.0.0.1:8083&quot;,
+    &quot;time&quot; : &quot;2018-12-21T16:39:33.546Z&quot;,
+    &quot;upgrade-insecure-requests&quot; : &quot;1&quot;,
+    &quot;user-agent&quot; : &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) ...&quot;
+    },
+    &quot;headers&quot; : {
+    &quot;seq&quot; : &quot;4&quot;
+    },
+    &quot;instance&quot; : 4,
+    &quot;origin&quot; : &quot;2018122170c4d0e80ef94b459763636da74d6b5f&quot;
+},
+&quot;execution_time&quot; : 0.298,
+&quot;headers&quot; : { },
+&quot;round_trip&quot; : 0.862,
+&quot;status&quot; : 200
+}
+</pre></div>
+</div>
+<p>The REST endpoint makes a request to the “hello.world” service that echoes back the headers of the HTTP request. The underlying Spring Boot HTTP server has been pre-configured with HTML, JSON and XML message serializers and exception handlers.</p>
+<p>If you change the “accept” header to “application/xml”, the output will be shown in XML.</p>
+<p>To demonstrate concurrent processing, you may visit <a class="reference external" href="http://127.0.0.1:8083/api/hello/concurrent">http://127.0.0.1:8083/api/hello/concurrent</a></p>
+<p>Now try <a class="reference external" href="http://127.0.0.1:8083/api/hello/pojo/1">http://127.0.0.1:8083/api/hello/pojo/1</a></p>
+<p>This will return a HTTP-500 “Route hello.pojo not found” error. This is expected behavior because the “hello.pojo” service is not available in the rest-example container. Let’s walk thru distributed and scalable application in the next section.</p>
+</section>
+<section id="scalable-application-using-kafka">
+<h2>Scalable application using Kafka<a class="headerlink" href="#scalable-application-using-kafka" title="Permalink to this headline"></a></h2>
+<p>For development and testing, you can start a standalone Kafka server.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> start a terminal and go to the mercury sandbox folder, <span class="k">then</span> go to the kafka-standalone folder
+<span class="go">cd mercury/connectors/kafka/kafka-standalone/</span>
+<span class="go">mvn clean package</span>
+<span class="go">java -jar target/kafka-standalone-2.3.2.jar</span>
+<span class="gp">#</span> this will run a standalone Kafka server in the foreground
+</pre></div>
+</div>
+<p>The next step is to start the “presence-monitor” application.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> start another terminal and go to kafka-presence folder
+<span class="go">cd mercury/connectors/kafka/kafka-presence/</span>
+<span class="go">mvn clean package</span>
+<span class="go">java -jar target/kafka-presence-2.3.2.jar</span>
+<span class="gp">#</span> this will run the presence monitor at port <span class="m">8080</span> in the foreground
+
+<span class="gp">#</span> when an application instance is started, it connects to the presence monitor to get topic.
+<span class="gp">#</span> you will see log similar to the following:
+<span class="go">Adding member 20210405aa0220674e404169a5ec158a99714da6</span>
+<span class="go">Monitor (me) 20210405209f8e20ed3f4c0a80b035a50273b922 begins RSVP</span>
+<span class="go">multiplex.0001-001 assigned to 20210405aa0220674e404169a5ec158a99714da6 lambda-example, 2.1.1</span>
+<span class="go">Monitor (me) 20210405209f8e20ed3f4c0a80b035a50273b922 finished RSVP</span>
+</pre></div>
+</div>
+<p>Optionally, if you want to test resilience of the presence monitor, you can start another instance like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> start another terminal and go to kafka-presence folder
+<span class="go">cd mercury/connectors/kafka/kafka-presence/</span>
+<span class="go">mvn clean package</span>
+<span class="go">java -Dserver.port=8081 -jar target/kafka-presence-2.3.2.jar</span>
+<span class="gp">#</span> this will run the presence monitor at port <span class="m">8081</span> in the foreground
+</pre></div>
+</div>
+<p>You can then run the lambda-example and rest-example applications</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> go to the lambda-example project folder in one terminal
+<span class="go">java -Dcloud.connector=kafka -jar target/lambda-example-2.3.2.jar</span>
+<span class="gp">#</span> the lambda-example will connect to the <span class="s2">&quot;presence monitor&quot;</span>, obtain a topic and connect to Kafka
+
+<span class="gp">#</span> go to the rest-example project folder in another terminal
+<span class="go">java -Dcloud.connector=kafka -jar target/rest-example-2.3.2.jar</span>
+<span class="gp">#</span> the rest-example will also connect to the <span class="s2">&quot;presence monitor&quot;</span>, obtain a topic and connect to Kafka
+
+<span class="gp">#</span> the lambda-example and rest-example apps will show the topic assignment like this
+<span class="go">presence.monitor, partition 1 ready</span>
+<span class="go">multiplex.0001, partition 0 ready</span>
+</pre></div>
+</div>
+<p>You may visit <a class="reference external" href="http://127.0.0.1:8083/api/hello/pojo/1">http://127.0.0.1:8083/api/hello/pojo/1</a> with a browser, you will see output like this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>{
+&quot;id&quot;: 1,
+&quot;name&quot;: &quot;Simple PoJo class&quot;,
+&quot;address&quot;: &quot;100 World Blvd, Planet Earth&quot;,
+&quot;date&quot;: &quot;2021-04-05T22:13:38.351Z&quot;,
+&quot;instance&quot;: 1,
+&quot;origin&quot;: &quot;20210405aa0220674e404169a5ec158a99714da6&quot;
+}
+</pre></div>
+</div>
+<p>This means the rest-example app accepts the HTTP request and sends the request event to the lambda-example app which in turns return the response event as shown above.</p>
+<p>The “cloud.connector=kafka” parameter overrides the application.properties in the rest-example and lambda-example projects so they can select Kafka as the service mesh.</p>
+<p>If you use Jetbrains Idea (“IntelliJ”) to run your project, please edit the start up config, click ‘Modify options’ and tick ‘add VM options’. This allows you to set default run-time parameters. e.g. “-Dcloud.connector=kafka”. Eclipse and other IDE would have similar run-time parameter options.</p>
+<p>Get additional info from the presence monitor
+You may visit <a class="reference external" href="http://127.0.0.1:8080">http://127.0.0.1:8080</a> and select “info”. It may look like this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>{
+&quot;app&quot;: {
+    &quot;name&quot;: &quot;kafka-presence&quot;,
+    &quot;description&quot;: &quot;Presence Monitor&quot;,
+    &quot;version&quot;: &quot;2.1.1&quot;
+},
+&quot;memory&quot;: {
+    &quot;max&quot;: &quot;8,524,922,880&quot;,
+    &quot;free&quot;: &quot;470,420,400&quot;,
+    &quot;allocated&quot;: &quot;534,773,760&quot;
+},
+&quot;personality&quot;: &quot;RESOURCES&quot;,
+&quot;additional_info&quot;: {
+    &quot;total&quot;: {
+    &quot;virtual_topics&quot;: 3,
+    &quot;topics&quot;: 2,
+    &quot;connections&quot;: 3
+    },
+    &quot;virtual_topics&quot;: [
+    &quot;multiplex.0001-000 -&gt; 2021082260f0b955a9ad427db14a9db751340d61, rest-example v2.1.1&quot;,
+    &quot;multiplex.0001-001 -&gt; 20210822371949df090644428cd98ae0ba91a69b, lambda-example v2.1.1&quot;,
+    &quot;multiplex.0001-002 -&gt; 2021082295c030edc07a4a4eb5cb78b6421f5fb7, lambda-example v2.1.1&quot;
+    ],
+    &quot;topics&quot;: [
+    &quot;multiplex.0001 (32)&quot;,
+    &quot;service.monitor (11)&quot;
+    ],
+    &quot;connections&quot;: [
+    {
+        &quot;created&quot;: &quot;2021-08-22T17:29:45Z&quot;,
+        &quot;origin&quot;: &quot;20210822371949df090644428cd98ae0ba91a69b&quot;,
+        &quot;name&quot;: &quot;lambda-example&quot;,
+        &quot;topic&quot;: &quot;multiplex.0001-001&quot;,
+        &quot;monitor&quot;: &quot;20210822c750f194403241c49ef8fae113beff75&quot;,
+        &quot;type&quot;: &quot;APP&quot;,
+        &quot;updated&quot;: &quot;2021-08-22T17:29:53Z&quot;,
+        &quot;version&quot;: &quot;2.1.1&quot;,
+        &quot;seq&quot;: 2,
+        &quot;group&quot;: 1
+    },
+    {
+        &quot;created&quot;: &quot;2021-08-22T17:29:55Z&quot;,
+        &quot;origin&quot;: &quot;2021082295c030edc07a4a4eb5cb78b6421f5fb7&quot;,
+        &quot;name&quot;: &quot;lambda-example&quot;,
+        &quot;topic&quot;: &quot;multiplex.0001-002&quot;,
+        &quot;monitor&quot;: &quot;20210822c750f194403241c49ef8fae113beff75&quot;,
+        &quot;type&quot;: &quot;APP&quot;,
+        &quot;updated&quot;: &quot;2021-08-22T17:30:04Z&quot;,
+        &quot;version&quot;: &quot;2.1.1&quot;,
+        &quot;seq&quot;: 2,
+        &quot;group&quot;: 1
+    },
+    {
+        &quot;created&quot;: &quot;2021-08-22T17:29:30Z&quot;,
+        &quot;origin&quot;: &quot;2021082260f0b955a9ad427db14a9db751340d61&quot;,
+        &quot;name&quot;: &quot;rest-example&quot;,
+        &quot;topic&quot;: &quot;multiplex.0001-000&quot;,
+        &quot;monitor&quot;: &quot;20210822c750f194403241c49ef8fae113beff75&quot;,
+        &quot;type&quot;: &quot;WEB&quot;,
+        &quot;updated&quot;: &quot;2021-08-22T17:30:01Z&quot;,
+        &quot;version&quot;: &quot;2.1.1&quot;,
+        &quot;seq&quot;: 3,
+        &quot;group&quot;: 1
+    }
+    ],
+    &quot;monitors&quot;: [
+    &quot;20210822c750f194403241c49ef8fae113beff75 - 2021-08-22T17:30:01Z&quot;
+    ]
+},
+&quot;vm&quot;: {
+    &quot;java_vm_version&quot;: &quot;11.0.10+9&quot;,
+    &quot;java_runtime_version&quot;: &quot;11.0.10+9&quot;,
+    &quot;java_version&quot;: &quot;11.0.10&quot;
+},
+&quot;streams&quot;: {
+    &quot;count&quot;: 0
+},
+&quot;origin&quot;: &quot;20210822c750f194403241c49ef8fae113beff75&quot;,
+&quot;time&quot;: {
+    &quot;current&quot;: &quot;2021-08-22T17:30:06.712Z&quot;,
+    &quot;start&quot;: &quot;2021-08-22T17:28:56.128Z&quot;
+}
+}
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the Mercury project!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="architecture.html" class="btn btn-neutral float-right" title="Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
