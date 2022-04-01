@@ -209,10 +209,10 @@ Broadcast is the easiest way to do "pub/sub". To broadcast an event to multiple 
     // example
     po.broadcast("hello.world", "hey, this is a broadcast message to all hello.world providers");
 
-Join-n-fork
+Fork-n-join
 ------------
 
-You can perform join-n-fork RPC calls using a parallel version of the ``request`` method.
+You can perform fork-n-join RPC calls using a parallel version of the ``request`` method.
 
 .. code-block:: java
 
