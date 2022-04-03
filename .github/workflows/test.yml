@@ -67,6 +67,7 @@ jobs:
       - run: mvn install -f connectors/core/cloud-connector
       - run: mvn install -f connectors/adapters/kafka/kafka-standalone
       - run: mvn install -f connectors/adapters/kafka/kafka-connector
+      - run: mvn install -f connectors/adapters/hazelcast/hazelcast-connector
       ####################
       # Language Connector
       - run: mvn install test -f language-packs/language-connector
@@ -92,6 +93,7 @@ jobs:
       - run: mvn install -f connectors/core/cloud-connector
       - run: mvn install -f connectors/adapters/kafka/kafka-standalone
       - run: mvn install -f connectors/adapters/kafka/kafka-connector
+      - run: mvn install -f connectors/adapters/hazelcast/hazelcast-connector
       ####################
       # Extensions
       - run: mvn install test -f extensions/api-playground
