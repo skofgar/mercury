@@ -17,8 +17,8 @@ jobs:
       - run: mvn install test -f connectors/core/service-monitor
       # Kafka
       - run: mvn install test -f connectors/adapters/kafka/kafka-standalone
-      - run: mvn install test -f connectors/adapters/kafka/kafka-presence
       - run: mvn install test -f connectors/adapters/kafka/kafka-connector
+      - run: mvn install test -f connectors/adapters/kafka/kafka-presence
       # Active MQ
       - run: mvn install test -f connectors/adapters/activemq/activemq-connector
       - run: mvn install test -f connectors/adapters/activemq/activemq-presence
