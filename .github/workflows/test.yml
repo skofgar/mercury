@@ -10,29 +10,29 @@ jobs:
         with:
           java-version: 11
       # Core
-      - run: mvn test -f system/platform-core  
-      - run: mvn test -f system/rest-spring
+      - run: mvn install test -f system/platform-core  
+      - run: mvn install test -f system/rest-spring
       # Connectors
-      - run: mvn test -f connectors/core/cloud-connector
-      - run: mvn test -f connectors/core/service-monitor
+      - run: mvn install test -f connectors/core/cloud-connector
+      - run: mvn install test -f connectors/core/service-monitor
       # Kafka
-      - run: mvn test -f connectors/adapters/kafka/kafka-standalone
-      - run: mvn test -f connectors/adapters/kafka/kafka-presence
-      - run: mvn test -f connectors/adapters/kafka/kafka-connector
+      - run: mvn install test -f connectors/adapters/kafka/kafka-standalone
+      - run: mvn install test -f connectors/adapters/kafka/kafka-presence
+      - run: mvn install test -f connectors/adapters/kafka/kafka-connector
       # Active MQ
-      - run: mvn test -f connectors/adapters/activemq/activemq-connector
-      - run: mvn test -f connectors/adapters/activemq/activemq-presence
+      - run: mvn install test -f connectors/adapters/activemq/activemq-connector
+      - run: mvn install test -f connectors/adapters/activemq/activemq-presence
       # Hazelcast
-      - run: mvn test -f connectors/adapters/hazelcast-connector
-      - run: mvn test -f connectors/adapters/hazelcast-presence
+      - run: mvn install test -f connectors/adapters/hazelcast-connector
+      - run: mvn install test -f connectors/adapters/hazelcast-presence
       # Language Connector
-      - run: mvn test -f language-packs/language-connector
+      - run: mvn install test -f language-packs/language-connector
       # Extensions
-      - run: mvn test -f extensions/api-playground
-      - run: mvn test -f extensions/distributed-tracer
-      - run: mvn test -f extensions/rest-automation-lib
-      - run: mvn test -f extensions/rest-atuomation-app
-      - run: mvn test -f extensions/simple-scheduler
+      - run: mvn install test -f extensions/api-playground
+      - run: mvn install test -f extensions/distributed-tracer
+      - run: mvn install test -f extensions/rest-automation-lib
+      - run: mvn install test -f extensions/rest-atuomation-app
+      - run: mvn install test -f extensions/simple-scheduler
       - name: Report System
         uses: dorny/test-reporter@v1
         if: always()
