@@ -64,6 +64,8 @@ jobs:
       # Install Required Core
       - run: mvn install -f system/platform-core  
       - run: mvn install -f system/rest-spring
+      - run: mvn install -f connectors/adapters/kafka/kafka-standalone
+      - run: mvn install -f connectors/adapters/kafka/kafka-connector
       ####################
       # Language Connector
       - run: mvn install test -f language-packs/language-connector
@@ -86,6 +88,8 @@ jobs:
       # Install Required Core
       - run: mvn install -f system/platform-core  
       - run: mvn install -f system/rest-spring
+      - run: mvn install -f connectors/adapters/kafka/kafka-standalone
+      - run: mvn install -f connectors/adapters/kafka/kafka-connector
       ####################
       # Extensions
       - run: mvn install test -f extensions/api-playground
