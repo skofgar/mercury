@@ -31,7 +31,7 @@ jobs:
       - run: mvn install test -f extensions/api-playground
       - run: mvn install test -f extensions/distributed-tracer
       - run: mvn install test -f extensions/rest-automation-lib
-      - run: mvn install test -f extensions/rest-atuomation-app
+      - run: mvn install test -f extensions/rest-automation-app
       - run: mvn install test -f extensions/simple-scheduler
       - name: Report System
         uses: dorny/test-reporter@v1
