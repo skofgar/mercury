@@ -12,26 +12,7 @@ jobs:
       # Core
       - run: mvn install test -f system/platform-core  
       - run: mvn install test -f system/rest-spring
-      - name: Report System
-        uses: dorny/test-reporter@v1
-        if: always()
-        with:
-          name: Maven Tests
-          path: system/*/target/surefire-reports/*.xml
-          reporter: java-junit
-          fail-on-error: true
-  connectors:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-      # Install Required Core
-      - run: mvn install -f system/platform-core  
-      - run: mvn install -f system/rest-spring
-      ####################
+ 
       # Connectors
       - run: mvn install test -f connectors/core/cloud-connector
       - run: mvn install test -f connectors/core/service-monitor
@@ -45,68 +26,23 @@ jobs:
       # Hazelcast
       - run: mvn install test -f connectors/adapters/hazelcast/hazelcast-connector
       - run: mvn install test -f connectors/adapters/hazelcast/hazelcast-presence
-      - name: Report Connectors
-        uses: dorny/test-reporter@v1
-        if: always()
-        with:
-          name: Maven Tests
-          path: connectors/**/target/surefire-reports/*.xml
-          reporter: java-junit
-          fail-on-error: true
-  language-connector:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-      # Install Required Core
-      - run: mvn install -f system/platform-core  
-      - run: mvn install -f system/rest-spring
-      - run: mvn install -f connectors/core/cloud-connector
-      - run: mvn install -f connectors/adapters/kafka/kafka-standalone
-      - run: mvn install -f connectors/adapters/kafka/kafka-connector
-      - run: mvn install -f connectors/adapters/hazelcast/hazelcast-connector
-      ####################
+
       # Language Connector
       - run: mvn install test -f language-packs/language-connector
-      - name: Language Pack
-        uses: dorny/test-reporter@v1
-        if: always()
-        with:
-          name: Maven Tests
-          path: language-packs/**/target/surefire-reports/*.xml
-          reporter: java-junit
-          fail-on-error: true
-  extensions:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-      # Install Required Core
-      - run: mvn install -f system/platform-core  
-      - run: mvn install -f system/rest-spring
-      - run: mvn install -f connectors/core/cloud-connector
-      - run: mvn install -f connectors/adapters/kafka/kafka-standalone
-      - run: mvn install -f connectors/adapters/kafka/kafka-connector
-      - run: mvn install -f connectors/adapters/hazelcast/hazelcast-connector
-      ####################
+
       # Extensions
       - run: mvn install test -f extensions/api-playground
       - run: mvn install test -f extensions/distributed-tracer
       - run: mvn install test -f extensions/rest-automation-lib
       - run: mvn install test -f extensions/rest-automation-app
       - run: mvn install test -f extensions/simple-scheduler
-      - name: Report Extensions
+      
+      - name: Report Unit Test Results
         uses: dorny/test-reporter@v1
         if: always()
         with:
           name: Maven Tests
-          path: extensions/**/target/surefire-reports/*.xml
+          path: 'system/*/target/surefire-reports/*.xml,connectors/**/target/surefire-reports/*.xml,language-packs/**/target/surefire-reports/*.xml,extensions/**/target/surefire-reports/*.xml' 
           reporter: java-junit
           fail-on-error: true
 
