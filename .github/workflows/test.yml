@@ -12,37 +12,12 @@ jobs:
       # Core
       - run: mvn install test -f system/platform-core  
       - run: mvn install test -f system/rest-spring
-      
-      # Language Connector
-      - run: mvn install test -f language-packs/language-connector
-      # Extensions
-      - run: mvn install test -f extensions/api-playground
-      - run: mvn install test -f extensions/distributed-tracer
-      - run: mvn install test -f extensions/rest-automation-lib
-      - run: mvn install test -f extensions/rest-automation-app
-      - run: mvn install test -f extensions/simple-scheduler
       - name: Report System
         uses: dorny/test-reporter@v1
         if: always()
         with:
           name: Maven Tests
           path: system/*/target/surefire-reports/*.xml
-          reporter: java-junit
-          fail-on-error: true
-      - name: Report Extensions
-        uses: dorny/test-reporter@v1
-        if: always()
-        with:
-          name: Maven Tests
-          path: extensions/**/target/surefire-reports/*.xml
-          reporter: java-junit
-          fail-on-error: true
-      - name: Language Pack
-        uses: dorny/test-reporter@v1
-        if: always()
-        with:
-          name: Maven Tests
-          path: language-packs/**/target/surefire-reports/*.xml
           reporter: java-junit
           fail-on-error: true
   connectors:
@@ -53,6 +28,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
+      # Install Required Core
+      - run: mvn install -f system/platform-core  
+      - run: mvn install -f system/rest-spring
+      ####################
       # Connectors
       - run: mvn install test -f connectors/core/cloud-connector
       - run: mvn install test -f connectors/core/service-monitor
@@ -82,6 +61,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
+      # Install Required Core
+      - run: mvn install -f system/platform-core  
+      - run: mvn install -f system/rest-spring
+      ####################
       # Language Connector
       - run: mvn install test -f language-packs/language-connector
       - name: Language Pack
@@ -100,6 +83,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
+      # Install Required Core
+      - run: mvn install -f system/platform-core  
+      - run: mvn install -f system/rest-spring
+      ####################
       # Extensions
       - run: mvn install test -f extensions/api-playground
       - run: mvn install test -f extensions/distributed-tracer
