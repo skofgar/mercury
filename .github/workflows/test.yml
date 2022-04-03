@@ -23,8 +23,8 @@ jobs:
       - run: mvn install test -f connectors/adapters/activemq/activemq-connector
       - run: mvn install test -f connectors/adapters/activemq/activemq-presence
       # Hazelcast
-      - run: mvn install test -f connectors/adapters/hazelcast-connector
-      - run: mvn install test -f connectors/adapters/hazelcast-presence
+      - run: mvn install test -f connectors/adapters/hazelcast/hazelcast-connector
+      - run: mvn install test -f connectors/adapters/hazelcast/hazelcast-presence
       # Language Connector
       - run: mvn install test -f language-packs/language-connector
       # Extensions
