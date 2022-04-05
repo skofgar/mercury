@@ -308,7 +308,7 @@
     <scm>
         <connection>scm:git:git://github.com/accenture/mercury.git</connection>
         <developerConnection>scm:git:ssh://github.com/accenture/mercury.git</developerConnection>
-        <url>http://github.com/accenture/mercury.git</url>
+        <url>https://github.com/Accenture/mercury/tree/master/system/platform-core</url>
     </scm>
 
     <developers>
@@ -316,7 +316,7 @@
             <name>Eric Law</name>
             <email>eric.law@accenture.com</email>
             <organization>io.github.accenture</organization>
-            <organizationUrl>http://github.io/accenture/</organizationUrl>
+            <organizationUrl>https://accenture.github.io/</organizationUrl>
         </developer>
     </developers>
 
