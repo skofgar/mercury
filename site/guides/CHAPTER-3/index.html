@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://github.com/accenture/mercury/guides/CHAPTER-3/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Chapter-3 - Mercury</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Chapter-3";
+        var mkdocs_page_input_path = "guides\\CHAPTER-3.md";
+        var mkdocs_page_url = "/accenture/mercury/guides/CHAPTER-3/";
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Mercury
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../TABLE-OF-CONTENTS/">Contents</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-1/">Chapter-1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-2/">Chapter-2</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Chapter-3</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#obtain-an-instance-of-the-post-office-object">Obtain an instance of the post office object</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#communication-patterns">Communication patterns</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#rpc-request-response">RPC (Request-response)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#asynchronous-drop-n-forget">Asynchronous / Drop-n-forget</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deferred-delivery">Deferred delivery</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#call-back">Call-back</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pipeline">Pipeline</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#streaming">Streaming</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#broadcast">Broadcast</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fork-n-join">Fork-n-Join</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#inspecting-events-metadata">Inspecting event's metadata</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#default-pojo-mapping">Default PoJo mapping</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#retrieve-raw-data-as-a-map">Retrieve raw data as a Map</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#custom-pojo-mapping">Custom PoJo mapping</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#check-if-a-target-service-is-available">Check if a target service is available</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get-a-list-of-application-instances-that-provide-a-certain-service">Get a list of application instances that provide a certain service</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pubsub-for-store-n-forward-event-streaming">Pub/Sub for store-n-forward event streaming</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#thread-safety">Thread safety</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exception-handling">Exception handling</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-4/">Chapter-4</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-5/">Chapter-5</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-6/">Chapter-6</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-7/">Chapter-7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-8/">Chapter-8</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-I/">Appendex-I</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-II/">Appendex-II</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-III/">Appendex-III</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG/">Release notes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../INCLUSIVITY/">Inclusivity</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT/">Code of Conduct</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING/">Contribution</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ROADMAP/">Roadmap</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Mercury</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Chapter-3</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="post-office-api">Post Office API</h1>
+<p>Post Office is a platform abstraction layer that routes events among functions. It maintains a distributed 
+routing table to ensure that service discovery is instantaneous,</p>
+<h2 id="obtain-an-instance-of-the-post-office-object">Obtain an instance of the post office object</h2>
+<pre><code>PostOffice po = PostOffice.getInstance();
+</code></pre>
+<h2 id="communication-patterns">Communication patterns</h2>
+<ul>
+<li>RPC <code>“Request-response”, best for interactivity</code></li>
+<li>Asynchronous <code>e.g. Drop-n-forget and long queries</code></li>
+<li>Call-back <code>e.g. Progressive rendering</code></li>
+<li>Pipeline <code>e.g. Work-flow application</code></li>
+<li>Streaming <code>e.g. Data ingest</code></li>
+<li>Broadcast <code>e.g. Concurrent processing of the same dataset with different outcomes</code></li>
+</ul>
+<h3 id="rpc-request-response">RPC (Request-response)</h3>
+<p>The Mercury framework is 100% event-driven and all communications are asynchronous. 
+To emulate a synchronous RPC, it uses temporary Inbox as a callback function. 
+The target service will send reply to the callback function which in turns delivers the response.</p>
+<p>To make an RPC call, you can use the <code>request</code> methods. These methods would throw exception if the response 
+status is not 200.</p>
+<pre><code class="language-java">EventEnvelope request(String to, long timeout, Object body) throws IOException, TimeoutException, AppException;
+EventEnvelope request(String to, long timeout, Object body, Kv... parameters) throws IOException, TimeoutException, AppException;
+EventEnvelope request(EventEnvelope event, long timeout) throws IOException, TimeoutException, AppException;
+
+// example
+EventEnvelope response = po.request(&quot;hello.world&quot;, 1000, somePayload);
+System.out.println(&quot;I got response...&quot;+response.getBody());
+
+</code></pre>
+<p>A non-blocking version of RPC is available with the <code>asyncRequest</code> method. Only timeout exception will be sent
+to the onFailure method. All other cases will be delivered to the onSuccess method. You should check event.getStatus()
+to handle exception.</p>
+<pre><code class="language-java">Future&lt;EventEnvelope&gt; asyncRequest(final EventEnvelope event, long timeout) throws IOException;
+
+// example
+Future&lt;EventEnvelope&gt; future = po.asyncRequest(new EventEnvelope().setTo(SERVICE).setBody(TEXT), 2000);
+future.onSuccess(event -&gt; {
+    // handle the response event
+}).onFailure(ex -&gt; {
+    // handle timeout exception
+});
+</code></pre>
+<p>Note that Mercury supports Java primitive, Map and PoJo in the message body. 
+If you put other object, it may throw serialization exception or the object may become empty.</p>
+<h3 id="asynchronous-drop-n-forget">Asynchronous / Drop-n-forget</h3>
+<p>To make an asynchronous call, use the <code>send</code> method.</p>
+<pre><code class="language-java">void send(String to, Kv... parameters) throws IOException;
+void send(String to, Object body) throws IOException;
+void send(String to, Object body, Kv... parameters) throws IOException;
+void send(final EventEnvelope event) throws IOException;
+
+</code></pre>
+<p>Kv is a key-value pair for holding one parameter.</p>
+<h3 id="deferred-delivery">Deferred delivery</h3>
+<pre><code class="language-java">String sendLater(final EventEnvelope event, Date future) throws IOException;
+</code></pre>
+<p>A scheduled ID will be returned. You may cancel the scheduled delivery with <code>cancelFutureEvent(id)</code>.</p>
+<h3 id="call-back">Call-back</h3>
+<p>You can register a call back function and uses its route name as the "reply-to" address in the send method. 
+To set a reply-to address, you need to use the EventEnvelope directly.</p>
+<pre><code class="language-java">void send(final EventEnvelope event) throws IOException;
+
+// example
+EventEnvelope event = new EventEnvelope();
+event.setTo(&quot;hello.world&quot;).setBody(somePayload);
+po.send(event);
+</code></pre>
+<p>To handle exception from a target service, you may implement ServiceExceptionHandler. For example:</p>
+<pre><code class="language-java">private static class SimpleCallback implements TypedLambdaFunction&lt;PoJo, Void&gt;, ServiceExceptionHandler {
+
+    @Override
+    public void onError(AppException e, EventEnvelope event) {
+        // handle exception here
+    }
+
+    @Override
+    public Void handleEvent(Map&lt;String, String&gt; headers, PoJo body, int instance) throws Exception {
+        // handle input. In this example, it is a PoJo
+        return null;
+    }
+}
+</code></pre>
+<h3 id="pipeline">Pipeline</h3>
+<p>In a pipeline operation, there is stepwise event propagation. e.g. Function A sends to B and set the "reply-to" as C. 
+Function B sends to C and set the "reply-to" as D, etc.</p>
+<p>To pass a list of stepwise targets, you may send the list as a parameter. Each function of the pipeline should forward 
+the pipeline list to the next function.</p>
+<pre><code class="language-java">EventEnvelope event = new EventEnvelope();
+event.setTo(&quot;function.b&quot;).setBody(somePayload).setReplyTo(&quot;function.c&quot;)
+     .setHeader(&quot;pipeline&quot;,  &quot;function.a-&gt;function.b-&gt;function.c-&gt;function.d&quot;);
+po.send(event);
+</code></pre>
+<h3 id="streaming">Streaming</h3>
+<p>You can use streams for functional programming. There are two ways to do streaming.</p>
+<ol>
+<li>Singleton functions</li>
+</ol>
+<p>To create a singleton, you can set <code>instances</code> of the calling and called functions to 1. 
+When you send events from the calling function to the called function, the platform guarantees 
+that the event sequencing of the data stream.</p>
+<p>To guarantee that there is only one instance of the calling and called function, you should register 
+them with a globally unique route name. e.g. using UUID like "producer-b351e7df-827f-449c-904f-a80f9f3ecafe" 
+and "consumer-d15b639a-44d9-4bc2-bb54-79db4f866fe3".</p>
+<p>Note that you can programmatically <code>register</code> and <code>release</code> a function at run-time.</p>
+<p>If you create the functions at run-time, please remember to release the functions when processing is completed to 
+avoid wasting system resources.</p>
+<ol>
+<li>Object stream</li>
+</ol>
+<p>To do object streaming, you can use the ObjectStreamIO to create a stream or open an existing stream.
+Then, you can use the <code>ObjectStreamWriter</code> and the <code>ObjectStreamReader</code> classes to write to and read from the stream.</p>
+<p>For the producer, if you close the output stream, the system will send a <code>EOF</code> to signal that there are no more 
+events to the stream. </p>
+<p>For the consumer, When you detect the end of stream, you can close the input stream to release the stream and all 
+resources associated with it.</p>
+<p>I/O stream consumes resources and thus you must close the input stream at the end of stream processing.
+The system will automatically close the stream upon an expiry timer that you provide when a new stream is created.</p>
+<p>The following unit test demonstrates this use case.</p>
+<pre><code class="language-java">String messageOne = &quot;hello world&quot;;
+String messageTwo = &quot;it is great&quot;;
+/*
+ * Producer creates a new stream with 60 seconds inactivity expiry
+ */
+ObjectStreamIO stream = new ObjectStreamIO(60);
+ObjectStreamWriter out = new ObjectStreamWriter(stream.getOutputStreamId());
+out.write(messageOne);
+out.write(messageTwo);
+/*
+ * If output stream is closed, it will send an EOF signal so that the input stream reader will detect it.
+ * Otherwise, input stream reader will see a RuntimeException of timeout.
+ *
+ * For this test, we do not close the output stream to demonstrate the timeout.
+ */
+//  out.close();
+
+/*
+ * Producer should send the inputStreamId to the consumer using &quot;stream.getInputStreamId()&quot; after the stream is created.
+ * The consumer can then open the stream with the streamId.
+ */
+ObjectStreamReader in = new ObjectStreamReader(inputStreamId, 8000);
+int i = 0;
+try {
+    for (Object data : in) {
+        if (data == null) break; // EOF
+        i++;
+        if (i == 1) {
+            assertEquals(messageOne, data);
+        }
+        if (i == 2) {
+            assertEquals(messageTwo, data);
+        }
+    }
+} catch (RuntimeException e) {
+    // iterator will timeout since the stream was not closed
+    assertTrue(e.getMessage().contains(&quot;timeout&quot;));
+}
+
+// ensure that it has read the two messages
+assertEquals(2, i);
+// must close input stream to release resources
+in.close();
+</code></pre>
+<h3 id="broadcast">Broadcast</h3>
+<p>Broadcast is the easiest way to do "pub/sub". To broadcast an event to multiple application instances, 
+use the <code>broadcast</code> method.</p>
+<pre><code class="language-java">void broadcast(String to, Kv... parameters) throws IOException;
+void broadcast(String to, Object body) throws IOException;
+void broadcast(String to, Object body, Kv... parameters) throws IOException;
+
+// example
+po.broadcast(&quot;hello.world&quot;, &quot;hey, this is a broadcast message to all hello.world providers&quot;);
+
+</code></pre>
+<h3 id="fork-n-join">Fork-n-Join</h3>
+<p>You can perform fork-n-join RPC calls using a parallel version of the <code>request</code> method.</p>
+<pre><code class="language-java">List&lt;EventEnvelope&gt; request(List&lt;EventEnvelope&gt; events, long timeout) throws IOException;
+
+// example
+List&lt;EventEnvelope&gt; parallelEvents = new ArrayList&lt;&gt;();
+
+EventEnvelope event1 = new EventEnvelope();
+event1.setTo(&quot;hello.world.1&quot;);
+event1.setBody(payload1);
+event1.setHeader(&quot;request&quot;, &quot;#1&quot;);
+parallelEvents.add(event1);
+
+EventEnvelope event2 = new EventEnvelope();
+event2.setTo(&quot;hello.world.2&quot;);
+event2.setBody(payload2);
+event2.setHeader(&quot;request&quot;, &quot;#2&quot;);
+parallelEvents.add(event2);
+
+List&lt;EventEnvelope&gt; responses = po.request(parallelEvents, 3000);
+</code></pre>
+<p>A non-blocking version of fork-n-join is available with the <code>asyncRequest</code> method. Only timeout exception will be sent
+to the onFailure method. All other cases will be delivered to the onSuccess method. You should check event.getStatus()
+to handle exception.</p>
+<pre><code class="language-java">Future&lt;List&lt;EventEnvelope&gt;&gt; asyncRequest(final List&lt;EventEnvelope&gt; event, long timeout) throws IOException;
+
+// example
+List&lt;EventEnvelope&gt; requests = new ArrayList&lt;&gt;();
+requests.add(new EventEnvelope().setTo(SERVICE1).setBody(TEXT1));
+requests.add(new EventEnvelope().setTo(SERVICE2).setBody(TEXT2));
+Future&lt;List&lt;EventEnvelope&gt;&gt; future = po.asyncRequest(requests, 2000);
+future.onSuccess(events -&gt; {
+    // handle the response events
+}).onFailure(ex -&gt; {
+    // handle timeout exception
+});
+</code></pre>
+<h3 id="inspecting-events-metadata">Inspecting event's metadata</h3>
+<p>If you want to inspect the incoming event's metadata to make some decisions such as checking correlation-ID and 
+sender's route address, you can use the TypedLambdaFunction to specify input as EventEnvelope.</p>
+<p>Another way to inspect event's metadata is the use of the <code>EventInterceptor</code> annotation in your lambda function. 
+Note that event interceptor service does not return result, it intercepts incoming event for forwarding to one or 
+more target services. If the incoming request is a RPC call and the interceptor does not forward the event to the 
+target service, the call will time out.</p>
+<h3 id="default-pojo-mapping">Default PoJo mapping</h3>
+<p>PoJo mapping is determined at the source. When the caller function sets the PoJo, the object is restored as the 
+original PoJo in the target service provided that the common data model is available in both source and target services.</p>
+<pre><code class="language-java">public Object getBody(); // &lt;-- default mapping
+</code></pre>
+<h3 id="retrieve-raw-data-as-a-map">Retrieve raw data as a Map</h3>
+<pre><code class="language-java">public Object getRawBody();
+</code></pre>
+<h3 id="custom-pojo-mapping">Custom PoJo mapping</h3>
+<p>In case you want to do custom mapping, the platform will carry out best effort mapping from the source PoJo to the 
+target PoJo. You must ensure the target object is compatible with the source PoJo. Otherwise, there will be data lost 
+or casting error.</p>
+<pre><code class="language-java">public &lt;T&gt; T getBody(Class&lt;T&gt; toValueType); // &lt;-- custom mapping
+public &lt;T&gt; T getBody(Class&lt;T&gt; toValueType, Class&lt;?&gt;... parameterClass); // custom generics
+</code></pre>
+<h3 id="check-if-a-target-service-is-available">Check if a target service is available</h3>
+<p>To check if a target service is available, you can use the <code>exists</code> method.</p>
+<pre><code class="language-java">boolean po.exists(String... route);
+
+if (po.exists(&quot;hello.world&quot;)) {
+    // do something
+}
+
+if (po.exists(&quot;hello.math&quot;, &quot;v1.diff.equation&quot;)) {
+    // do other things
+}
+</code></pre>
+<p>This service discovery process is instantaneous using distributed routing table.</p>
+<h3 id="get-a-list-of-application-instances-that-provide-a-certain-service">Get a list of application instances that provide a certain service</h3>
+<p>The <code>search</code> method is usually used for leader election for a certain service
+if more than one app instance is available.</p>
+<pre><code class="language-java">List&lt;String&gt; originIDs = po.search(String route);
+</code></pre>
+<h3 id="pubsub-for-store-n-forward-event-streaming">Pub/Sub for store-n-forward event streaming</h3>
+<p>Mercury provides real-time inter-service event streaming and you do not need to deal with low-level messaging.</p>
+<p>However, if you want to do store-n-forward pub/sub for certain use cases, you may use the <code>PubSub</code> class.</p>
+<p>In event streaming, pub/sub refers to the long term storage of events for event playback or "time rewind".
+For example, this "commit log" architecture is available in Apache Kafka.</p>
+<p>To test if the underlying event system supports pub/sub, use the "isStreamingPubSub" API.</p>
+<p>Following are some useful pub/sub API:</p>
+<pre><code class="language-java">public boolean featureEnabled();
+public boolean createTopic(String topic) throws IOException;
+public boolean createTopic(String topic, int partitions) throws IOException;
+public void deleteTopic(String topic) throws IOException;
+public void publish(String topic, Map&lt;String, String&gt; headers, Object body) throws IOException;
+public void publish(String topic, int partition, Map&lt;String, String&gt; headers, Object body) throws IOException;
+public void subscribe(String topic, LambdaFunction listener, String... parameters) throws IOException;
+public void subscribe(String topic, int partition, LambdaFunction listener, String... parameters) throws IOException;
+public void unsubscribe(String topic) throws IOException;
+public void unsubscribe(String topic, int partition) throws IOException;
+public boolean exists(String topic) throws IOException;
+public int partitionCount(String topic) throws IOException;
+public List&lt;String&gt; list() throws IOException;
+public boolean isStreamingPubSub();
+</code></pre>
+<p>Some pub/sub engine would require additional parameters when subscribing a topic. For Kafka, you must provide the 
+following parameters</p>
+<ol>
+<li>clientId</li>
+<li>groupId</li>
+<li>optional read offset pointer</li>
+</ol>
+<p>If the offset pointer is not given, Kafka will position the read pointer to the latest when the clientId and groupId are 
+first seen. Thereafter, Kafka will remember the read pointer for the groupId and resume read from the last read pointer.</p>
+<p>As a result, for proper subscription, you must create the topic first and then create a lambda function to subscribe to 
+the topic before publishing anything to the topic.</p>
+<p>To read the event stream of a topic from the beginning, you can set offset to "0".</p>
+<p>The system encapsulates the headers and body (aka payload) in an event envelope so that you do not need to do 
+serialization yourself. The payload can be PoJo, Map or Java primitives.</p>
+<h3 id="thread-safety">Thread safety</h3>
+<p>The "handleEvent" is the event handler for each LamdbaFunction. When you register more than one worker instance for
+your function, please ensure that you use "functional scope" variables instead of global scope variables.</p>
+<p>If you must use global scope variables, please use Java Concurrent collections.</p>
+<h3 id="exception-handling">Exception handling</h3>
+<p>When your lambda function throws exception, the exception will be encapsulated in the result event envelope to
+the calling function.</p>
+<p>If your calling function uses RPC, the exception will be caught as an AppException. You can then use the exception's
+<code>getCause()</code> method to retrieve the original exception chain from the called function.</p>
+<p>If your calling function uses CALLBACK pattern, your callback function can inspect the incoming event envelope and
+use the <code>getException()</code> method to obtain the original exception chain from the called function.</p>
+<hr />
+<table>
+<thead>
+<tr>
+<th align="center">Chapter-4</th>
+<th align="center">Home</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="../CHAPTER-4/">REST automation</a></td>
+<td align="center"><a href="../TABLE-OF-CONTENTS/">Table of Contents</a></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../CHAPTER-2/" class="btn btn-neutral float-left" title="Chapter-2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../CHAPTER-4/" class="btn btn-neutral float-right" title="Chapter-4">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../CHAPTER-2/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../CHAPTER-4/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

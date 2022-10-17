@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" /><link rel="canonical" href="https://github.com/accenture/mercury/" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Mercury</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "README.md";
+        var mkdocs_page_url = "/accenture/mercury/";
+      </script>
+    
+    <script src="js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> Mercury
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#welcome-to-the-mercury-project">Welcome to the Mercury project</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rationale">Rationale</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#user-friendly-reactive-programming">User friendly reactive programming</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#architecture-principles">Architecture principles</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#platform-abstraction">Platform abstraction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simple-input-process-output-function">Simple Input-Process-Output function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#terminology">Terminology</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#post-office">Post Office</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#inter-service-communication-patterns">Inter-service communication patterns</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-this-repository-is-organized">How this repository is organized</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#libraries-and-components">Libraries and components</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#before-you-start">Before you start</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#scalable-application-using-kafka">Scalable application using Kafka</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#built-in-service-mesh">Built-in service mesh</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#built-in-pubsub">Built-in pub/sub</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#work-nicely-with-reactive-frameworks">Work nicely with reactive frameworks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#write-your-own-microservices">Write your own microservices</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cloud-native">Cloud Native</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dockerfile">Dockerfile</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vm-or-bare-metal-deployment">VM or bare metal deployment</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#distributed-tracing">Distributed tracing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#jdk-compatibility">JDK compatibility</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#kafka-compatibility">Kafka compatibility</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#other-consideration">Other consideration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#developer-guide">Developer guide</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="guides/TABLE-OF-CONTENTS/">Contents</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="guides/CHAPTER-1/">Chapter-1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="guides/CHAPTER-2/">Chapter-2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="guides/CHAPTER-3/">Chapter-3</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="guides/CHAPTER-4/">Chapter-4</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="guides/CHAPTER-5/">Chapter-5</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="guides/CHAPTER-6/">Chapter-6</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="guides/CHAPTER-7/">Chapter-7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="guides/CHAPTER-8/">Chapter-8</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="guides/APPENDIX-I/">Appendex-I</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="guides/APPENDIX-II/">Appendex-II</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="guides/APPENDIX-III/">Appendex-III</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="CHANGELOG/">Release notes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="INCLUSIVITY/">Inclusivity</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT/">Code of Conduct</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING/">Contribution</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="ROADMAP/">Roadmap</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Mercury</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="mercury">Mercury</h1>
+<p>Reference implementation for event driven microservices using three levels of digital decoupling</p>
+<p>HTML version of this documentation is available at https://accenture.github.io/mercury/</p>
+<h2 id="welcome-to-the-mercury-project">Welcome to the Mercury project</h2>
+<p>The Mercury project is created with one primary objective - 
+<code>to make software easy to write, read, test, deploy, scale and manage</code>.</p>
+<p>Event-driven and reactive programming is the industry trend. However, writing pub/sub and reactive code
+can be challenging. While sharing the same theory, there are many different implementation of reactive
+libraries such as Akka, Vertx, Spring Reactor, etc.</p>
+<p>Mercury is a platform abstraction layer for in-memory and network event stream systems. It takes
+event-driven programming to the next level of simplicity. You don't need to explicitly write listeners
+and pub/sub code.</p>
+<p>In addition to traditional pub/sub for digital decoupling among domains, your applications can handle
+real-time events for request-response (RPC), drop-n-forget, callback, pipeline, workflow and streaming.</p>
+<p>Under the hood, Eclipse Vertx is used as the in-memory event system. For network event streams, Kafka,
+ActiveMQ, Hazelcast and TIBCO are encapsulated as 'cloud-connectors'.</p>
+<p>Mercury uses Java 1.8 Lambda construct so that you can write a 'service' to encapsulate business logic
+in an anonymous function. You don't need any special 'wiring' to make your service responds to requests.</p>
+<p>One service can call another services using the 'Post Office' which is the event emitter that sends and
+receives requests and responses as events.</p>
+<p>The system has a built-in REST automation engine in the platform core library. It allows you to declare any
+REST endpoints without code. REST automation turns HTTP requests and responses into asynchronous events for
+high performance non-blocking processing. You can tell REST automation to route a URI path to a 'service'
+that you declare as anonymous function. For backward compatibility, it can also proxy a HTTP call to an 
+external REST endpoint.</p>
+<p>It supports Java, Python and Node.js. Network event stream encapsulation is implemented in Java. It includes
+a language connector subproject to serve Python and Node.js.</p>
+<p>Mercury powered applications can be deployed in bare metal, VM, kubernetes and 'Function as a service' in
+on-premises infrastructure, data centers or any cloud environments.</p>
+<p>Mercury has been deployed in a few mission critical production systems for the last 5 years. Based on inputs and
+observation from the fields, we have continuously improved the codebase.</p>
+<p>We are now preparing for version 3.0. We will provide additional information soon.</p>
+<p>Best regards, Cloud Native Microservices team, Accenture</p>
+<p>October 2022</p>
+<h2 id="rationale">Rationale</h2>
+<p>The microservices movement is gaining a lot of momentum in recent years. Very much inspired with the need to
+modernize service-oriented architecture and to transform monolithic applications as manageable and reusable 
+pieces, it was first mentioned in 2011 for an architectural style that defines an application as a set of 
+loosely coupled single purpose services.</p>
+<p>Classical model of microservices architecture often focuses in the use of REST as interface and the 
+self-containment of data and process. Oftentimes, there is a need for inter-service communication because 
+one service may consume another service. Usually this is done with a service broker. This is an elegant 
+architectural concept. However, many production systems face operational challenges. In reality, it is 
+quite difficult to decompose a solution down to functional level. This applies to both green field 
+development or application modernization. As a result, many microservices modules are indeed smaller 
+subsystems. Within a traditional microservice, business logic is tightly coupled with 3rd party 
+and open sources libraries including cloud platform client components and drivers. </p>
+<p>Mercury addresses this limitation with 'platform abstaction' (aka 'hexagonal' pattern) such that
+you can encapsulate some platform functionality with a functional wrapper, thus avoiding hard wiring
+your application code with specific dependencies.</p>
+<h2 id="user-friendly-reactive-programming">User friendly reactive programming</h2>
+<p><code>Summary</code>
+- Completely and natively event driven
+- Fully open source - Apache-2.0 license
+- Simple configuration and simple API hides all the scaffolding code
+- Code naturally, without worrying about asynchrony
+- Naturally code in functional style, which makes code very portable
+- Mix and match languages - currently Java and Python are supported, Node.js and dotnet are WIP
+- Built-in distributed tracing
+- Avoid going to the network when running in the same process, a huge performance boost for latency 
+  critical applications
+- Doesn't require all services to adopt, will provide the same benefits to those that do adopt it
+- Learn and start coding in less than one hour</p>
+<p><code>Benefits</code>
+- Developer productivity - both authoring and maintenance
+- Improves latency of calls within the same process
+- Enables fully reactive implementations
+- Scalability
+- Portability of code between containers and clouds
+- Observability - know who is calling who and when, know where you are in workflows
+- Improves future-proofing - as better eventing libraries/frameworks/platforms become available, they 
+  can be brought in without changing a line of code</p>
+<p><code>Features</code>
+- Multiple languages supported - currently Java and Python are supported, Node.js and dotnet are WIP
+- Plug in your favorite event stream. Popular ones are already supported.
+- Multiple eventing patterns supported - pub/sub, broadcast, command, etc.
+- REST automation for event-based services
+- Built in distributed tracing</p>
+<p><code>Gnarly Use Cases solved with Mercury</code>
+- Workflows with event-based architecture, utilizing Saga pattern
+- Support of "closed user groups" for added security</p>
+<h2 id="architecture-principles">Architecture principles</h2>
+<p>For simplicity, we advocate 3 architecture principles to write microservices</p>
+<ul>
+<li>minimalist</li>
+<li>event driven</li>
+<li>context bound</li>
+</ul>
+<p>Minimalist means we want user software to be as small as possible. The Mercury framework allows you to 
+write business logic down to functional level using simple input-process-output pattern.</p>
+<p>Event driven promotes loose coupling. All functions should run concurrently and independently of each other.</p>
+<p>Lastly, context bound means high level of encapsulation so that a function only expose API contract and 
+nothing else.</p>
+<h3 id="platform-abstraction">Platform abstraction</h3>
+<p>Mercury offers the highest level of decoupling where each piece of business logic can be expressed as 
+an anonymous function. A microservices module is a collection of one or more functions. These functions 
+connect to each other using events.</p>
+<p>The framework hides the complexity of event-driven programming and cloud platform integration. 
+For the latter, the service mesh interface is fully encapsulated so that user functions do not need 
+to be aware of network connectivity and details of the cloud platform.</p>
+<h3 id="simple-input-process-output-function">Simple Input-Process-Output function</h3>
+<p>This is a best practice in software development. Input is fed into an anonymous function. 
+It will process the input according to some API contract and produce some output.</p>
+<p>This simplifies software development and unit tests.</p>
+<h3 id="terminology">Terminology</h3>
+<ol>
+<li><code>Microservices</code> - Generally, we use this term to refer to an architectural pattern where business 
+   logic is encapsulated in a bounded context, the unit of service is minimalist and services are 
+   consumed in an event driven manner.</li>
+<li><code>Microservices function</code> or simply <code>function</code> - This refers to the smallest unit that encapsulates 
+   business logic or 3rd party library. As a best practice, we advocate clear separation of business 
+   logic from proprietary libraries. By wrapping 3rd party libaries as functions, we can keep the event 
+   API intact when switching to an alternative library.</li>
+<li><code>Microservices module</code> or <code>microservice</code> - This refers to a single unit of deployment that contains 
+   at least one public function and optionally some private functions. All functions communicate with 
+   each others through a memory based event stream system within the module. Each microservices module 
+   can be independently deployed and scaled.</li>
+<li><code>Microservices application</code> - It is a collection of microservices modules running together as a single 
+   application.</li>
+<li><code>User facing endpoints</code> - This refers to public API for REST, websocket or other communication protocols.</li>
+<li><code>Event API</code> - Microservices functions expose event APIs internally for inter-service communications. 
+   For example, a user facing endpoint may use REST protocol. The HTTP request is then converted to an event 
+   to a microservice.</li>
+<li><code>Real-time events</code> - Messages that are time sensitive. e.g. RPC requests and responses.</li>
+<li><code>Store-n-forward events</code> - Events that are not time sensitive. First, a calling function can send an event without 
+   waiting for a response. Second, the called function may not even available when the event is delivered. e.g. data 
+   pipeline applications.</li>
+<li><code>Streaming events</code> - This refers to continuous flow of events from one function to another. Note that streaming 
+   can be either real-time or store-n-forward.</li>
+<li><code>public function</code> - This means the function is visible to all application containers and instances in the system.</li>
+<li><code>private function</code> - This means the function is visible only to functions in the same memory space inside 
+    an application instance.</li>
+<li><code>route name</code> - Each service can be uniquely identified with a name.</li>
+<li><code>closed user groups</code> - Conceptually, we treat the underlying event stream system as a conduit where one group of 
+    application instances can be logically separated from another group. </li>
+</ol>
+<h3 id="post-office">Post Office</h3>
+<p>The Mercury framework is a SDK with some cloud connectors and language packs, mainly the Platform and the Post Office 
+APIs. The Platform API allows you to programmatically register functions with "route names". The Post Office API is 
+used to send events from one service to another.</p>
+<p>For example, the following codelet sends the text "hello world" from the caller to the function registered as 
+"v1.some.service".</p>
+<pre><code class="language-java">//-------------------------------------------------
+
+// an example service in container-1
+Platform platform = Platform.getInstance();
+
+LambdaFunction f = (headers, body, instance) -&gt; {
+    // do some business logic
+    System.out.println(&quot;I got your request...&quot;+body);
+    return something
+};
+platform.register(&quot;v1.some.service&quot;, f, 1);
+
+//-------------------------------------------------
+
+// sending events from container-2
+PostOffice po = PostOffice.getInstance();
+
+// making a RPC call
+EventEnvelope response = po.request(&quot;v1.some.service&quot;, 1000, &quot;hello world&quot;);
+System.out.println(&quot;I got response here...&quot;+response.getBody());
+
+// making a drop-and-forget async call
+po.send(&quot;v1.some.service&quot;, &quot;hello world&quot;);
+
+//-------------------------------------------------
+
+</code></pre>
+<h3 id="inter-service-communication-patterns">Inter-service communication patterns</h3>
+<ul>
+<li>RPC <code>“Request-response”, best for interactivity</code></li>
+<li>Asynchronous <code>e.g. Drop-n-forget and long queries</code></li>
+<li>Call back <code>e.g. Progressive rendering</code></li>
+<li>Pipeline <code>e.g. Work-flow application</code></li>
+<li>Streaming <code>e.g. Continuous data feed</code></li>
+<li>Broadcast <code>e.g. Concurrent processing of the same dataset with different outcomes</code></li>
+</ul>
+<h3 id="how-this-repository-is-organized">How this repository is organized</h3>
+<p>The Mercury framework includes the following:
+1. system <code>platform-core and rest-spring</code>
+2. connectors <code>kafka, hazelcast, ...</code>
+3. language packs <code>python, node.js...</code>
+4. extensions <code>rest-automation, api-playground, ...</code>
+5. documentation <code>architecture and user guides</code>
+6. examples <code>code samples / templates for creating microservices with or without REST endpoints</code></p>
+<h2 id="libraries-and-components">Libraries and components</h2>
+<p><code>platform core</code></p>
+<p>With Mercury, any software module can be expressed as an anonymous functions or a Java class that implements 
+the LambdaFunction interface.</p>
+<p>The platform core library enables the following:
+1. High level of decoupling - You may write business logic as anonymous functions that run concurrently and 
+   independently. In addition to business logic, you may also encapsulate platform components and databases as 
+   anonymous functions.
+2. Event driven programming - Each function is addressable with a unique "route name" and they communicate by 
+   sending events. You make request from one function to another by making a service call through some simple 
+   Mercury Post Office API.
+3. One or more functions can be packaged together as a microservice executable, usually deployed as a Docker 
+   image or similar container technology.</p>
+<p><code>rest-spring</code></p>
+<p>The rest-spring library customizes and simplifies the use of Spring Boot as an application container to hold functions. 
+This includes preconfigured message serializers and exception handlers.</p>
+<p><code>cloud-connector</code> and <code>service-monitor</code></p>
+<p>The cloud-connector and service-monitor are the core libraries to support implementations of various cloud connectors.</p>
+<p>Mercury supports Kafka, Hazelcast, ActiveMQ-artemis and TIBCO-EMS out of the box. </p>
+<p><code>kafka-connector</code></p>
+<p>This is the kafka specific connector library is designed to work with Kafka version 2.7.0 out of the box
+that you add it into your application's pom.xml. A convenient standalone Kafka server application is available 
+in the <code>kafka-standalone</code> project under the <code>connector/kafka</code> directory. 
+The standalone Kafka server is a convenient tool for application development and tests in the developer's laptop.</p>
+<p><code>kafka-presence</code></p>
+<p>This "presence monitor" manages mapping of Kafka topics and detects when an application instance is online or offline. 
+Your application instances will report to the presence monitors (2 monitor instances are enough for 
+large installations). Since version 2.0, it uses a single partition of a topic to serve an application instance.
+To avoid deleting topics, the system can re-use topics and partitions automatically.</p>
+<p>The kafka-presence system is fully scalable.</p>
+<p><code>language-connector</code></p>
+<p>The python language pack is available in https://github.com/Accenture/mercury-python</p>
+<p><code>distributed-tracer</code></p>
+<p>This extension package is an example application that consolidates distributed trace metrics.</p>
+<p><code>lambda-example</code></p>
+<p>This is an example project to illustrate writing microservices without any HTTP application server.</p>
+<p><code>rest-example</code></p>
+<p>If your application module needs info and health admin endpoints, you may want to use this example project as a 
+template.</p>
+<p>It encapsulates Spring Boot, automates JSON/XML/PoJo serialization and simplfies application development. 
+It also allows you to write custom REST endpoints using WebServlet and JAX-RS REST annotations.</p>
+<p><code>rest-automation</code></p>
+<p>For rapid application development, you may use the built-in REST automation system to declare REST endpoints without
+coding. The rest-automation application in the 'example' subprojects may be used as template to get started.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>If you haven't already, please start a terminal and clone the repository: </p>
+<pre><code>git clone https://github.com/Accenture/mercury.git
+cd mercury
+</code></pre>
+<p>To get the system up and running, you should compile and build the foundation libraries from sources. 
+This will install the libraries into your ".m2/repository/org/platformlambda" folder.</p>
+<p><code>Important</code> - please close all Java applications and web servers in your PC if any. The build process will invoke unit tests that simulate HTTP and websocket servers.</p>
+<pre><code class="language-bash"># start a terminal and go to the mercury sandbox folder
+mvn clean install
+</code></pre>
+<p>The platform-core, rest-spring, hazelcast-connector and kafka-connector are libraries and you can rebuild each one 
+individually using <code>mvn clean install</code></p>
+<p>The rest of the subprojects are executables that you can rebuild each one with <code>mvn clean package</code>.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>You can compile the rest-example as a microservices executable like this:</p>
+<pre><code class="language-bash">cd mercury/examples
+cd rest-example
+mvn clean package
+java -jar target/rest-example-2.7.0.jar
+# this will run the rest-example without a cloud connector
+</code></pre>
+<p>Try http://127.0.0.1:8083/api/hello/world with a browser.</p>
+<p>It will respond with some sample output like this:</p>
+<pre><code class="language-json">{
+  &quot;body&quot; : {
+    &quot;body&quot; : {
+      &quot;accept&quot; : &quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&quot;,
+      &quot;accept-encoding&quot; : &quot;gzip, deflate, br&quot;,
+      &quot;accept-language&quot; : &quot;en-US,en;q=0.9&quot;,
+      &quot;cache-control&quot; : &quot;max-age=0&quot;,
+      &quot;connection&quot; : &quot;keep-alive&quot;,
+      &quot;host&quot; : &quot;127.0.0.1:8083&quot;,
+      &quot;time&quot; : &quot;2018-12-21T16:39:33.546Z&quot;,
+      &quot;upgrade-insecure-requests&quot; : &quot;1&quot;,
+      &quot;user-agent&quot; : &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) ...&quot;
+    },
+    &quot;headers&quot; : {
+      &quot;seq&quot; : &quot;4&quot;
+    },
+    &quot;instance&quot; : 4,
+    &quot;origin&quot; : &quot;2018122170c4d0e80ef94b459763636da74d6b5f&quot;
+  },
+  &quot;execution_time&quot; : 0.298,
+  &quot;headers&quot; : { },
+  &quot;round_trip&quot; : 0.862,
+  &quot;status&quot; : 200
+}
+</code></pre>
+<p>The REST endpoint makes a request to the "hello.world" service that echoes back the headers of the HTTP request. 
+The underlying Spring Boot HTTP server has been pre-configured with HTML, JSON and XML message serializers and 
+exception handlers.</p>
+<p>If you change the "accept" header to "application/xml", the output will be shown in XML.</p>
+<p>To demonstrate concurrent processing, you may visit http://127.0.0.1:8083/api/hello/concurrent</p>
+<p>Now try http://127.0.0.1:8083/api/hello/pojo/1</p>
+<p>This will return a HTTP-500 "Route hello.pojo not found" error. This is expected behavior because the "hello.pojo" 
+service is not available in the rest-example container. Let's walk thru distributed and scalable application in 
+the next section.</p>
+<h3 id="scalable-application-using-kafka">Scalable application using Kafka</h3>
+<p>For development and testing, you can start a standalone Kafka server.</p>
+<pre><code class="language-bash"># start a terminal and go to the mercury sandbox folder, then go to the kafka-standalone folder
+cd mercury/connectors/kafka/kafka-standalone/
+mvn clean package
+java -jar target/kafka-standalone-2.7.0.jar
+# this will run a standalone Kafka server in the foreground
+</code></pre>
+<p>The next step is to start the "presence-monitor" application.</p>
+<pre><code class="language-bash"># start another terminal and go to kafka-presence folder
+cd mercury/connectors/kafka/kafka-presence/
+mvn clean package
+java -jar target/kafka-presence-2.7.0.jar
+# this will run the presence monitor at port 8080 in the foreground
+
+# when an application instance is started, it connects to the presence monitor to get topic.
+# you will see log similar to the following:
+Adding member 20210405aa0220674e404169a5ec158a99714da6
+Monitor (me) 20210405209f8e20ed3f4c0a80b035a50273b922 begins RSVP
+multiplex.0001-001 assigned to 20210405aa0220674e404169a5ec158a99714da6 lambda-example, 2.1.1
+Monitor (me) 20210405209f8e20ed3f4c0a80b035a50273b922 finished RSVP
+</code></pre>
+<p>Optionally, if you want to test resilience of the presence monitor, you can start another instance like this:</p>
+<pre><code class="language-bash"># start another terminal and go to kafka-presence folder
+cd mercury/connectors/kafka/kafka-presence/
+mvn clean package
+java -Dserver.port=8081 -jar target/kafka-presence-2.7.0.jar
+# this will run the presence monitor at port 8081 in the foreground
+</code></pre>
+<ul>
+<li>You can then run the lambda-example and rest-example applications</li>
+</ul>
+<pre><code class="language-bash"># go to the lambda-example project folder in one terminal
+java -Dcloud.connector=kafka -jar target/lambda-example-2.7.0.jar
+# the lambda-example will connect to the &quot;presence monitor&quot;, obtain a topic and connect to Kafka
+
+# go to the rest-example project folder in another terminal
+java -Dcloud.connector=kafka -jar target/rest-example-2.7.0.jar
+# the rest-example will also connect to the &quot;presence monitor&quot;, obtain a topic and connect to Kafka
+
+# the lambda-example and rest-example apps will show the topic assignment like this
+presence.monitor, partition 1 ready
+multiplex.0001, partition 0 ready
+
+</code></pre>
+<p>You may visit http://127.0.0.1:8083/api/hello/pojo/1 with a browser, you will see output like this:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: 1,
+  &quot;name&quot;: &quot;Simple PoJo class&quot;,
+  &quot;address&quot;: &quot;100 World Blvd, Planet Earth&quot;,
+  &quot;date&quot;: &quot;2021-04-05T22:13:38.351Z&quot;,
+  &quot;instance&quot;: 1,
+  &quot;origin&quot;: &quot;20210405aa0220674e404169a5ec158a99714da6&quot;
+}
+</code></pre>
+<p>This means the rest-example app accepts the HTTP request and sends the request event to the lambda-example app which 
+in turns return the response event as shown above.</p>
+<p>The "cloud.connector=kafka" parameter overrides the application.properties in the rest-example and lambda-example 
+projects so they can select Kafka as the service mesh.</p>
+<p>If you use Jetbrains Idea ("IntelliJ") to run your project, please edit the start up config, click 'Modify options' and tick 'add VM options'. This allows you to set default run-time parameters. e.g. "-Dcloud.connector=kafka". Eclipse and other IDE would have similar run-time parameter options.</p>
+<ul>
+<li>Get additional info from the presence monitor</li>
+</ul>
+<p>You may visit http://127.0.0.1:8080 and select "info". It may look like this:</p>
+<pre><code class="language-json">{
+  &quot;app&quot;: {
+    &quot;name&quot;: &quot;kafka-presence&quot;,
+    &quot;description&quot;: &quot;Presence Monitor&quot;,
+    &quot;version&quot;: &quot;2.1.1&quot;
+  },
+  &quot;memory&quot;: {
+    &quot;max&quot;: &quot;8,524,922,880&quot;,
+    &quot;free&quot;: &quot;470,420,400&quot;,
+    &quot;allocated&quot;: &quot;534,773,760&quot;
+  },
+  &quot;personality&quot;: &quot;RESOURCES&quot;,
+  &quot;additional_info&quot;: {
+    &quot;total&quot;: {
+      &quot;virtual_topics&quot;: 3,
+      &quot;topics&quot;: 2,
+      &quot;connections&quot;: 3
+    },
+    &quot;virtual_topics&quot;: [
+      &quot;multiplex.0001-000 -&gt; 2021082260f0b955a9ad427db14a9db751340d61, rest-example v2.1.1&quot;,
+      &quot;multiplex.0001-001 -&gt; 20210822371949df090644428cd98ae0ba91a69b, lambda-example v2.1.1&quot;,
+      &quot;multiplex.0001-002 -&gt; 2021082295c030edc07a4a4eb5cb78b6421f5fb7, lambda-example v2.1.1&quot;
+    ],
+    &quot;topics&quot;: [
+      &quot;multiplex.0001 (32)&quot;,
+      &quot;service.monitor (11)&quot;
+    ],
+    &quot;connections&quot;: [
+      {
+        &quot;created&quot;: &quot;2021-08-22T17:29:45Z&quot;,
+        &quot;origin&quot;: &quot;20210822371949df090644428cd98ae0ba91a69b&quot;,
+        &quot;name&quot;: &quot;lambda-example&quot;,
+        &quot;topic&quot;: &quot;multiplex.0001-001&quot;,
+        &quot;monitor&quot;: &quot;20210822c750f194403241c49ef8fae113beff75&quot;,
+        &quot;type&quot;: &quot;APP&quot;,
+        &quot;updated&quot;: &quot;2021-08-22T17:29:53Z&quot;,
+        &quot;version&quot;: &quot;2.1.1&quot;,
+        &quot;seq&quot;: 2,
+        &quot;group&quot;: 1
+      },
+      {
+        &quot;created&quot;: &quot;2021-08-22T17:29:55Z&quot;,
+        &quot;origin&quot;: &quot;2021082295c030edc07a4a4eb5cb78b6421f5fb7&quot;,
+        &quot;name&quot;: &quot;lambda-example&quot;,
+        &quot;topic&quot;: &quot;multiplex.0001-002&quot;,
+        &quot;monitor&quot;: &quot;20210822c750f194403241c49ef8fae113beff75&quot;,
+        &quot;type&quot;: &quot;APP&quot;,
+        &quot;updated&quot;: &quot;2021-08-22T17:30:04Z&quot;,
+        &quot;version&quot;: &quot;2.1.1&quot;,
+        &quot;seq&quot;: 2,
+        &quot;group&quot;: 1
+      },
+      {
+        &quot;created&quot;: &quot;2021-08-22T17:29:30Z&quot;,
+        &quot;origin&quot;: &quot;2021082260f0b955a9ad427db14a9db751340d61&quot;,
+        &quot;name&quot;: &quot;rest-example&quot;,
+        &quot;topic&quot;: &quot;multiplex.0001-000&quot;,
+        &quot;monitor&quot;: &quot;20210822c750f194403241c49ef8fae113beff75&quot;,
+        &quot;type&quot;: &quot;WEB&quot;,
+        &quot;updated&quot;: &quot;2021-08-22T17:30:01Z&quot;,
+        &quot;version&quot;: &quot;2.1.1&quot;,
+        &quot;seq&quot;: 3,
+        &quot;group&quot;: 1
+      }
+    ],
+    &quot;monitors&quot;: [
+      &quot;20210822c750f194403241c49ef8fae113beff75 - 2021-08-22T17:30:01Z&quot;
+    ]
+  },
+  &quot;vm&quot;: {
+    &quot;java_vm_version&quot;: &quot;11.0.10+9&quot;,
+    &quot;java_runtime_version&quot;: &quot;11.0.10+9&quot;,
+    &quot;java_version&quot;: &quot;11.0.10&quot;
+  },
+  &quot;streams&quot;: {
+    &quot;count&quot;: 0
+  },
+  &quot;origin&quot;: &quot;20210822c750f194403241c49ef8fae113beff75&quot;,
+  &quot;time&quot;: {
+    &quot;current&quot;: &quot;2021-08-22T17:30:06.712Z&quot;,
+    &quot;start&quot;: &quot;2021-08-22T17:28:56.128Z&quot;
+  }
+}
+</code></pre>
+<h2 id="built-in-service-mesh">Built-in service mesh</h2>
+<p>The above demonstrates distributed applications using Kafka as a service mesh.</p>
+<h2 id="built-in-pubsub">Built-in pub/sub</h2>
+<p>You can also use Mercury with other service mesh of your choice. In this case, you can use the built-in pub/sub APIs 
+of Mercury for your app to communicate with Kafka and other event stream systems.</p>
+<p>To enable Kafka pub/sub without using it as a service mesh, use these parameters in application.properties</p>
+<pre><code class="language-java">cloud.connector=none
+cloud.services=kafka.pubsub
+</code></pre>
+<p>This means the system encapsulates the original pub/sub feature of the underlying event stream system. 
+The built-in publishers and listeners will do the heavy lifting for you in a consistent manner. Note that Kafka
+supports rewinding read "offset" so that your application can read older messages. In Hazelcast, the older events
+are dropped after delivery.</p>
+<p>Example:</p>
+<pre><code class="language-java">// setup your subscriber function
+LambdaFunction myFunction = (headers, body, instance) -&gt; {
+  log.info(&quot;Got ---&gt; {}&quot;, body);
+  return true;
+};
+
+PubSub ps = PubSub.getInstance();
+/*
+ * Pub/sub service starts asynchronously.
+ * If your runs pub/sub code before the container is completely initialized, 
+ * you may want to &quot;waitForProvider&quot; for a few seconds.
+ */
+ps.waitForProvider(10); 
+// this creates a topic with one partition
+ps.createTopic(&quot;some.kafka.topic&quot;, 1); 
+// this subscribe the topic with your function
+ps.subscribe(&quot;some.kafka.topic&quot;, myFunction, &quot;client-101&quot;, &quot;group-101&quot;);
+// this publishes an event to the topic
+ps.publish(&quot;some.kafka.topic&quot;, null, &quot;my test message&quot;);
+</code></pre>
+<p>If you run this application for the first time and you do not see the test message, the kafka topic has just been 
+created  when your application starts. Due to racing condition, Kafka would skip the offset and you cannot see the
+first message. Just restart the application and you will see your test message.</p>
+<p>However, if you create the topic administratively before running this test app, your app will always show the first 
+test message. This is a normal Kafka behavior.</p>
+<p>You may also notice that the Kafka client sets the read offset to the latest pointer. To read from the beginning, 
+you may reset the read offset by adding a parameter "0" after the clientId and groupId in the subscribe statement above.</p>
+<h2 id="work-nicely-with-reactive-frameworks">Work nicely with reactive frameworks</h2>
+<p>Mercury provides a stream abstraction that can be used with reactive frameworks.</p>
+<p>For example, developers using Spring reactor with Mercury may setup a stream between two app modules 
+within the same container or in different containers like this:</p>
+<pre><code class="language-java">// at the producer app container
+ObjectStreamIO producer = new ObjectStreamIO(TIMEOUT_IN_SECONDS);
+ObjectStreamWriter out = producer.getOutputStream();
+out.write(&quot;hello&quot;); // you can send text, bytes, Map or PoJo
+out.write(&quot;world&quot;);
+out.close(); // to indicate end-of-stream
+
+String streamId = producer.getRoute();
+// deliver the streamId to the consumer using PostOffice
+//
+// at the consumer app container
+ObjectStreamIO consumer = new ObjectStreamIO(streamId);
+ObjectStreamReader in = consumer.getInputStream(TIMEOUT_IN_MILLISECONDS);
+Flux.fromIterable(in).log()
+    .doOnNext((d) -&gt; {
+        // handle data block
+    }).doOnError((e) -&gt; {
+        // handle exception
+    }).doOnComplete(() -&gt; {
+        // handle completion
+        in.close(); // close I/O stream
+    }).subscribeOn(Schedulers.parallel()).subscribe();
+</code></pre>
+<h2 id="write-your-own-microservices">Write your own microservices</h2>
+<p>You may use the lambda-example and rest-example as templates to write your own applications.</p>
+<p>Please update pom.xml and application.properties for application name accordingly.</p>
+<h2 id="cloud-native">Cloud Native</h2>
+<p>The Mercury framework is Cloud Native. While it uses the local file system for buffering, it expects local storage 
+to be transient.</p>
+<p>If your application needs to use the local file system, please consider it to be transient too, i.e., you cannot 
+rely on it to persist when your application restarts.</p>
+<p>If there is a need for data persistence, use external databases or cloud storage.</p>
+<h2 id="dockerfile">Dockerfile</h2>
+<p>Creating a docker image from the executable is easy. First you need to build your application as an executable 
+with the command <code>mvn clean package</code>. The executable JAR is then available in the target directory.</p>
+<p>The Dockerfile may look like this:</p>
+<pre><code class="language-bash">FROM adoptopenjdk/openjdk11:jre-11.0.11_9-alpine
+EXPOSE 8083
+WORKDIR /app
+COPY target/your-app-name.jar .
+ENTRYPOINT [&quot;java&quot;,&quot;-jar&quot;,&quot;your-app-name.jar&quot;]
+
+</code></pre>
+<p>To build a new docker image locally:</p>
+<pre><code>docker build -t your-app-name:latest .
+</code></pre>
+<p>To run the newly built docker image, try this:</p>
+<pre><code>docker run -p 8083:8083 -i -t your-app-name:latest
+</code></pre>
+<p>Change the exposed port numnber and application name accordingly. Then build the docker image and publish it to a 
+docker registry so you can deploy from there using Kubernetes or alike.</p>
+<p>For security reason, you may want to customize the docker file to use non-priliveged Unix user account. Please 
+consult your company's enterprise architecture team for container management policy.</p>
+<h2 id="vm-or-bare-metal-deployment">VM or bare metal deployment</h2>
+<p>If you are deploying the application executables in a VM or bare metal, we recommend using a cross-platform process
+manager. The system has been tested with "pm2" (https://www.npmjs.com/package/pm2).</p>
+<p>A sample process.json file is shown below. Please edit the file accordingly. You may add "-D" or "-X" parameters 
+before the "-jar" parameter. To start the application executable, please do <code>pm2 start my-app.json</code>.</p>
+<p>You may create individual process.json for each executable and start them one-by-one. You can then monitor the 
+processes with <code>pm2 list</code> or <code>pm2 monit</code>.</p>
+<p>To deploy using pm2, please browse the pm2-example folder as a starting point.</p>
+<h2 id="distributed-tracing">Distributed tracing</h2>
+<p>Microservices are likely to be deployed in a multi-tier environment. As a result, a single transaction may pass 
+through multiple services.</p>
+<p>Distributed tracing allows us to visualize the complete service path for each transaction. This enables easy 
+trouble shooting for large scale applications.</p>
+<p>With the Mercury framework, distributed tracing does not require code at application level. To enable this feature, 
+you can simply set "tracing=true" in the rest.yaml configuration of the rest-automation application.</p>
+<h2 id="jdk-compatibility">JDK compatibility</h2>
+<p>The Mercury project has been tested with OpenJDK and AdaptOpenJDK version 8 to 18.</p>
+<p>Please use Java version 11 or higher to run the kafka-standalone application which is provided as a convenient tool for
+development and testing. The kafka standalone server would fail due to a known memory mapping bug when running under Java version 1.8.0_292.</p>
+<h2 id="kafka-compatibility">Kafka compatibility</h2>
+<p>As of December 2020, Mercury has been tested and deployed with Apache Kafka, Confluent Kafka, IBM Event Streams 
+and Microsoft Azure Event Hubs.</p>
+<h2 id="other-consideration">Other consideration</h2>
+<ul>
+<li>
+<p>Timestamp: the Mercury system uses UTC time and ISO-8601 string representation when doing serialization. 
+  https://en.wikipedia.org/wiki/ISO_8601</p>
+</li>
+<li>
+<p>UTF8 text encoding: we recommend the use of UTF8 for text strings.</p>
+</li>
+</ul>
+<h2 id="developer-guide">Developer guide</h2>
+<p>For more details, please refer to the <a href="guides/TABLE-OF-CONTENTS/">Developer Guide</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="guides/TABLE-OF-CONTENTS/" class="btn btn-neutral float-right" title="Contents">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="guides/TABLE-OF-CONTENTS/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.3.0
+Build Date UTC : 2022-10-17 16:23:14.137440+00:00
+-->

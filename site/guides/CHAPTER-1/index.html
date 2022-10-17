@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://github.com/accenture/mercury/guides/CHAPTER-1/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Chapter-1 - Mercury</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Chapter-1";
+        var mkdocs_page_input_path = "guides\\CHAPTER-1.md";
+        var mkdocs_page_url = "/accenture/mercury/guides/CHAPTER-1/";
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Mercury
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../TABLE-OF-CONTENTS/">Contents</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Chapter-1</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#building-the-mercury-framework-libraries">Building the mercury framework libraries</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#writing-your-first-microservices-function">Writing your first microservices function</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#application-unit">Application unit</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#main-application">Main application</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#calling-a-function">Calling a function</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#massive-parallel-processing">Massive parallel processing</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-2/">Chapter-2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-3/">Chapter-3</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-4/">Chapter-4</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-5/">Chapter-5</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-6/">Chapter-6</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-7/">Chapter-7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-8/">Chapter-8</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-I/">Appendex-I</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-II/">Appendex-II</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-III/">Appendex-III</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG/">Release notes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../INCLUSIVITY/">Inclusivity</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT/">Code of Conduct</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING/">Contribution</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ROADMAP/">Roadmap</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Mercury</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Chapter-1</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="introduction">Introduction</h1>
+<p>Mercury is all about microservices that are minimalist, event-driven and context bounded.</p>
+<p>To this end, we use anonymous functions to encapsulate different domains of business logic and library dependencies.</p>
+<p>Under the Mercury framework, business logic wrapped in anonymous functions are callable using a <code>route name</code>. 
+Mercury resolves routing automatically so that you do not need to care whether the calling and called functions 
+are in the same memory space or in different application instances. Mercury will route requests using a high 
+performance memory event bus when the calling and called functions are int he same memory space and route requests 
+through a network event stream system when the calling and called parties reside in different containers.</p>
+<h2 id="building-the-mercury-framework-libraries">Building the mercury framework libraries</h2>
+<p>Please follow the <a href="../..">README</a> file in the project root to build the Mercury framework libraries 
+from source code.</p>
+<h2 id="writing-your-first-microservices-function">Writing your first microservices function</h2>
+<p>Your first function may look like this using Java 1.8 anonymous function syntax:</p>
+<pre><code class="language-java">LambdaFunction f = (headers, body, instance) -&gt; {
+    // do some business logic
+    return something
+};
+</code></pre>
+<p>The easiest way to write your first microservices module is to use either the "lambda-example" or "rest-example" 
+as a template.</p>
+<p>Let's try with the "rest-example". You should update the application name in both the <code>application.properties</code> 
+and the <code>pom.xml</code>. Then you can use your favorite IDE to import it as a "maven" project.</p>
+<h2 id="application-unit">Application unit</h2>
+<p>The rest-example is a deployable application unit. Behind the curtain, the mercury framework is using Spring Boot 
+to provide REST and websocket capabilities. For microservices modules that do not need REST endpoints, you can use 
+the "lambda-example" as a template.</p>
+<h2 id="main-application">Main application</h2>
+<p>For each application unit, you will need a main application. This is the entry of your application unit.</p>
+<p>The <code>MainApplication</code> annotation indicates that this is the main method for the application unit. 
+Main application should also implements the <code>EntryPoint</code> interface which only has the "start" method. 
+The "args" are optional command line arguments.</p>
+<p>In the following example, when the application unit starts, it creates a microservices function and register 
+"hello.world" as its route name. For concurrency, it also specifies 20 worker instances.</p>
+<p>Application units are horizontally scalable. Within the application unit, you may specify concurrent "workers". 
+This provides horizontal and verticial scalability respectively.</p>
+<pre><code class="language-java">@MainApplication
+public class MainApp implements EntryPoint {
+
+    @Override
+    public void start(String[] args) throws Exception {
+        ServerPersonality.getInstance().setType(ServerPersonality.Type.WEB);
+        Platform platform = Platform.getInstance();
+        LambdaFunction echo = (headers, body, instance) -&gt; {
+            Map&lt;String, Object&gt; result = new HashMap&lt;&gt;();
+            result.put(&quot;headers&quot;, headers);
+            result.put(&quot;body&quot;, body);
+            result.put(&quot;instance&quot;, instance);
+            result.put(&quot;origin&quot;, platform.getOrigin());
+            return result;
+        };
+        platform.register(&quot;hello.world&quot;, echo, 20);
+    }
+}
+
+</code></pre>
+<p>Alternatively, for typed body and response without casting you can use TypedLambdaFunction<I, O> 
+where I and O stand for input and output class respectively.</p>
+<pre><code class="language-java">    TypedLambdaFunction&lt;String, Map&lt;String, String&gt;&gt; lambda = (headers, body, instance) -&gt; {
+        Map&lt;String, String&gt; result = new HashMap&lt;&gt;();
+        result.put(&quot;body&quot;, body);
+        return result;
+    };
+</code></pre>
+<h2 id="calling-a-function">Calling a function</h2>
+<p>Unlike traditional programming, you call a function by sending an event instead of calling its method. 
+Mercury resolves routing automatically so events are delivered correctly no matter where the target function is,
+in the same memory space or another computer elsewhere in the network.</p>
+<p>To make a service call to a function, you may do the following:</p>
+<pre><code>PostOffice po = PostOffice.getInstance();
+EventEnvelope response = po.request(&quot;hello.world&quot;, 1000, &quot;a test message&quot;);
+System.out.println(&quot;I got response here...&quot;+response.getBody());
+
+// the above is an RPC call. For async call, it would be something like this:
+po.send(&quot;hello.world&quot;, &quot;another message&quot;);
+</code></pre>
+<p>You can call the function from another function or a REST endpoint. The latter connects REST API with a 
+microservices function.</p>
+<p>The following example forwards a request from the REST endpoint (<code>GET /api/hello/world</code>) to the "hello.world" service. 
+Note that there are basic performance metrics from the response object.</p>
+<pre><code class="language-java">@Path(&quot;/hello&quot;)
+public class MyRestEndpoint {
+
+    private static AtomicInteger seq = new AtomicInteger(0);
+
+    @GET
+    @Path(&quot;/world&quot;)
+    @Produces({MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_HTML})
+    public Map&lt;String, Object&gt; hello(@Context HttpServletRequest request) throws IOException, TimeoutException, AppException {
+
+        PostOffice po = PostOffice.getInstance();
+
+        Map&lt;String, Object&gt; forward = new HashMap&lt;&gt;();
+        forward.put(&quot;time&quot;, new Date());
+
+        Enumeration&lt;String&gt; headers = request.getHeaderNames();
+        while (headers.hasMoreElements()) {
+            String key = headers.nextElement();
+            forward.put(key, request.getHeader(key));
+        }
+        // As a demo, just put the incoming HTTP headers as a payload and a parameter showing the sequence counter.
+        // The eco service will return both.
+        int n = seq.incrementAndGet();
+        EventEnvelope response = po.request(&quot;hello.world&quot;, 3000, forward, new Kv(&quot;seq&quot;, n));
+
+        Map&lt;String, Object&gt; result = new HashMap&lt;&gt;();
+        result.put(&quot;status&quot;, response.getStatus());
+        result.put(&quot;headers&quot;, response.getHeaders());
+        result.put(&quot;body&quot;, response.getBody());
+        result.put(&quot;execution_time&quot;, response.getExecutionTime());
+        result.put(&quot;round_trip&quot;, response.getRoundTrip());
+        return result;
+    }
+
+}
+</code></pre>
+<h2 id="massive-parallel-processing">Massive parallel processing</h2>
+<p>A function is invoked when an event happens. Before the event arrives, the function is just an entry in a routing 
+table, and it does not consume any additional resources like threads.</p>
+<p>All functions are running in parallel without special coding. Behind the curtain, the system uses Java futures and 
+asynchronous event loops for very efficient function execution.</p>
+<hr />
+<table>
+<thead>
+<tr>
+<th align="center">Chapter-2</th>
+<th align="center">Home</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="../CHAPTER-2/">Platform API</a></td>
+<td align="center"><a href="../TABLE-OF-CONTENTS/">Table of Contents</a></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../TABLE-OF-CONTENTS/" class="btn btn-neutral float-left" title="Contents"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../CHAPTER-2/" class="btn btn-neutral float-right" title="Chapter-2">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../TABLE-OF-CONTENTS/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../CHAPTER-2/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
