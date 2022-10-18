@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://github.com/accenture/mercury/guides/CHAPTER-4/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Chapter-4 - Mercury</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Chapter-4";
+        var mkdocs_page_input_path = "guides\\CHAPTER-4.md";
+        var mkdocs_page_url = "/accenture/mercury/guides/CHAPTER-4/";
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Mercury
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../TABLE-OF-CONTENTS/">Contents</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-1/">Chapter-1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-2/">Chapter-2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-3/">Chapter-3</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Chapter-4</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#library-and-application">Library and Application</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rest-endpoint-creation">REST endpoint creation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rest-endpoint-routing">REST endpoint routing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#yaml-syntax">YAML syntax</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#url-matching">URL matching</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#wildcard">wildcard</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#path-parameters">path parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#http-request-dataset">HTTP request dataset</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#http-response-body">Http response body</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#http-status-code">HTTP status code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setting-cookies">Setting cookies</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exception-handling">Exception handling</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#input-stream">Input stream</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#output-stream">Output stream</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#location-of-the-yaml-configuration-file">Location of the YAML configuration file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#running-the-rest-automation-helper-application">Running the REST automation helper application</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#custom-html-error-page">Custom HTML error page</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#static-html-folder">Static HTML folder</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-5/">Chapter-5</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-6/">Chapter-6</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-7/">Chapter-7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-8/">Chapter-8</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-I/">Appendex-I</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-II/">Appendex-II</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-III/">Appendex-III</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG/">Release notes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../INCLUSIVITY/">Inclusivity</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT/">Code of Conduct</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING/">Contribution</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ROADMAP/">Roadmap</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Mercury</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Chapter-4</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="rest-automation">REST automation</h1>
+<p>REST automation turns HTTP requests and responses into events for truly non-blocking operation.</p>
+<h2 id="library-and-application">Library and Application</h2>
+<p>The REST automation system consists of a library and an application. This sub-project is the library.</p>
+<h2 id="rest-endpoint-creation">REST endpoint creation</h2>
+<p>It allows us to create REST and websocket endpoints by configuration instead of code.</p>
+<p>Let us examine the idea with a sample configuration.</p>
+<h2 id="rest-endpoint-routing">REST endpoint routing</h2>
+<p>A routing entry is a simple mapping of URL to a microservice.</p>
+<h2 id="yaml-syntax">YAML syntax</h2>
+<pre><code class="language-yaml">rest:
+  # service should be a target service name or a list of service names
+  # If more than one service name is provided, the first one is the primary target
+  # and the rest are secondary target(s). The system will copy the HTTP request event to the secondary targets.
+  #
+  # This feature is used for seamless legacy system migration where we can send
+  # the same request to the old and the new services at the same time for A/B comparison.
+  - service: [&quot;hello.world&quot;, &quot;hello.world.2&quot;]
+    methods: ['GET', 'PUT', 'POST', 'HEAD', 'PATCH', 'DELETE']
+    url: &quot;/api/hello/world&quot;
+    timeout: 10s
+    # Optional authentication service which should return a true or false result
+    # The authentication service can also add session info in headers using EventEnvelope as a response
+    # and annotate trace with key-values that you want to persist into distributed trace logging.
+    #
+    # You can also route the authentication request to different functions based on HTTP request header
+    # i.e. you can provide a single authentication function or a list of functions selected by header routing.
+    #
+    # If you want to route based on header/value, use the &quot;key: value : service&quot; format.
+    # For routing using header only, use &quot;key: service&quot; format
+    # For default authentication service, use &quot;default: service&quot; format
+    #
+    #    authentication: &quot;v1.api.auth&quot;
+    authentication:
+      - &quot;x-app-name: demo : v1.demo.auth&quot;
+      - &quot;authorization: v1.basic.auth&quot;
+      - &quot;default: v1.api.auth&quot;
+    cors: cors_1
+    headers: header_1
+    # for HTTP request body that is not JSON/XML, it will be turned into a stream if it is undefined
+    # or larger than threshold. Otherwise, it will be delivered as a byte array in the message body.
+    # Default is 50000 bytes, min is 5000, max is 500000
+    threshold: 30000
+    # optionally, you can turn on Distributed Tracing
+    tracing: true
+
+  - service: &quot;hello.world&quot;
+    methods: ['GET', 'PUT', 'POST']
+    url: &quot;/api/test/ok*&quot;
+    # optional &quot;upload&quot; key if it is a multi-part file upload
+    upload: &quot;file&quot;
+    timeout: 15s
+    headers: header_1
+    cors: cors_1
+
+  - service: &quot;hello.world&quot;
+    methods: ['GET', 'PUT', 'POST']
+    url: &quot;/api/nice/{task}/*&quot;
+    timeout: 12
+    headers: header_1
+    cors: cors_1
+
+  #
+  # When service is a URL, it will relay HTTP or HTTPS requests.
+  # &quot;trust_all_cert&quot; and &quot;url_rewrite&quot; are optional.
+  #
+  # For target host with self-signed certificate, you may set &quot;trust_all_cert&quot; to true.
+  # trust_all_cert: true
+  #
+  # &quot;url_rewrite&quot;, when present as a list of 2 strings, is used to rewrite the url.
+  # e.g. url_rewrite: ['/api/v1', '/v1/api']
+  # In this example, &quot;/api/v1&quot; will be replaced with &quot;/v1/api&quot;
+  #
+  - service: &quot;http://127.0.0.1:8100&quot;
+    trust_all_cert: true
+    methods: ['GET', 'PUT', 'POST']
+    url: &quot;/api/v1/*&quot;
+    url_rewrite: ['/api/v1', '/api']
+    timeout: 20
+    cors: cors_1
+    headers: header_1
+    tracing: true
+
+#
+# CORS HEADERS for pre-flight (HTTP OPTIONS) and normal cases
+#
+cors:
+
+  - id: cors_1
+    options:
+      - &quot;Access-Control-Allow-Origin: *&quot;
+      - &quot;Access-Control-Allow-Methods: GET, DELETE, PUT, POST, OPTIONS&quot;
+      - &quot;Access-Control-Allow-Headers: Origin, Authorization, X-Session-Id, Accept, Content-Type, X-Requested-With&quot;
+      - &quot;Access-Control-Max-Age: 86400&quot;
+    headers:
+      - &quot;Access-Control-Allow-Origin: *&quot;
+      - &quot;Access-Control-Allow-Methods: GET, DELETE, PUT, POST, OPTIONS&quot;
+      - &quot;Access-Control-Allow-Headers: Origin, Authorization, X-Session-Id, Accept, Content-Type, X-Requested-With&quot;
+      - &quot;Access-Control-Allow-Credentials: true&quot;
+
+#
+# add/drop/keep header parameters
+#
+headers:
+
+  - id: header_1
+    # headers to be inserted
+    add: [&quot;hello-world: nice&quot;]
+#    keep: ['x-session-id', 'user-agent']
+    drop: ['Upgrade-Insecure-Requests', 'cache-control', 'accept-encoding']
+</code></pre>
+<p>The <code>service</code> must be a service that is registered as public function.</p>
+<p>The system will find the service at run-time. If the service is not available, the user will see HTTP-503 
+"Service not reachable".</p>
+<p>The <code>keep</code> and <code>drop</code> entries are mutually exclusive where <code>keep</code> has precedent over <code>drop</code>. When keep is empty 
+and drop is not, it will drop only the headers in the drop list. The <code>add</code> entry allows the developer to insert 
+additional header key-values before it reaches the target service that serves the REST endpoint.</p>
+<p>For content types of XML and JSON, the system will try to convert the input stream into a map.</p>
+<p>For binary content type, the system will check if the input stream is larger than a threshold.
+<code>threshold</code> - the default threshold buffer is 50,000 bytes, min is 5,000 and max is 500,000</p>
+<p>If the input stream is small, it will convert the input stream into a byte array and store it in the "body" parameter.</p>
+<p>if the input stream is large, it will return a stream ID so that your service can read the data as a stream.</p>
+<p>Cors header processing is optional. If present, it will return the configured key-values for pre-flight and regular 
+responses.</p>
+<h2 id="url-matching">URL matching</h2>
+<p>For performance and readability reason, the system is not using regular expression for URL matching. 
+Instead it is using wildcard and path parameters.</p>
+<h3 id="wildcard">wildcard</h3>
+<p>The wildcard <code>*</code> character may be used as a URL path segment or as a suffix in a segment. 
+Characters after the wildcard character in a segment will be ignored.</p>
+<p>e.g. the following are valid wildcard URLs</p>
+<pre><code>/api/hello/world/*
+/api/hello*/world*/*
+</code></pre>
+<h3 id="path-parameters">path parameters</h3>
+<p>The <code>{}</code> bracket can be used to indicate a path parameter. The value inside the bracket is the path parameter ID.</p>
+<p>For example, the following URL will set path parameter "first_name" and "last_name".</p>
+<pre><code>/api/hello/{first_name}/{last_name}
+</code></pre>
+<h3 id="http-request-dataset">HTTP request dataset</h3>
+<p>The HTTP request (headers, query, body) will be encoded as a Map and the target service will receive it as the 
+message <code>body</code>.</p>
+<pre><code class="language-yaml">headers: key-values of HTTP headers
+cookies: optional key-values
+method: HTTP request method
+ip: caller's remote IP address
+parameters: 
+  path: optional path parameters
+  query: optional query or URL encoded request body parameters
+url: URL of the incoming request
+timeout: timeout value (in seconds) of the REST endpoint
+
+# optional (body or stream)
+body: byte array of input data if it is smaller than a given threshold
+stream: stream-ID of incoming data stream (e.g. file)
+filename: filename if it is a file upload
+content-length: number of bytes of the incoming stream
+
+</code></pre>
+<p>For Java, you can use AsyncHttpRequest as a convenient wrapper to read this dataset.</p>
+<pre><code class="language-java">AsyncHttpRequest request = new AsyncHttpRequest(body);
+</code></pre>
+<h3 id="http-response-body">Http response body</h3>
+<p>For simple use case, you can just send text, bytes or Map as the return value in your service.</p>
+<p>For advanced use cases, you can send status code, set HTTP headers if your service returns an EventEnvelope object.</p>
+<h3 id="http-status-code">HTTP status code</h3>
+<p>If your service set status code directly, you should use the standard 3-digit HTTP status code because it will be 
+sent to the browser directly. i.e. 200 means OK and 404 is NOT_FOUND, etc.</p>
+<h3 id="setting-cookies">Setting cookies</h3>
+<p>You can ask a browser to set a cookie by setting the "Set-Cookie" key-value in an EventEnvelope's header which will be 
+converted to a HTTP response header. 
+For details, please see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie</p>
+<p>There is a convenient "getHtmlDate()" method in the Utility class if you want to set the "Expires" directive in a cookie.</p>
+<h3 id="exception-handling">Exception handling</h3>
+<p>If your service throws exception, it will automatically translate into a regular HTTP exception with status code 
+and message.</p>
+<p>To control the HTTP error code, your service should use the AppException class. It allows you to set HTTP status code
+and error message directly.</p>
+<h3 id="input-stream">Input stream</h3>
+<p>If you want to support file upload, you can specify the <code>upload</code> parameter in the rest.yaml configuration file.
+The default value is "file". If your user uses different tag, you must change the <code>upload</code> parameter to match the
+upload tag.</p>
+<p>If incoming request is a file, your service will see the "stream", "filename" and "content-length" parameters.
+If incoming request is a byte stream, your service will find the "stream" and "content-length" parameters.</p>
+<h3 id="output-stream">Output stream</h3>
+<p>If your service wants to send the output to the browser as a stream of text or bytes, you can create an ObjectStreamIO 
+with a timeout value. You can then set the streamId in the HTTP header "stream". You should also set the HTTP header 
+"timeout" to tell the REST endpoint to use it as IO stream read timeout value. The "stream" and "timeout" headers 
+are used by the REST automation framework. They will not be set as HTTP response headers.</p>
+<p>You timeout value should be short and yet good enough for your service to send one block of data. The timer will be 
+reset when there is I/O activity. One use case of output stream is file download.</p>
+<h3 id="location-of-the-yaml-configuration-file">Location of the YAML configuration file</h3>
+<p>By default, the system will search for <code>file:/tmp/config/rest.yaml</code> and then <code>classpath:/rest.yaml</code>.</p>
+<p>If needed, you can change this in the <code>rest.automation.yaml</code> property in the application.properties file.</p>
+<p>The <code>/tmp/config/rest.yaml</code> allows you to externalize the REST automation configuration without rebuilding 
+the REST automation helper application.</p>
+<h3 id="running-the-rest-automation-helper-application">Running the REST automation helper application</h3>
+<p>Before you build this application, you should follow the README in the top level project to build the Mercury 
+libraries (platform-core, rest-core, rest-spring, kafka-connector, hazelcast-connector).</p>
+<p>Then you can build this helper app and run with:</p>
+<pre><code>java -Dcloud.connector=event.node target/rest-automation...jar
+</code></pre>
+<p>If you plan to use Hazelcast or Kafka as the network event stream system, you should also build the corresponding 
+presence monitor (hazelcast-presence and kafka-presence).</p>
+<p>Once the Mercury libraries and the presence monitors are built. You can start either Hazelcast or Kafka and build 
+this helper app.</p>
+<p>You can run the app with:</p>
+<pre><code>java -Dcloud.connector=event.node target/rest-automation...jar
+or
+java -Dcloud.connector=hazelcast -Dcloud.services=hazelcast.reporter target/rest-automation...jar
+or
+java -Dcloud.connector=kafka -Dcloud.services=kafka.reporter target/rest-automation...jar
+</code></pre>
+<h2 id="custom-html-error-page">Custom HTML error page</h2>
+<p>You may customize the standardized <code>errorPage.html</code> in the resources folder for your organization.</p>
+<h2 id="static-html-folder">Static HTML folder</h2>
+<p>You can tell the rest-automation application to use a static HTML folder in the local file system with one of 
+these methods:</p>
+<p>application.properties</p>
+<pre><code>spring.web.resources.static-locations=file:/tmp/html
+</code></pre>
+<p>or startup parameters</p>
+<pre><code>java -jar rest-automation.jar -html file:/tmp/html
+</code></pre>
+<h1 id="api-definition-file-restyaml">API definition file (rest.yaml)</h1>
+<p>Please design and deploy your own rest.yaml file in /tmp/config/rest.yaml</p>
+<p>The rest.yaml in "/tmp/config" will override the sample rest.yaml in the resources folder.</p>
+<hr />
+<table>
+<thead>
+<tr>
+<th align="center">Chapter-5</th>
+<th align="center">Home</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="../CHAPTER-5/">Traditional REST endpoints</a></td>
+<td align="center"><a href="../TABLE-OF-CONTENTS/">Table of Contents</a></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../CHAPTER-3/" class="btn btn-neutral float-left" title="Chapter-3"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../CHAPTER-5/" class="btn btn-neutral float-right" title="Chapter-5">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../CHAPTER-3/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../CHAPTER-5/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
