@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://github.com/accenture/mercury/guides/CHAPTER-8/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Chapter-8 - Mercury</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Chapter-8";
+        var mkdocs_page_input_path = "guides\\CHAPTER-8.md";
+        var mkdocs_page_url = "/accenture/mercury/guides/CHAPTER-8/";
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Mercury
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../TABLE-OF-CONTENTS/">Contents</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-1/">Chapter-1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-2/">Chapter-2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-3/">Chapter-3</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-4/">Chapter-4</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-5/">Chapter-5</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-6/">Chapter-6</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-7/">Chapter-7</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Chapter-8</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-I/">Appendex-I</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-II/">Appendex-II</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-III/">Appendex-III</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG/">Release notes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../INCLUSIVITY/">Inclusivity</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT/">Code of Conduct</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING/">Contribution</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ROADMAP/">Roadmap</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Mercury</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Chapter-8</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="multicast-feature">Multicast feature</h1>
+<p>Multicast is a convenient feature that relays an event from a route to multiple targets.</p>
+<p>It is configured using a multicast.yaml file like this:</p>
+<pre><code>multicast:
+  - source: &quot;v1.hello.world&quot;
+    targets:
+    - &quot;v1.hello.service.1&quot;
+    - &quot;v1.hello.service.2&quot;
+    - &quot;v1.hello.service.3&quot;
+</code></pre>
+<p>In the above example, the route "v1.hello.world" will be automatically multicasted to the target services with 
+the configured routes.</p>
+<h1 id="applicationproperties">application.properties</h1>
+<p>To enable multicast, please add the following to application.properties</p>
+<pre><code>multicast.yaml=classpath:/multicast.yaml
+</code></pre>
+<p>If you want to externalize the multicast.yaml configuration file, you can change the parameter like this:</p>
+<pre><code>multicast.yaml=file:/tmp/config/multicast.yaml
+</code></pre>
+<h1 id="routing-behavior">Routing behavior</h1>
+<p>Multicast is designed for best effort delivery. If a target route is not reachable, it will display a warning in
+the application log like this:</p>
+<pre><code>Unable to relay v1.hello.world -&gt; v1.hello.service.3 - target not reachable
+</code></pre>
+<h1 id="real-time-vs-store-n-forward">Real-time vs store-n-forward</h1>
+<p>The PostOffice is a real-time event system. For store-n-forward use case, please refer to streaming
+Pub/Sub APIs in <a href="../CHAPTER-3/">Post Office API</a></p>
+<hr />
+<table>
+<thead>
+<tr>
+<th align="center">Appendix-I</th>
+<th align="center">Home</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="../APPENDIX-I/">application.properties</a></td>
+<td align="center"><a href="../TABLE-OF-CONTENTS/">Table of Contents</a></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../CHAPTER-7/" class="btn btn-neutral float-left" title="Chapter-7"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../APPENDIX-I/" class="btn btn-neutral float-right" title="Appendex-I">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../CHAPTER-7/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../APPENDIX-I/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

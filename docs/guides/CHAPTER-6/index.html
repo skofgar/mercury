@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://github.com/accenture/mercury/guides/CHAPTER-6/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Chapter-6 - Mercury</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Chapter-6";
+        var mkdocs_page_input_path = "guides\\CHAPTER-6.md";
+        var mkdocs_page_url = "/accenture/mercury/guides/CHAPTER-6/";
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Mercury
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../TABLE-OF-CONTENTS/">Contents</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-1/">Chapter-1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-2/">Chapter-2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-3/">Chapter-3</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-4/">Chapter-4</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-5/">Chapter-5</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Chapter-6</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-7/">Chapter-7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-8/">Chapter-8</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-I/">Appendex-I</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-II/">Appendex-II</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-III/">Appendex-III</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG/">Release notes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../INCLUSIVITY/">Inclusivity</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT/">Code of Conduct</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING/">Contribution</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ROADMAP/">Roadmap</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Mercury</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Chapter-6</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="cloud-connectors">Cloud connectors</h1>
+<p>Mercury has been integrated and tested with both event stream systems and enterprise service bus messaging systems.</p>
+<ol>
+<li>Event stream system - Apache Kafka</li>
+<li>Messaging system - Hazelcast</li>
+<li>Enterprise Service Bus - ActiveMQ artemis and Tibco EMS</li>
+</ol>
+<h1 id="reusable-topics">Reusable topics</h1>
+<p>The default topics include the following:</p>
+<ol>
+<li>service.monitor.n</li>
+<li>multiplex.x.y</li>
+</ol>
+<p>where <code>service.monitor.0</code> is used by the presence monitor to communicate with its peers for fault tolerant operation.
+service.monitor.1 and higher topics are used for closed user groups. i.e. service.monitor.1 for closed user group 1 and
+service.monitor.2 for closed user group 2, etc.</p>
+<p>Usually all user application instances should use the same closed user group unless you want to logically segregate 
+different application domains into their own closed user groups. Application modules in one group are invisible to
+another group.</p>
+<p>multiplex.x.y topics are used by user application instances. The presence monitor will assign one topic to one 
+application instance dynamically and release the topic when the application instance leaves the system. 
+This allows topics to be reused automatically.</p>
+<p>There is a RSVP reservation protocol that the presence monitors will coordinate with each other to assign a 
+unique topic to each application instance.</p>
+<p>The value <code>x</code> must be a 4-digit number starting from 0001 and <code>y</code> is the partition number for the topic. 
+If the underlying messaging system supports pub/sub, the partition number maps to the physical partition of a topic. 
+For enterprise service bus, the partition number is a logical identifier that corresponds to a physical topic.</p>
+<h1 id="topic-substitution">Topic Substitution</h1>
+<p>Some enterprises do not allow automatic creation of messaging topics by user applications.</p>
+<p>In this case, you can turn on topic substitution with the following parameters in application.properties</p>
+<pre><code>application.feature.topic.substitution=true
+topic.substitution.file=file:/tmp/config/topic-substitution.yaml,classpath:/topic-substitution.yaml
+</code></pre>
+<p>You can point the <code>topic.substitution.file</code> to a file.</p>
+<h2 id="supported-cloud-connectors">Supported cloud connectors</h2>
+<p>Kafka, ActiveMQ and Tibco support mapping of system topics to pre-allocated topics. 
+Hazelcast topics are generated dynamically and thus topic pre-allocation is not required.</p>
+<p>Let's examine the configuration concept with two sample topic substitution files.</p>
+<h3 id="activemq-and-tibco">ActiveMQ and Tibco</h3>
+<pre><code class="language-yaml">#
+# topic substitution example
+#
+# The default service monitor and multiplex topics are prefixed as service.monitor and multiplex.n
+# where n starts from 0001
+#
+service:
+  monitor:
+    0: some.topic.one
+    1: some.topic.two
+    2: some.topic.three
+    3: some.topic.four
+
+#
+# the 4-digit segment ID must be quoted to preserve the number of digits when the system parses this config file
+#
+multiplex:
+  &quot;0001&quot;:
+    0: user.topic.one
+    1: user.topic.two
+    2: user.topic.three
+    3: user.topic.four
+    4: user.topic.five
+    5: user.topic.six
+</code></pre>
+<h3 id="kafka">Kafka</h3>
+<p>Since Kafka is a pub/sub event streaming system with partitioning support, you can use the "#n" suffix to specify 
+the partition number for each replacement topic to map to the system topics (service.monitor.n and multiple.x.y). 
+(Note that the "#n" syntax is not applicable to ActiveMQ and Tibco connectors above)</p>
+<p>If you do not provide the partition number, it is assumed to be the first partition. i.e. partition-0.</p>
+<pre><code class="language-yaml">#
+# topic substitution example
+#
+# The default service monitor and multiplex topics are prefixed as service.monitor and multiplex.n
+# where n starts from 0001
+#
+# PARTITION DEFINITION
+# --------------------
+# For the replacement topic, an optional partition number can be defined using the &quot;#n&quot; suffix.
+# Partition number must be a positive number from 0 to the max partition of the specific topic.
+#
+# If partition number if not given, the entire topic will be used to send/receive events.
+# e.g.
+# SERVICE.APP.ONE is a topic of at least one partition
+# user.app#0 is the topic &quot;user.app&quot; and partition &quot;0&quot;
+#
+service:
+  monitor:
+    0: SERVICE.APP.ONE#0
+    1: SERVICE.APP.TWO#0
+    2: SERVICE.APP.THREE#0
+    3: SERVICE.APP.FOUR#0
+
+#
+# the 4-digit segment ID must be quoted to preserve the number of digits when the system parses this config file
+#
+multiplex:
+  &quot;0001&quot;:
+    0: user.app#0
+    1: user.app#1
+    2: user.app#2
+    3: user.app#3
+    4: user.app#4
+    5: user.app#5
+</code></pre>
+<hr />
+<table>
+<thead>
+<tr>
+<th align="center">Chapter-7</th>
+<th align="center">Home</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="../CHAPTER-7/">Version Control</a></td>
+<td align="center"><a href="../TABLE-OF-CONTENTS/">Table of Contents</a></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../CHAPTER-5/" class="btn btn-neutral float-left" title="Chapter-5"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../CHAPTER-7/" class="btn btn-neutral float-right" title="Chapter-7">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../CHAPTER-5/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../CHAPTER-7/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
