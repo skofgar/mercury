@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://github.com/accenture/mercury/guides/APPENDIX-III/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Appendex-III - Mercury</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Appendex-III";
+        var mkdocs_page_input_path = "guides\\APPENDIX-III.md";
+        var mkdocs_page_url = "/accenture/mercury/guides/APPENDIX-III/";
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Mercury
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../TABLE-OF-CONTENTS/">Contents</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-1/">Chapter-1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-2/">Chapter-2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-3/">Chapter-3</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-4/">Chapter-4</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-5/">Chapter-5</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-6/">Chapter-6</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-7/">Chapter-7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CHAPTER-8/">Chapter-8</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-I/">Appendex-I</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../APPENDIX-II/">Appendex-II</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Appendex-III</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#admin-endpoints-to-stop-suspend-or-resume">Admin endpoints to stop, suspend or resume</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#actuator-endpoints">Actuator endpoints</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#custom-health-services">Custom health services</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#application-instance-life-cycle-events">Application instance life-cycle events</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#httpclient-as-a-service">HttpClient as a service</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sending-http-request-body-for-http-put-post-and-patch-methods">Sending HTTP request body for HTTP PUT, POST and PATCH methods</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sending-http-request-body-as-a-stream">Sending HTTP request body as a stream</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#handle-http-response-body-stream">Handle HTTP response body stream</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#content-length-for-http-request">Content length for HTTP request</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG/">Release notes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../INCLUSIVITY/">Inclusivity</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT/">Code of Conduct</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING/">Contribution</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ROADMAP/">Roadmap</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Mercury</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Appendex-III</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="additional-features">Additional features</h1>
+<h2 id="admin-endpoints-to-stop-suspend-or-resume">Admin endpoints to stop, suspend or resume</h2>
+<p>You can stop, suspend or resume an application instance from a <code>presence monitor</code>.</p>
+<ol>
+<li><code>Shutdown</code> - stop an application so that the container management system will restart it</li>
+<li><code>Suspend</code> - tell the application instance not to accept incoming requests</li>
+<li><code>Resume</code> - tell the application instance to accept incoming requests</li>
+</ol>
+<p>Suspend and resume commands are usually used to simulate error cases for development and regression test purposes.</p>
+<p>For example, to simulate a stalled application instance, you can use the "POST /suspend/later" command.</p>
+<p>If you do not want your application instance to receive any service request, you can isolate it with the
+"POST /suspend/now" command.</p>
+<pre><code>POST /shutdown
+POST /suspend/{now | later}
+POST /resume/{now | later}
+
+HTTP request header
+X-App-Instance=origin_id_here
+</code></pre>
+<h2 id="actuator-endpoints">Actuator endpoints</h2>
+<p>The following admin endpoints are available.</p>
+<pre><code>GET /info
+GET /info/routes
+GET /info/lib
+GET /env
+GET /health
+GET /livenessprobe
+
+Optional HTTP request header
+X-App-Instance=origin_id_here
+</code></pre>
+<p>If you provide the optional X-App-Instance HTTP header, you can execute the admin endpoint from 
+<code>any application instance</code> using the event stream system.</p>
+<h2 id="custom-health-services">Custom health services</h2>
+<p>You can extend the "/health" endpoint by implementing and registering lambda functions to be added to the 
+health.dependencies.</p>
+<pre><code>mandatory.health.dependencies=cloud.cache.health,cloud.connector.health
+#optional.health.dependencies=other.service.health
+</code></pre>
+<p>Your custom health service must respond to the following requests:</p>
+<ol>
+<li>Info request (type=info) - it should return a map that includes service name and href (protocol, hostname and port)</li>
+<li>Health check (type=health) - it should return a text string of the health check. e.g. read/write test result. 
+   It can throw AppException with status code and error message if health check fails.</li>
+</ol>
+<p>The health service can retrieve the "type" of the request from the "headers".</p>
+<h2 id="application-instance-life-cycle-events">Application instance life-cycle events</h2>
+<p>Any application can subscribe to life-cycle events of other application instances.</p>
+<p>To listen to life cycle events, you can do something like this:</p>
+<pre><code>String AUTOMATION_NOTIFICATION = &quot;member.life.cycle.listener&quot;;
+String appName = platform.getName();
+LambdaFunction f = (headers, body, instance) -&gt; {
+    if (CONNECTED.equals(type)) {
+        // handle connection event - this event is fired when your app is connected to the event stream system
+        log.info(&quot;connected&quot;);
+    }
+    if (DISCONNECTED.equals(type)) {
+        // handle disconnection event - this event is fired when your app is disconnected from the event stream system
+        log.info(&quot;disconnected&quot;);
+    }
+    if (JOIN.equals(type) &amp;&amp; headers.containsKey(ORIGIN) &amp;&amp; appName.equals(headers.get(NAME))) {
+        // handle member join event
+    }
+    if (LEAVE.equals(type) &amp;&amp; headers.containsKey(ORIGIN)) {
+        // handle member leave event
+    }
+}
+platform.registerPrivate(AUTOMATION_NOTIFICATION, f, 1);
+
+...
+platform.waitForProvider(ServiceDiscovery.SERVICE_REGISTRY, 20);
+po.send(ServiceDiscovery.SERVICE_REGISTRY,
+        new Kv(TYPE, SUBSCRIBE_LIFE_CYCLE), new Kv(ROUTE, AUTOMATION_NOTIFICATION));
+</code></pre>
+<h2 id="httpclient-as-a-service">HttpClient as a service</h2>
+<p>Starting from version 1.12.30, the rest-automation system, when deployed, will provide the "async.http.request" service.</p>
+<p>This means you can make a HTTP request without using a HttpClient.</p>
+<p>For example, a simple HTTP GET request may look like this:</p>
+<pre><code class="language-java">// the target URL is constructed from the relay 
+PostOffice po = PostOffice.getInstance();
+AsyncHttpRequest req = new AsyncHttpRequest();
+req.setMethod(&quot;GET&quot;);
+req.setHeader(&quot;accept&quot;, &quot;application/json&quot;);
+req.setUrl(&quot;/api/search?keywords=&quot;+body);
+req.setTargetHost(&quot;https://service_provider_host&quot;);
+try {
+    EventEnvelope res = po.request(&quot;async.http.request&quot;, 5000, req.toMap());
+    log.info(&quot;GOT {} {}&quot;, res.getHeaders(), res.getBody());
+    /*
+     * res.getHeaders() contains HTTP response headers
+     * res.getBody() is the HTTP response body
+     *
+     * Note that the HTTP body will be provided as be set a HashMap
+     * if the input content-type is application/json or application/xml.
+     */ 
+    // process HTTP response here (HTTP-200)
+
+} catch (AppException e) {
+    log.error(&quot;Rejected by service provider HTTP-{} {}&quot;, 
+               e.getStatus(), e.getMessage().replace(&quot;\n&quot;, &quot;&quot;));
+    // handle exception here
+}
+</code></pre>
+<p>In the above example, we are using RPC method. You may also use callback method for handling the HTTP response.</p>
+<h2 id="sending-http-request-body-for-http-put-post-and-patch-methods">Sending HTTP request body for HTTP PUT, POST and PATCH methods</h2>
+<p>For most cases, you can just set a HashMap into the request body and specify content-type as JSON or XML.
+The system will perform serialization properly.</p>
+<p>Example code may look like this:</p>
+<pre><code class="language-java">AsyncHttpRequest req = new AsyncHttpRequest();
+req.setMethod(&quot;POST&quot;);
+req.setHeader(&quot;accept&quot;, &quot;application/json&quot;);
+req.setHeader(&quot;content-type&quot;, &quot;application/json&quot;);
+req.setUrl(&quot;/api/book/new_book/12345&quot;);
+req.setTargetHost(&quot;https://service_provider_host&quot;);
+req.setBody(keyValues);
+// where keyValues is a HashMap
+</code></pre>
+<h2 id="sending-http-request-body-as-a-stream">Sending HTTP request body as a stream</h2>
+<p>For larger payload, you may use streaming method. See sample code below:</p>
+<pre><code class="language-java">int len;
+byte[] buffer = new byte[BUFFER_SIZE];
+BufferedInputStream in = new BufferedInputStream(someFileInputStream);
+ObjectStreamIO stream = new ObjectStreamIO(timeoutInSeconds);
+ObjectStreamWriter out = stream.getOutputStream();
+while ((len = in.read(buffer, 0, buffer.length)) != -1) {
+    out.write(buffer, 0, len);
+}
+// closing the output stream would save an EOF mark in the stream
+out.close();
+// update the AsyncHttpRequest object
+req.setStreamRoute(stream.getRoute());
+</code></pre>
+<h2 id="handle-http-response-body-stream">Handle HTTP response body stream</h2>
+<p>If content length is not given, the response body will be received as a stream.</p>
+<p>Your application should check if the HTTP response headers contains a "stream" header.
+Sample code to read the stream may look like this:</p>
+<pre><code class="language-java">PostOffice po = PostOffice.getInstance();
+AsyncHttpRequest req = new AsyncHttpRequest();
+req.setMethod(&quot;GET&quot;);
+req.setHeader(&quot;accept&quot;, &quot;application/json&quot;);
+req.setUrl(&quot;/api/search?keywords=&quot;+body);
+req.setTargetHost(&quot;https://service_provider_host&quot;);
+EventEnvelope res = po.request(&quot;async.http.request&quot;, 5000, req.toMap());
+Map&lt;String, String&gt; resHeaders = res.getHeaders();
+if (resHeaders.containsKey(&quot;stream&quot;)) {
+    /*
+     * For demonstration, we are using ByteArrayOutputStream.
+     * For production code, you should stream the input to persistent storage
+     * or handle the input stream directly.
+     */
+    ByteArrayOutputStream out = new ByteArrayOutputStream();
+    ObjectStreamReader in = new ObjectStreamReader(resHeaders.get(&quot;stream&quot;), 1000);
+    for (Object d: in) {
+        if (d instanceof byte[]) {
+            out.write((byte[]) d);
+        }
+    }
+    // remember to close the input stream
+    in.close();
+    // handle the result
+    byte[] result = out.toByteArray();
+} else {
+    // response is rendered in the &quot;body&quot;
+    // for JSON or XML response, the response is a string
+    String result = (String) res.getBody();
+}
+</code></pre>
+<h2 id="content-length-for-http-request">Content length for HTTP request</h2>
+<p><code>Important</code> - Do not set the "content-length" HTTP header because the system will automatically compute the
+correct content-length for small payload. For large payload, it will use the chunking method.</p>
+<p>The system may use data compression. Manually setting content length for HTTP request body would result
+in unintended side effects.</p>
+<hr />
+<table>
+<thead>
+<tr>
+<th align="center">Chapter-1</th>
+<th align="center">Home</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="../CHAPTER-1/">Introduction</a></td>
+<td align="center"><a href="../TABLE-OF-CONTENTS/">Table of Contents</a></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../APPENDIX-II/" class="btn btn-neutral float-left" title="Appendex-II"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../CHANGELOG/" class="btn btn-neutral float-right" title="Release notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../APPENDIX-II/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../CHANGELOG/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
