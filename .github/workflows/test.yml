@@ -1,0 +1,48 @@
+name: test-all
+on: [push]
+jobs:
+  platform-core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      # Core
+      - run: mvn install test -f system/platform-core  
+      - run: mvn install test -f system/rest-spring
+ 
+      # Connectors
+      - run: mvn install test -f connectors/core/cloud-connector
+      - run: mvn install test -f connectors/core/service-monitor
+      # Kafka
+      - run: mvn install test -f connectors/adapters/kafka/kafka-standalone
+      - run: mvn install test -f connectors/adapters/kafka/kafka-connector
+      - run: mvn install test -f connectors/adapters/kafka/kafka-presence
+      # Active MQ
+      - run: mvn install test -f connectors/adapters/activemq/activemq-connector
+      - run: mvn install test -f connectors/adapters/activemq/activemq-presence
+      # Hazelcast
+      - run: mvn install test -f connectors/adapters/hazelcast/hazelcast-connector
+      - run: mvn install test -f connectors/adapters/hazelcast/hazelcast-presence
+
+      # Language Connector
+      - run: mvn install test -f language-packs/language-connector
+
+      # Extensions
+      - run: mvn install test -f extensions/api-playground
+      - run: mvn install test -f extensions/distributed-tracer
+      - run: mvn install test -f extensions/rest-automation-lib
+      - run: mvn install test -f extensions/rest-automation-app
+      - run: mvn install test -f extensions/simple-scheduler
+      
+      - name: Report Unit Test Results
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Maven Tests
+          path: 'system/*/target/surefire-reports/*.xml,connectors/**/target/surefire-reports/*.xml,language-packs/**/target/surefire-reports/*.xml,extensions/**/target/surefire-reports/*.xml' 
+          reporter: java-junit
+          fail-on-error: true
+
